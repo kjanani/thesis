@@ -1,0 +1,141 @@
+\begin{abstract}
+\begin{quote}
+
+The 2014 Ebola outbreak --- the largest in history --- involved almost 
+30,000 cases and over 11,000 fatalities.  
+Only four of these cases (and one fatality) occurred in the 
+United States, yet US public concern regarding Ebola risks, 
+as manifested in both social media and traditional news sources, 
+remained very high.
+
+In this work, we use a corpus of 10.5 million English 
+language Ebola-related tweets derived from Twitter users in 
+the US in October 2014 --- the height of the 
+Ebola crisis --- to investigate Ebola-related events and event
+development in social media.  Using the results of two machine 
+learning algorithms, one of which we propose in this work, 
+we produce a timeline of Ebola-related events as they emerged 
+during October 2014, discovering four distinct patterns.   First, long-term, enduring events tend to be those with repercussions
+that might possibly put the health of the public at risk
+(e.g. suspected new cases in the US), and hence cause
+anxiety in the general public.  Second, we observed
+that any event that has a positive connotation (e.g. philanthropic
+donations to help in the Ebola effort) tends to be short-lived and
+quickly disappears from the timeline.   Third, we discovered that a
+substantial number of the  short-lived events that emerge from the data set are
+memes and jokes related to Ebola.  Fourth,  we noted that some episodes
+of public health importance (e.g. new cases) tend to generate
+short-term events if these occur outside the US.
+
+Insights gleaned from this 
+Twitter-based event tracking method could be of use to
+public health organizations like the US \emph{Centers 
+for Disease Control \& Prevention} in future outbreaks for supporting situational 
+awareness, monitoring the strength \& duration of public concerns, 
+and identifying potential opportunities for health education.
+
+
+% First, any event or topic with potential
+% repercussions that could put the health of
+% the US public at risk seemed to engage Twitter users for much
+% longer. Second, generally, topics which had a positive note
+% to them were not long terms topics. Third, generally
+% any topic which is about a nation other than the United
+% States lasted only for 1 day. Fourth, memes/jokes/rumours
+% lasted anywhere from 1 to 4 days. Insights gleaned from this 
+% Twitter-based event tracking method could be of use to
+% public health organizations like the United States Centers 
+% for Disease Control in future outbreaks for supporting situational 
+% awareness, monitoring the strength \& duration of public concerns, 
+% and identifying potential opportunities for health education.
+%
+%
+%The 2014 Ebola outbreak --- the largest in history --- involved almost 
+%30,000 cases and over 11,000 fatalities.  
+%Only four of these cases (and one fatality) occurred in the 
+%United States, yet US public concern regarding Ebola risks, 
+%as manifested in both social media and traditional news sources, 
+%remained very high.
+%
+%In this work, we use a corpus of 10.5 million English 
+%language Ebola-related tweets derived from Twitter users in 
+%the United States in October 2014 --- the height of the 
+%Ebola crisis --- to investigate Ebola-related topics and topic 
+%development in social media.  Using the results of two machine 
+%learning algorithms, one of which we propose in this work, 
+%we produce a timeline of Ebola-related events as they emerged 
+%during October 2014, discovering four distinct patterns.   
+%First, any event or topic with potential
+%repercussions that could put the health of
+%the US public at risk seemed to engage Twitter users for much
+%longer. Second, generally, topics which had a positive note
+%to them were not long terms topics. Third, generally
+%any topic which is about a nation other than the United
+%States lasted only for 1 day. Fourth, memes/jokes/rumours
+%lasted anywhere from 1 to 4 days. Insights gleaned from this 
+%Twitter-based event tracking method could be of use to
+%public health organizations like the United States Centers 
+%for Disease Control in future outbreaks for supporting situational 
+%awareness, monitoring the strength \& duration of public concerns, 
+%and identifying potential opportunities for health education.
+%
+%
+%
+%
+%
+%
+%%Public health organizations like the Center for
+%Disease Control (CDC) are very interested to know
+%the kinds of topics that the general public engage in
+%during an epidemic crisis. 
+%Micro-blogging services like Twitter are used by the public, 
+%organizations and news media to consume and disseminate information.  
+%This was also the case following the first verified case of Ebola in the United 
+%States in the fall of 2014. 
+%An qualitative and quantitative understanding of the kind of topics that were discussed
+%by the general public on Twitter during the Ebola crisis will be helpful for public 
+%health organizations to be better prepared for the next epidemic crisis.
+%In this work, we study a Twitter-Ebola dataset.  
+%We downloaded 10.5 million tweets (Twitter messages) about Ebola which were 
+%published on Twitter in the United Stated in October 2014.  Using the results of two machine learning
+%algorithms, one of which we propose in this work, we produce a timeline of events
+%as they emerged on Twitter during that time period.  We found the following
+%patterns.  One, any event or topic whose repercussions could possibly,
+%at large, put the health of the public at risk seem to engage the users
+%for much longer.  Two, generally, topics which had a positive note to them
+%were not long terms topics.  Three, generally any topic which is about a nation other than the
+%United States lasted only for $1$ day.  Four, memes/jokes/rumours lasted anywhere
+%from $1$ to $4$ days.
+%Such inferences can be useful for organizations like the CDC to understand the
+%behavior of the public, and address their concerns.
+%
+%
+%
+%During crisis situations, such as a disease outbreak, it is important for 
+%public health organizations to track
+%and monitor the general well being of the public.  In addition to performing close
+%surveillance of symptomatic patients, organization like the Center for Disease
+%Control (CDC) are also interested in addressing the concerns of the public.
+%What will be of immense interest to organizations
+%like the CDC is an insight into the kinds of topics and discussion that the general public
+%engaged in during that time period. 
+%
+%Micro-blogging services like Twitter are used by both the public, 
+%organizations and news media to consume and disseminate information.  
+%This was also the case following the first verified case of Ebola in the United 
+%States in the fall of 2014. 
+%An qualitative and quantitative understanding of the topics that were discussed
+%by the general public on Twitter during the Ebola crisis will be helpful for public 
+%health organizations to be better prepared for the next epidemic crisis.
+%
+%In this work, we study a Twitter-Ebola dataset.  
+%We downloaded 10.5 million tweets (Twitter messages) about Ebola which were 
+%published on Twitter in the United Stated in October 2014.  Using the results of two machine learning
+%algorithms, one of which we propose in this work, we produce a timeline of events
+%as they emerged on Twitter during that time period.  We found some topics like
+%concerns about airport screening and security lasted through out the time period of the dataset.
+%We also found memes/jokes that lasted anywhere between $3$ to $6$ days.
+%There were also some topics which lasted only a day.  These, for example, were
+%about events in another country.
+\end{quote}
+\end{abstract}

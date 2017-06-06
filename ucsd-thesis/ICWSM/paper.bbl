@@ -1,0 +1,237 @@
+\begin{thebibliography}{10}
+
+\bibitem{becker2011beyond}
+Hila Becker, Mor Naaman, and Luis Gravano.
+\newblock Beyond trending topics: Real-world event identification on twitter.
+\newblock {\em ICWSM}, 11:438--441, 2011.
+
+\bibitem{blei2003}
+David~M. Blei, Andrew~Y. Ng, and Michael~I. Jordan.
+\newblock Latent dirichlet allocation.
+\newblock {\em J. Mach. Learn. Res.}, 3:993--1022, March 2003.
+
+\bibitem{Brownstein:2009aa}
+John~S Brownstein, Clark~C Freifeld, and Lawrence~C Madoff.
+\newblock Digital disease detection--harnessing the web for public health
+  surveillance.
+\newblock {\em N Engl J Med}, 360(21):2153--5, 2157, May 2009.
+
+\bibitem{cataldi2010emerging}
+Mario Cataldi, Luigi Di~Caro, and Claudio Schifanella.
+\newblock Emerging topic detection on twitter based on temporal and social
+  terms evaluation.
+\newblock In {\em Proceedings of the Tenth International Workshop on Multimedia
+  Data Mining}, page~4. ACM, 2010.
+
+\bibitem{chang2009reading}
+Jonathan Chang, Sean Gerrish, Chong Wang, Jordan~L Boyd-Graber, and David~M
+  Blei.
+\newblock Reading tea leaves: How humans interpret topic models.
+\newblock In {\em Advances in neural information processing systems}, pages
+  288--296, 2009.
+
+\bibitem{DBLP:conf/ehealth/Choudhury15}
+Munmun~De Choudhury.
+\newblock Anorexia on tumblr: {A} characterization study.
+\newblock In Patty Kostkova and Floriana Grasso, editors, {\em Proceedings of
+  the 5th International Conference on Digital Health 2015, Florence, Italy, May
+  18-20, 2015}, pages 43--50. {ACM}, 2015.
+
+\bibitem{Collier:2008aa}
+Nigel Collier, Son Doan, Ai~Kawazoe, Reiko~Matsuda Goodwin, Mike Conway, Yoshio
+  Tateno, Quoc-Hung Ngo, Dinh Dien, Asanee Kawtrakul, Koichi Takeuchi, Mika
+  Shigematsu, and Kiyosu Taniguchi.
+\newblock Biocaster: detecting public health rumors with a web-based text
+  mining system.
+\newblock {\em Bioinformatics}, 24(24):2940--1, Dec 2008.
+
+\bibitem{Collier:2011aa}
+Nigel Collier, Nguyen~Truong Son, and Ngoc~Mai Nguyen.
+\newblock Omg u got flu? analysis of shared health messages for
+  bio-surveillance.
+\newblock {\em J Biomed Semantics}, 2 Suppl 5:S9, 2011.
+
+\bibitem{Cook:2011aa}
+Samantha Cook, Corrie Conrad, Ashley~L Fowlkes, and Matthew~H Mohebbi.
+\newblock Assessing google flu trends performance in the united states during
+  the 2009 influenza virus a (h1n1) pandemic.
+\newblock {\em PLoS One}, 6(8):e23610, 2011.
+
+\bibitem{deerwester1990indexing}
+Scott~C. Deerwester, Susan~T Dumais, Thomas~K. Landauer, George~W. Furnas, and
+  Richard~A. Harshman.
+\newblock Indexing by latent semantic analysis.
+\newblock {\em JAsIs}, 41(6):391--407, 1990.
+
+\bibitem{Dredze:2012qy}
+Mark Dredze.
+\newblock How social media will change public health.
+\newblock {\em IEEE Intelligent Systems}, 27(4):81--84, 2012.
+
+\bibitem{Eysenbach:2009aa}
+Gunther Eysenbach.
+\newblock Infodemiology and infoveillance: framework for an emerging set of
+  public health informatics methods to analyze search, communication and
+  publication behavior on the internet.
+\newblock {\em J Med Internet Res}, 11(1):e11, 2009.
+
+\bibitem{Freifeld:2008aa}
+Clark~C Freifeld, Kenneth~D Mandl, Ben~Y Reis, and John~S Brownstein.
+\newblock Healthmap: global infectious disease monitoring through automated
+  classification and visualization of internet media reports.
+\newblock {\em J Am Med Inform Assoc}, 15(2):150--7, 2008.
+
+\bibitem{Hong:2010}
+Liangjie Hong and Brian~D. Davison.
+\newblock Empirical study of topic modeling in twitter.
+\newblock In {\em Proceedings of the First Workshop on Social Media Analytics},
+  SOMA '10, pages 80--88, New York, NY, USA, 2010. ACM.
+
+\bibitem{java:2007}
+Akshay Java, Xiaodan Song, Tim Finin, and Belle Tseng.
+\newblock Why we {T}witter: understanding microblogging usage and communities.
+\newblock In {\em Proceedings of the 9th WebKDD and 1st SNA-KDD 2007 workshop
+  on Web mining and social network analysis}, pages 56--65. ACM, 2007.
+
+\bibitem{Jin:2011}
+Ou~Jin, Nathan~N. Liu, Kai Zhao, Yong Yu, and Qiang Yang.
+\newblock Transferring topical knowledge from auxiliary long texts for short
+  text clustering.
+\newblock In {\em CIKM 2011}.
+
+\bibitem{Kalyanam:2015}
+Janani Kalyanam, Amin Mantrach, Diego Saez-Trumper, Hossein Vahabi, and Gert
+  Lanckriet.
+\newblock Leveraging social context for modeling topic evolution.
+\newblock In {\em Proceedings of the 21th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, pages 517--526. ACM, 2015.
+
+\bibitem{Krauss:2015aa}
+Melissa~J Krauss, Richard~A Grucza, Laura~J Bierut, and Patricia~A
+  Cavazos-Rehg.
+\newblock ``get drunk. smoke weed. have fun.": A content analysis of tweets
+  about marijuana and alcohol.
+\newblock {\em Am J Health Promot}, Nov 2015.
+
+\bibitem{Kuang:2012}
+Da~Kuang, Haesun Park, and Chris~HQ Ding.
+\newblock Symmetric nonnegative matrix factorization for graph clustering.
+\newblock In {\em SDM}, volume~12, pages 106--117. SIAM, 2012.
+
+\bibitem{li2012tedas}
+Rui Li, Kin~Hou Lei, Ravi Khadiwala, and Kevin Chen-Chuan Chang.
+\newblock Tedas: A twitter-based event detection and analysis system.
+\newblock In {\em Data engineering (icde), 2012 ieee 28th international
+  conference on}, pages 1273--1276. IEEE, 2012.
+
+\bibitem{liu:2010}
+Jiahui Liu, Peter Dolan, and Elin~R{\o}nby Pedersen.
+\newblock Personalized news recommendation based on click behavior.
+\newblock In {\em Proceedings of the 15th International Conference on
+  Intelligent User Interfaces}, IUI '10, pages 31--40, New York, NY, USA, 2010.
+  ACM.
+
+\bibitem{Myslin:2013aa}
+Mark Mysl{\'\i}n, Shu-Hong Zhu, Wendy Chapman, and Mike Conway.
+\newblock Using {T}witter to examine smoking behavior and perceptions of
+  emerging tobacco products.
+\newblock {\em J Med Internet Res}, 15(8):e174, 2013.
+
+\bibitem{newman2010automatic}
+David Newman, Jey~Han Lau, Karl Grieser, and Timothy Baldwin.
+\newblock Automatic evaluation of topic coherence.
+\newblock In {\em Association for Computational Linguistics}, 2010.
+
+\bibitem{Oyeyemi:2014aa}
+Sunday~Oluwafemi Oyeyemi, Elia Gabarron, and Rolf Wynn.
+\newblock Ebola, twitter, and misinformation: a dangerous combination?
+\newblock {\em BMJ}, 349:g6178, 2014.
+
+\bibitem{Salathe:2012aa}
+Marcel Salath{\'e}, Linus Bengtsson, Todd~J Bodnar, Devon~D Brewer, John~S
+  Brownstein, Caroline Buckee, Ellsworth~M Campbell, Ciro Cattuto, Shashank
+  Khandelwal, Patricia~L Mabry, and Alessandro Vespignani.
+\newblock Digital epidemiology.
+\newblock {\em PLoS Comput Biol}, 8(7):e1002616, 2012.
+
+\bibitem{Salathe:2011aa}
+Marcel Salath{\'e} and Shashank Khandelwal.
+\newblock Assessing vaccination sentiments with online social media:
+  implications for infectious disease dynamics and control.
+\newblock {\em PLoS Comput Biol}, 7(10):e1002199, Oct 2011.
+
+\bibitem{sekiguchi2006topic}
+Yuichiro Sekiguchi, Harumi Kawashima, Hidenori Okuda, and Masahiro Oku.
+\newblock Topic detection from blog documents using users' interests.
+\newblock In {\em Mobile Data Management, 2006. MDM 2006. 7th International
+  Conference on}, pages 108--108. IEEE, 2006.
+
+\bibitem{Signorini:2011aa}
+Alessio Signorini, Alberto~Maria Segre, and Philip~M Polgreen.
+\newblock The use of twitter to track levels of disease activity and public
+  concern in the u.s. during the influenza a h1n1 pandemic.
+\newblock {\em PLoS One}, 6(5):e19467, 2011.
+
+\bibitem{SteelFisher:2015aa}
+Gillian~K SteelFisher, Robert~J Blendon, and Narayani Lasala-Blanco.
+\newblock Ebola in the united states--public reactions and implications.
+\newblock {\em N Engl J Med}, 373(9):789--91, Aug 2015.
+
+\bibitem{Towers:2015aa}
+Sherry Towers, Shehzad Afzal, Gilbert Bernal, Nadya Bliss, Shala Brown,
+  Baltazar Espinoza, Jasmine Jackson, Julia Judson-Garcia, Maryam Khan, Michael
+  Lin, Robert Mamada, Victor~M Moreno, Fereshteh Nazari, Kamaldeen Okuneye,
+  Mary~L Ross, Claudia Rodriguez, Jan Medlock, David Ebert, and Carlos
+  Castillo-Chavez.
+\newblock Mass media and the contagion of fear: The case of ebola in america.
+\newblock {\em PLoS One}, 10(6):e0129179, 2015.
+
+\bibitem{tsur2012s}
+Oren Tsur and Ari Rappoport.
+\newblock What's in a hashtag?: content based prediction of the spread of ideas
+  in microblogging communities.
+\newblock In {\em Proceedings of the fifth ACM international conference on Web
+  search and data mining}, pages 643--652. ACM, 2012.
+
+\bibitem{Vaca:2014}
+Carmen~K. Vaca, Amin Mantrach, Alejandro Jaimes, and Marco Saerens.
+\newblock A time-based collective factorization for topic discovery and
+  monitoring in news.
+\newblock WWW '14, 2014.
+
+\bibitem{weng2011event}
+Jianshu Weng and Bu-Sung Lee.
+\newblock Event detection in twitter.
+\newblock {\em ICWSM}, 11:401--408, 2011.
+
+\bibitem{Weyer:2015aa}
+Jacqueline Weyer, Antoinette Grobbelaar, and Lucille Blumberg.
+\newblock Ebola virus disease: history, epidemiology and outbreaks.
+\newblock {\em Curr Infect Dis Rep}, 17(5):480, May 2015.
+
+\bibitem{WHO-Ebola-Response-Team:2014aa}
+{WHO Ebola Response Team}.
+\newblock Ebola virus disease in west africa--the first 9 months of the
+  epidemic and forward projections.
+\newblock {\em N Engl J Med}, 371(16):1481--95, Oct 2014.
+
+\bibitem{Yan:2013:BTM}
+Xiaohui Yan, Jiafeng Guo, Yanyan Lan, and Xueqi Cheng.
+\newblock A biterm topic model for short texts.
+\newblock In {\em Proceedings of the 22Nd International Conference on World
+  Wide Web}, WWW '13, pages 1445--1456, Republic and Canton of Geneva,
+  Switzerland, 2013. International World Wide Web Conferences Steering
+  Committee.
+
+\bibitem{Yan:2013}
+Xiaohui Yan, Jiafeng Guo, Shenghua Liu, Xueqi Cheng, and Yanfeng Wang.
+\newblock {\em Learning Topics in Short Texts by Non-negative Matrix
+  Factorization on Term Correlation Matrix}, chapter~82, pages 749--757.
+\newblock 2013.
+
+\bibitem{Zhang:2013}
+Shitao Zhang, Xiaoming Jin, Dou Shen, Bin Cao, Xuetao Ding, and Xiaochen Zhang.
+\newblock Short text classification by detecting information path.
+\newblock In {\em CIKM 2013}.
+
+\end{thebibliography}

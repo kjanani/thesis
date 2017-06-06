@@ -1,0 +1,834 @@
+\documentclass{stylefiles/sig-alternate}
+\usepackage{verbatim}
+\usepackage{graphicx} % more modern
+\usepackage{subfigure} 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{natbib}
+%\usepackage{amsthm}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{appendix}
+\newcommand{\lw}{\Lambda_{W}}
+\newcommand{\lv}{\Lambda_{V}}
+\newcommand{\uw}{U_{W}}
+\newcommand{\uv}{U_{V}}
+%\newcommand{\tbf}[x]{\textbf{x}}
+\newcommand{\ess}{\mathcal{S}}
+\DeclareMathOperator{\thresh}{Thresh}
+\setlength{\jot}{0pt}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\usepackage{color}
+\usepackage{relsize}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\begin{document}
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+\title{A Multimodal Timeseries Matrix Factorization for Tracking News}
+
+%\numberofauthors{2} 
+%\author{
+%\alignauthor
+%Janani Kalyanam\\
+%       \affaddr{University of California, San Diego}\\
+%       \affaddr{9500 Gilman Drive, La Jolla}\\
+%       \affaddr{CA, USA}\\
+%       \email{jkalyana@ucsd.edu}
+%\alignauthor
+%Gert Lanckriet\\
+
+%       \affaddr{University of California, San Diego}\\
+%       \affaddr{9500 Gilman Drive, La Jolla}\\
+%       \affaddr{CA, USA}\\
+%       \email{gert@ece.ucsd.edu}
+%}
+
+\maketitle
+\begin{abstract}
+Due to the explosion of information, the problem of effectively
+detecting and tracking events has garnered a lot of interest.
+Many a time, the occurrence of an event appears on social
+media much before the regular media grabs the story.  Hence, especially 
+interesting is the problem of detecting and tracking events from
+social media.  Several successful event detection algorithms 
+have been proposed in the past.  However, most of them use the textual alone
+from social media.  This can often limit the kind of events 
+being detected to only those events which have a strong textual
+topical focus.
+However, in reality, as the event evolves, the vocabulary and the focus of
+an event may change as well, and hence relying on textual content
+alone may not solve the problem. 
+
+In this paper, we wish to use the social network graph information
+in addition to textual content to model the evolution of events.
+The presence of a community in a social network in itself indicates
+that the members of the community share some common interest.  We
+wish to harness this information for detecting events whose
+textual content may be varied, but have a strong community
+of users interested in the event.
+
+We approach the problem by simultaneously modeling the evolution 
+of the social communities and the evolution of topics by using a 
+multimodal time series based non-negative matrix factorization.
+\end{abstract}
+
+
+%% A category with the (minimum) three required fields
+%\category{H.3.1}{Information Storage and Retrieval}{Content Analysis and Indexing}
+%%A category including the fourth, optional field follows...
+%
+%\terms{Algorithms, Experimentation}
+%
+%\keywords{unstructured data, bag-of-words model}
+%
+%\section{Introduction}
+%\label{sec:intro}
+%\begin{figure*}
+%{ 
+%    \centering
+%    \includegraphics[width=\textwidth]{Figures/government_shutdown_1}
+%    \caption{Two example webpages.  \textbf{Left:} This webpage 
+%	contains text and several images embedded in it.  Although at first glance only one is seen, the webpage has a slide-show for a
+%	total of 18 images.  \textbf{Right:} This webpage contains text and several embedded videos.}
+%    \label{fig:government_shutdown_1}
+%}
+%\end{figure*}
+%
+%Data in today's world is heavily multimodal, unstructured and irregular.
+%Say we want to categorically classify webpages based on their content.
+%Generally, webpages contain different types of content like text, image, video
+%e.t.c. 
+%One desired characteristic of algorithms that wish to categorically classify
+%such webpages is that they be able 
+%to learn from all the different modalities, since each modality carries some unique
+%information.  Consider the picture of a person standing in the beach on a sunny
+%day.  The picture, by itself, may reveal some visual information like sunny day, 
+%beach e.t.c.  However, including the name of the person, and her experience on the
+%beach (via text) adds information that is orthogonal to what the picture alone reveals.
+%Hence, being able to learn from different modalities becomes an essential desideratum
+%for algorithms.
+%
+%Apart from being able to learn from multimodal data, the algorithms need to 
+%accommodate for irregularity and lack of structure in the data as well.
+%For example, one webpage could contain text and many embedded videos, while 
+%another could contain plenty of images but no video (refer to Figure
+%\ref{fig:government_shutdown_1}).  
+%
+%To be best of our knowledge, ours is the first work to consider the 
+%combined challenge of multiple modality \emph{and} lack of structure
+%in the data. 
+%
+%To give a flavor of the kind of existing algorithms in the literature,
+%assume that we lived in a world where all the webpages contained
+%exactly one image (i.e., the data is highly structured and unimodal), then our problem
+%would immediately lend itself to any machine learning classification algorithm (e.g.,
+%support vector machines).  
+%
+%However, the data in the real world is generally multimodal in nature.  While there
+%exist several algorithms that combine data from multiple modalities, they are
+%quite rigid in terms of what they expect as input.  For example, if we lived in 
+%a world where each webpage were to contain
+%exactly one instance of data from different modalities, like one text and
+%one image (i.e., the data is multimodal but highly structured), then our problem
+%would lend itself to algorithms like multiple kernel learning ~\cite{lanckriet04}.  While multiple
+%kernel learning learns to combine the kernel matrices from each modality in an optimal
+%fashion to perform prediction, it accommodates neither for missing data modalities,
+%nor for the presence of several examples from the same modality.
+%Meaning, it cannot be applied if some webpages were
+%to contain only text, some other webpages a combination of text and several images, 
+%and what have you.  In other words, the situation becomes too \emph{unstructured} for multiple
+%kernel learning.
+%
+%Neither scenarios that have been considered so far (highly structured and unimodal, and, highly 
+%structured and multimodal) are realistic.  Data in the real world is highly \emph{unstructured}
+%and multimodal. 
+%
+%In this paper, we present a methodology to represent such highly unstructured, irregular 
+%and heterogeneous data in a way that it naturally lends itself
+%to many machine learning algorithms.  
+%
+%In many fields including computer audition and computer vision, 
+%several techniques have been invented to represent
+%data as a histogram over prototypical features or codewords (e.g., representing an image as a histogram over prototypical SIFT
+%features).  Such histogram based (also known as codeword based) approaches have shown to perform 
+%well in various tasks including classification, retrieval, object recognition e.t.c. 
+%Broadly speaking, such techniques have been predominantly developed for unimodal data.  
+%However, working with heterogeneous, unstructured and irregular data poses several
+%new challenges that are not addressed by a direct extension of the said unimodal
+%techniques.  
+%
+%We present a methodology that discovers prototypical features from heterogeneous,
+%and unstructured data, and thereafter represents the data as a 
+%histogram over the prototypical features.  These prototypical features themselves
+%happen to be a collection of unimodal codewords.  We discover these collections
+%by clustering the unimodal codewords that often co-occur (or are highly correlated).
+%In other words, after finding the codewords in each modality separately using
+%existing techniques, we cluster them to form what are \emph{heterogeneous codewords}
+%or \emph{heterogeneous prototypes}.  
+%
+%Note that 
+%the codewords of different modalities reside in their respective feature spaces.  
+%The question then becomes: how do we cluster items that reside in different feature spaces.
+%To this end, we create a graph where each node represents a codeword and the edges between the nodes
+%represents how often they co-occur (\eg, how often do we see a particular visual codeword
+%occurring in the same webpage as a particular textual codeword).  On this graph, 
+%we employ spectral clustering techniques to cluster similar codewords together.
+%
+%Our framework is designed for multimodal data, and it is fairly flexible,
+% in that it naturally handles unstructured data as well.  Hence, it addresses both 
+%challenges posed by any realistic data today.
+%
+%The rest of the paper is organized as follows.  In Section \ref{sec:previous_work}, 
+%we give a brief overview of existing literature in multimodal data analysis, and
+%unstructured data.  In Section \ref{sec:histogram_based_learning}, we briefly
+%explain what histogram based learning typically entails.  In Section \ref{sec:data_representation},
+%we explain how to discover the heterogeneous codewords and build the histograms over
+%the heterogeneous codewords.  In Section \ref{sec:data_mining}, we explain the data collection
+%process for collecting unstructured heterogeneous data, experimental pipeline for both
+%our approach and the baseline methods, and discuss results.  In Section \ref{sec:structured_data},
+%our approach is applied on a dataset which has a lot of structure.  We compare our results
+%on cross-modal retrieval with works like \cite{rasiwasia2010}, \cite{Clinchant_2011},
+%and \cite{Zhai_2012}, and show comparable or better performance. 
+%In Section \ref{sec:conclusion}, we end with some concluding remarks.
+%
+%\section{Previous Work}
+%\label{sec:previous_work}
+%Learning from multimodal data is an active area of research, and 
+%has several important works that address the topic.  Broadly speaking,
+%the works can be cast into two categories: (1) early fusion, and 
+%(2) late fusion.  
+%
+%Early fusion generally refers to combining the multiple modalities of
+%data \emph{prior} to learning or prediction.  For example, in the simplest case, 
+%the features from each modality are concatenated \emph{before} 
+%learning and prediction as in~\cite{westerveld2003}.  The authors of~\cite{huiskes2008} use
+%tag data from the social photography website Flickr, in addition to low-level
+%image features to improve classification performance of linear classifiers. The authors
+%of~\cite{guillaumin2010} implement a more sophisticated version of early fusion by
+%employing multiple kernel learning \cite{lanckriet04} along with support vector machines 
+%to find an optimal combination of kernels from different modalities.
+%The authors of \cite{rasiwasia2010} apply canonical correlation analysis (CCA) on text-image
+%pairs of data to model correlations at different levels of abstraction. ~\cite{jiang2009}
+%and ~\cite{ye2012} model early fusion of features in the audio-visual domain.
+%The authors \cite{ngiam2011} and \cite{srivastava2012} used a deep auto-encoder, and
+%a deep Boltzman machine for audio-visual, and text-image fusion respectively.
+%A major drawback of all these techniques is the inability to accommodate for
+%the \emph{irregularity} and \emph{lack of structure} that is inherent in
+%real world data.  All the techniques expect input in the form of tuples 
+%of elements, where each element belongs to a particular modality.
+%
+%In late fusion techniques as in~\cite{gangwang2009} individual
+%classifiers are developed for each modality, and the outputs of the classifiers
+%are later combined to produce a single label.  The drawback of such an 
+%approach is that it does not take into consideration co-occurrences of
+%data instances, and hence loses out on extra side-information that
+%can be useful for classification.  
+%
+%Our approach draws inspiration from the bag-of-words model which has
+%witnessed success in natural language processing (\cite{salton1986} and 
+%\cite{Joachims98textcategorization}), computer vision (\cite{lazebnik2006} and
+%\cite{Csurka04visualcategorization}) and computer audition 
+%(\cite{ellis2011}).  
+%However, these techniques have been developed over unimodal data (images, audio
+%or video).  We intend to take the tradition forward by considering
+%unstructured, multimedia data in a bag-of-words model.
+%
+%So far, to the best of our knowledge, ours is the first work to 
+%address the combined challenge of irregularity and lack of structure 
+%\emph{along with} heterogeneity in data in a machine learning or
+%feature extraction framework.
+%
+%\section{Histogram based learning}
+%\label{sec:histogram_based_learning}
+%To facilitate a better understanding of the histogram based learning for unstructured, 
+%multimedia data that we present in this work, we first begin by providing a 
+%brief overview of what histogram based learning entails in the homogeneous, 
+%unimodal data arena.
+%
+%The core of any histogram based learning approach is to identify a set of \emph{recurring
+%patterns} (a.k.a., \emph{codewords}, or \emph{prototypical
+%features}) across a large collection of data \cite{feifei2007}.  Once such patterns have been identified, every datapoint is quantized 
+%and represented in terms of these patterns.  If $N$ codewords
+%have been identified, then every datapoint is represented as an $N$ dimensional vector.  Each
+%entry in this vector can be thought of as a \emph{contribution} of the datapoint
+%towards that codeword.  
+%
+%In any histogram based learning
+%approach, a portion of data is set aside to perform what is called \emph{training the
+%codebook}.  In other words, the set of prototypical features that need to be identified 
+%will be based on the training set alone.  In principle, this set can be quite arbitrary as long as it does not
+%include any test data.  Once the prototypical features have been identified, data in both
+%the training and the test set is represented in terms of these features.  An important
+%aspect of such approaches is that they are predominantly unsupervised, and hence, can take advantage of 
+%the vast amounts of unlabeled data.  (As we explain later in Section \ref{sec:data_mining}, 
+%exploiting this aspect improves results considerably).
+%
+%So far, we have been referring to histogram based approaches somewhat generally.  
+%While the central idea of representing data as histograms over prototypical features
+%remains intact across domains, there are some domain specific aspects to these
+%representations that are worth mentioning.  
+%
+%In the textual domain, a popular approach for representing documents as histogram
+%over prototypical features, is latent Dirichlet Allocation (LDA)\cite{blei2003}.  LDA
+%assumes that a document is a mixture of latent topics, and that the 
+%latent topics themselves are multinomial distributions over all the word-tokens.  
+%During learning, the approach relies on word co-occurrences to estimate the
+%latent topic distributions.
+%During the inference phase, the mixture components for each document is estimated.  For example,
+%if three latent topics have been discovered, the representation of a document
+%can be condensed to a $3$-dimensional vector, where each element in that 
+%vector is the ratio of the document that pertains to a particular topic.
+%
+%The prototypical features in the textual domain, which are the latent topics,
+%have a semantic meaning associated to them.  However, such is not the case
+%when it comes to the visual or audio domain.  In the visual domain, (including
+%images and video), low-level features are extracted from each datapoint.  These
+%features are then subject to $k$-means clustering and the cluster centers
+%are considered as the codewords in terms of which the 
+%all the images (or video) are represented \cite{Wang_cikm_2012}.
+%
+%In discovering the \emph{prototypical features} or codewords, a common theme
+%across modalities seems to be some form of clustering.  We indeed employ this theme
+%while identifying the \emph{heterogeneous codewords} for our problem.
+%
+%\section{Data Representation}
+%\label{sec:data_representation}
+%\begin{figure}
+%{
+%	\centering 
+%    \includegraphics[width=0.5\textwidth]{Figures/sets_of_objects}
+%    \caption{Each `bag' (or an \emph{object-set}) in this figure can be thought of as a webpage.  
+%	Each webpage contains varying amounts of multimedia
+%	objects.  Evidently, there is no regularity in content across
+%	webpages. }
+%    \label{fig:sets_of_objects}
+%}
+%\end{figure}
+%As explained in Section \ref{sec:histogram_based_learning}, there already exist
+%approaches to represent unimodal, homogeneous data as histograms over codewords in their
+%respective modality.  The data that we are interested in
+%is multimodal and unstructured data, as in Figure \ref{fig:government_shutdown_1}.  
+%Here, each object-set is a \emph{group} datapoints from different modalities
+%(refer to Figure \ref{fig:sets_of_objects}).  Each datapoint in an object-set
+%has a unimodal codeword-based representation.  In this section, we explain a
+%methodology that
+%enables a holistic and unified representation of a \emph{group} of datapoints.
+%
+%\subsection{Preliminaries}
+%We define some preliminary notations for the problem. The unstructured
+%\emph{object-sets} are represented as $B_i$, and we have $N$ such object-sets.
+%The set used for codebook training is 
+%\begin{equation*}
+%\mathcal{S} = {\{B_i\}}_{i=1}^N.
+%\end{equation*}
+%Each object-set is in turn made up of several datapoints from different modalities.
+%Each unstructured object-set $B_i$ is therefore a \emph{set}, 
+%\begin{equation*}
+%B_i = {\{\tbf{x}_{ijm}\}}_{j=1}^{|B_i|},
+%\end{equation*}
+%where $|B_i|$ refers to the cardinality. 
+%Note that the number of datapoints in each set can 
+%vary across sets.  Here $m$ denotes the modality which the datapoint
+%belongs to.  For example, $m$ could be,
+%\begin{equation*}
+%m \in \mathcal{M} = \{\text{text, image, audio, video}\}.
+%\end{equation*}
+%Hence, $\tbf{x}_{ijm}$ refers to the $j^{th}$ datapoint in the $i^{th}$ object-set,
+%belonging to modality-$m$.  Note that $\tbf{x}_{ijm}$ and $\tbf{x}_{ijn}$ belong to different
+%feature spaces unless $m = n$.  
+%
+%Let $C_{qm}$ refer to the 
+%$q^{th}$ codeword in modality-$m$ and $\tbf{x}_{ijm}[C_{qm}]$ denote the contribution
+%of $\tbf{x}_{ijm}$ towards the codeword $C_{qm}$.  Note that the expression 
+%$\tbf{x}_{ijm}[C_{qn}]$ is valid only if $m = n$.
+%
+%Let $\H_\alpha$ denote a \emph{heterogeneous codeword}, or a \emph{set} of homogeneous
+%or unimodal codewords (refer to Figure \ref{fig:graph_clustering}).  Also, let $\mathcal{S}_{\alpha,m}$
+%denote the set of all modality-$m$ codewords from $\H_\alpha$.  In other words, 
+%\begin{equation}
+%\mathcal{S}_{\alpha,m} := \{C_{qm} \text{ } \forall q \text{ such that }  C_{qm} \in \H_\alpha\}. 
+%\end{equation}
+%
+%\subsection{Codeword Discovery}
+%\label{subsec:codeword_discovery}
+%\begin{figure}
+%{ 
+%    \centering
+%    \includegraphics[width=0.5\textwidth]{Figures/graph_clustering}
+%    \caption{Each node in the graph is a unimodal or homogeneous codeword.  There are
+%	3 modalities.  Nodes of the same color belong to the same modality.  There are two clusters in this graph.  Each cluster
+%	is a \emph{heterogeneous codeword}.  As explained in Section 
+%	\ref{subsec:codeword_discovery}, while building the graph, 
+%	we omit any edges between codewords of the same modality 
+%	so as to promote the resulting clusters to be more \emph{heterogeneous}.}
+%    \label{fig:graph_clustering}
+%}
+%\end{figure}
+%We make a few important observations before we explain
+%a methodology to discover heterogeneous codewords.
+%
+%Recall from Section \ref{sec:histogram_based_learning} that most codeword based techniques
+%attempt to uncover recurring interesting patterns across datapoints by some means
+%of clustering over the features.  But when the datapoints reside in different 
+%spaces as in our problem setting, simultaneously clustering them becomes a challenge. 
+%Nonetheless, that the features in the individual modalities have already been clustered 
+%in order to produce the homogeneous codeword-based representation.  We can therefore 
+%exploit this fact, and travel to a higher level of abstraction and focus on clustering 
+%the \emph{codewords} across modalities as opposed to clustering the \emph{features}
+%across modalities.
+%
+%To cluster codewords across modalities,
+% we can build a graph with codewords from the different modalities %%%%%%%%%% REPLACE TO ALL MODALITIES
+%as the nodes, and some measure of affinity between the codewords as
+%the weighted edges.  This measure of affinity would, in some sense, be representative
+%of how often the codewords occur together in the same object-set.  
+%The important take-away here is that, working at the \emph{codeword-level},
+%makes it easier to model similarity between unimodal codewords across modalities.
+%This is because the unimodal data themselves have been
+%represented as a \emph{histogram} over codewords, and hence, modeling similarity
+%becomes fairly straight forward.  Once we have a good similarity measure at hand,
+%clustering falls into place.  On the other hand, if we had chosen to work at the \emph{feature-level},
+%modeling similarity between features that reside in different spaces, would 
+%be much more challenging.  
+%%While there have been works that have focused
+%%on modeling \emph{featuel-level} on multimodal data, they are based on
+%%multiple kernel learning methods, and hence do not accommodate
+%%%for lack of structure \cite{mcfee2011}.
+%
+%To give some intuition of what the affinity measure or similarity between codewords would capture,
+%let us consider an example.  If the training corpus contains several webpages 
+%about sea-animals, then, such an affinity measure would be high between the 
+%textual topics about sea-animals, and the visual codewords that have a 
+%strong contribution to the images and video of sea-animals.
+%
+%A natural choice of similarity between two codewords $C_{qt}$ and $C_{pu}$ is
+%their average correlation over all the object-sets:
+%\begin{equation}
+%\text{sim}(C_{qt},C_{pu}) = \frac{\sum_{i=1}^N B_i[C_{qt}]B_i[C_{pu}]}{\sqrt{\sum_{i=1}^N({B_i[C_{qt}]})^2}\sqrt{\sum_{i=1}^N({B_i[C_{pu}]})^2}},
+%\label{eq:cosine_similarity}
+%\end{equation}
+%with terms,
+%\begin{equation}
+%B_i[C_{qt}] = \frac{1}{Z_{it}} \sum_{j=1}^{|B_i|} \tbf{x}_{ijm}[C_{qt}]\delta(m == t),
+%\end{equation}
+%and
+%\begin{equation}
+%B_i[C_{pu}] = \frac{1}{Z_{iu}} \sum_{k=1}^{|B_i|} \tbf{x}_{ikn}[C_{pu}] \delta(n == u),
+%\end{equation}
+%where
+%\begin{equation}
+%\delta(x) := \left\{ \begin{array}{ll}
+%1, & \mbox{$x$ is True},\\
+%0, & \mbox{$x$ is False.}	\end{array} \right.
+%\end{equation}
+%
+%Here, $B_i[C_{qt}]$ (and $B_i[C_{pu}]$) represents the contribution of 
+%the object-set $B_i$ towards the codeword $C_{qt}$ (and $C_{pu}$).
+%$Z_{it}$ is a normalization constant, denoting the number of
+%elements in $B_i$ that belong to modality-$t$.
+%To encourage the final clusters to be more \emph{heterogeneous}
+%(i.e., to contain as many different modalities), while building the
+%graphs, we omit any edges between codewords of the same modality, and
+%include only edges between codewords of different modalities (refer to
+%Figure \ref{fig:graph_clustering}). 
+%
+%On such a graph, in order to find clusters of similar codewords, 
+%one can employ graph clustering algorithms like spectral clustering
+%\cite{Dhillon04kernelkmeans}, or modularity based optimization methods 
+%like the Louvain algorithm \cite{Blondel08fastunfolding}.  As we will explain
+%in the future sections, for our dataset, the singular value decomposition based
+%co-clustering technique in \cite{dhillon2001} was employed.  
+%
+%\subsection{Constructing the Histogram}
+%\label{constructing_the_histogram}
+%In the unimodal arena, as mentioned in Section \ref{sec:histogram_based_learning},
+%the general procedure for constructing the histogram, after the codewords
+%have been discovered, is some form of quantization (hard, or soft).  The
+%process of constructing the histogram is also sometimes referred to as
+%pooling.  Several types of pooling, like max-pooling, average-pooling, e.t.c.,
+%can be performed in order to construct the histogram.  
+%
+%Intuitively, in order to construct the histogram, we want to measure 
+%the ratio of the object-set that belongs to a particular heterogeneous codeword.
+%Concatenating these ratios into a single vector is the histogram based
+%representation of the object.  
+%
+%We calculate the contribution of an object-set $B_i$ towards a heterogeneous 
+%codeword, $\H_\alpha$ as,
+%\begin{equation}
+%B_i[\H_\alpha] = \frac{1}{|\mathcal{H}_\alpha|} \mathlarger{\mathlarger{\sum}}_{(m \in \mathcal{M})} \mathlarger{\mathlarger{\sum}}_{(\forall q \text{ s.t } C_{qm} \in S_\alpha)} B_i[C_{qm}].
+%\end{equation} 
+%The contribution of $B_i$ towards a heterogeneous codeword $\mathcal{H}_\alpha$ is calculated as the average
+%contribution of $B_i$ towards each codeword in $\mathcal{H}_\alpha$.  After the histograms have been constructed, such a representation of the
+%data will immediately lend itself to many machine learning algorithms.
+%
+%In the next section, we explain the mining process of unstructured data.
+%\section{Mining Unstructured Data}
+%\label{sec:data_mining}
+%We explain the kind of unstructured data, multimodal that we consider in this project.
+%While the central idea of finding the heterogeneous codewords, and representing each
+%object-set in terms of the heterogeneous codewords remains intact for all kinds
+%of data, we consider predominantly textual and image data
+%in this project. 
+%\subsection{The Complete Wikipedia Featured Articles Dataset}
+%\label{subsec:wiki_large}
+%\begin{figure*}
+%{ 
+%    \centering
+%    \includegraphics[width=\textwidth]{Figures/problem_description_WWW}
+%    \caption{This figure depicts the contents of a typical Wikipedia article.  The article
+%	contains $3$ images, and $2$ textual paragraphs.  Such an article is an object-set containing
+%	$3$ images and $2$ text pieces.}
+%    \label{fig:wikipedia_problem_description}
+%}
+%\end{figure*}
+%A Wikipedia article is a document about a particular subject.  Its body
+%is divided into several sections and subsections of paragraphs.  The article may contain
+%none to several images embedded in them.  Such data is considered quite unstructured
+%because evidently there is no structure or regularity in the way in which the articles
+%are presented.  For example, one article could be a single large paragraph 
+%of text, while another article could have several subdivisions of textual 
+%paragraphs with images embedded in most of them.  A Wikipedia article, 
+%hence, is a perfect example of data that is unstructured and 
+%heterogeneous (refer to Figure \ref{fig:wikipedia_problem_description}). As we will explain in the future 
+%sections, we will perform content based classification and ranking 
+%tasks on these articles.
+%
+%We considered articles from Wikipedia Featured Articles, which are a continually
+%updated collection of articles that have been selected, reviewed and maintained by
+%Wikipedia editors since 2009.  Each featured article has been classified into one of 
+%$29$ categories.  We used the Wikipedia API to crawl all contents of from Wikipedia
+%Featured Articles.  The resulting data set contained $1998$ articles
+%with a total of approximately $27625$ textual sections and
+%$10959$ images.  The different categories and the total number of articles, images, and text in 
+%each category have been summarized in Figure \ref{fig:wiki_summary}. 
+%\begin{figure*}[t]
+%\subfigure[Number of Articles]
+%{ 
+%    \includegraphics[scale=0.33]{Figures/count_of_articles}
+%    \label{fig:count_of_articles}
+%}
+%\subfigure[Number of Images]
+%{ 
+%    \includegraphics[scale=0.33]{Figures/count_of_images}
+%    \label{fig:count_of_images}
+%}
+%\subfigure[Number of Text]
+%{
+%	\includegraphics[scale=0.33]{Figures/count_of_text}
+%	\label{fig:count_of_text}
+%}
+%\caption{This figure summarizes the total number of articles, images and text per category.  The categories
+%are: Warfare, Biology, Sports, History, Media, Music, Geography, Literature, Geology, Art and Architecture,
+%Royalty and nobility, Transport, Physics, Video gaming, Politics, Religion, Culture and Society,
+%Health, Engineering, Law, Chemistry, Education, Business, Awards and Decoration, Food and Drinks,
+%Language, Mathematics, Computing and Philosophy.}
+%\label{fig:wiki_summary}
+%\end{figure*}
+%\subsection{Feature Extraction}
+%\label{subsec:feature_extraction}
+%Our approach is based on the assumption that data in their respective
+%modalities have been represented as a histogram over the prototypical features of
+%that modality.  In that respect, the image representation was based on 
+%scale invariant feature transformation features (SIFT), \cite{lowe2004}.
+%A bag of SIFT descriptors was extracted for each image\footnote{Implementation: 
+%https://lear.inriaples.fr/people/dorko/downloads.html}, after which, a codebook
+%of SIFT features are extracted by $k-$means clustering algorithm.  The SIFT
+%descriptors extracted from each image are then vector quantized with this codebook,
+%thereby representing each image as a histogram over the visual codewords.
+%
+%For the textual domain, we used latent Dirichlet allocation to learn 
+%latent topics over the data \cite{blei2003}.  The posterior probability that a piece of text
+%belongs to a certain latent topic is estimated using variational 
+%inference\footnote{Implementation: http://www.cs.princeton.edu/\~blei/lda-c/index.html}.  Hence,
+%each piece of textual data is represented as a histogram over the 
+%latent topics.  
+%
+%\subsection{Experiments}
+%In this paper, we are presenting an approach to represent an unstructured
+%multimodal object-set.  The tasks that we perform to evaluate our approach
+%are classification and retrieval.  For all the experiments, we had
+%a $40-30-30$ split of training/validation/test data.  We used only the
+%training data for learning the codewords (both homogeneous and heterogeneous).
+%The number of codewords (both heterogeneous and homogeneous) were decided
+%by cross-validation.  The visual codewords were cross-validated over codebooks
+%of size \{128,256,512,1024\}, and the number of latent topics for LDA were
+%cross-validated over \{100, 200, 400, 600\} topics.  The number of
+%heterogeneous codewords is cross-validated over \{100, 200, 400, 600,
+%800, 1000\}.
+%
+%For both tasks, we explain our approach and the baseline approach in
+%Sections \ref{subsubsec:our_approach}, and \ref{subsubsec:baseline}.
+%We discuss the results of the experiments in \ref{subsec:results_discussion}.
+%\subsubsection{Our Approach}
+%\label{subsubsec:our_approach}
+%There are two phases in the experimental pipeline.
+%The first phase is learning the heterogeneous-codeword based representation
+%for each article by the methodology explained in Section \ref{sec:data_representation}.
+%The second phase is the actual classification (or ranking) of the articles.  We use
+%a multi-class classification approach to classify the article into one
+%of 10 classes.
+%Out of the categories mentioned in the caption of Figure \ref{fig:wiki_summary},
+%since many categories were sparsely populated, we only use the most populated 
+%$10$ categories for classification and retrieval.  On the other hand, for the first phase
+%of learning the heterogeneous codewords, recall from Section \ref{sec:data_representation}
+%that learning the codewords are performed in an unsupervised 
+%manner.  So, for this phase, we indeed use data from all the $29$ categories
+%mentioned in the caption of Figure \ref{fig:wiki_summary}.  
+%
+%For the multimodal retrieval task, after obtaining a heterogeneous codeword
+%based representation for each article, we obtain a 10-class semantic multinomial
+%by applying logistic regression \cite{Bishop_2006}.  A 10-class
+%semantic multonomial is essentially the posterior probability distribution that the
+%article belongs to each of the $10$ classes.  
+%On this semantic multinomial, the cosine similarities between the query and the
+%rest of the data points were calculated, and a sorted ranking was obtained.  Mean Average 
+%Precision (MAP) scores was calculated on each of the rankings, and MAP scores were
+%aggregated across all queries.
+%\subsubsection{Baseline}
+%\label{subsubsec:baseline}
+%Note that, early fusion techniques, generally cannot be 
+%used as baselines as they do not immediately accommodate for the
+%lack of structure in the data.  We use a series of late fusion
+%techniques as baselines.  Late fusion techniques, however, 
+%do not accommodate for correlations of features.  As we explain in 
+%Section \ref{subsec:results_discussion}, that is
+%precisely where our approach has the advantageous edge and yields better results.
+%
+%For the classification task, the baseline we use is as follows: for each article, 
+%we classify each datapoint inside the article individually, based on their
+%unimodal codeword representations.  We unify all the labels of each article,
+%and perform a majority vote to decide on the label for the article
+%as a whole. 
+%
+%For the multimodal retrieval task, for each example in each article,
+%we obtain a 10-class semantic multinomial by subjecting it through a 
+%logistic regression.  The 10-class semantic multinomial
+%of an article is the average of all the examples contained in the 
+%article.
+%
+%Both baselines are a form of late fusion technique where the
+%label of each example is combined after classification to 
+%produce single label to the entire object-set.
+%
+%\subsection{Results and Discussion}
+%\label{subsec:results_discussion}
+%\begin{figure*}[h]
+%{ 
+%    \centering
+%    \includegraphics[scale=0.5]{Figures/multimodal_example}
+%    \caption{Left: Selected contents of the Wikipedia article `West Wycombe Park'.  Right-top: The 10-class multinomial obtained
+%from the heterogeneous codeword based representation.  Right-bottom: 10-class multinomial obtained from baseline approach.  Our
+%approach places a probability of $0.8$ to `Architecture' category (which is indeed the correct label).}
+%    \label{fig:example_article}
+%}
+%\end{figure*}
+%\begin{figure*}[h]
+%\subfigure[Image classification]
+%{ 
+%    \includegraphics[width=0.21\textwidth]{Figures/Image_confusion}
+%    \label{fig:img_confusion}
+%}
+%\subfigure[Text classification]
+%{ 
+%    \includegraphics[width=0.21\textwidth]{Figures/Text_confusion}
+%    \label{fig:txt_confusion}
+%}
+%\subfigure[Baseline classification.]
+%{ 
+%    \includegraphics[width=0.21\textwidth]{Figures/majority_confusion}
+%    \label{fig:majority_confusion}
+%}
+%\subfigure[Our approach.]
+%{ 
+%    \includegraphics[width=0.21\textwidth]{Figures/confusion_HeC}
+%    \label{fig:HeC_confusion}
+%}
+%\caption{(a) and (b) are category level confusion matrices from classifying the text and image data separately.  
+%Note that, it is from this individual classification that the baseline model of majority voting is built.  (c) and (d): represent
+%the category level confusion matrices from classifying each article using the baseline method 
+%(refer to Section \ref{subsubsec:baseline}), and using heterogeneous codeword based representation.}
+%\end{figure*}
+%\begin{table}[h]
+%\begin{center}
+%\begin{tabular}{|l|l|l|}
+%\hline
+%Category & Our approach & Baseline \\
+%\hline
+%Architecture & \textbf{0.6281} & 0.3061 \\
+%Biology & \textbf{0.9359} & 0.9151 \\
+%Geography \& Places & \textbf{0.7472} & 0.7285 \\
+%History & 0.8219 & \textbf{0.8431} \\
+%Literature \& Theater & \textbf{0.4530} & 0.4237 \\
+%Media & \textbf{0.7858} & 0.4878 \\
+%Music & \textbf{0.8704} & 0.8641 \\
+%Royalty \& nobility & 0.8369 & \textbf{0.8526} \\
+%Sports \& recreation & \textbf{0.8894} & 0.8647 \\
+%Warfare & 0.7798 & \textbf{0.8642} \\
+%\hline
+%Average & \textbf{0.7742} & 0.7156\\
+%\hline
+%\end{tabular}
+%\caption{\small{\textbf{Category-level MAP scores for multimodal retrieval tasks.}}}
+%\label{table:multimodal_MAP}
+%\end{center}
+%\end{table}
+%On the classification task, our method has a higher accuracy of \textbf{86.07}\%, 
+%than the baseline model which has an accuracy of 82.86\%.  We can see that learning a unified
+%multimodal representation clearly has an advantage over working with
+%separate representations.  The confusion matrices of classifying unimodal
+%data in Figures \ref{fig:img_confusion}
+%and \ref{fig:txt_confusion} are very noisy, indicating that the unimodal 
+%representation alone cannot yield good classification results.  This is verified further
+%by comparing the confusion matrices of article classification using the baseline 
+%approach of using the unimodal representations of each datapoint, 
+%versus our approach of classifying a unified heterogeneous codeword based representation 
+%in Figures \ref{fig:majority_confusion}
+%and \ref{fig:HeC_confusion}.  Recall
+%that in Section \ref{sec:data_representation}, we clustered similar
+%unimodal codewords from different modalities together to form a 
+%heterogeneous codeword.  This suggests that, even though, as individual
+%contributors, the text and image modalities happen to be noisy, the
+%heterogeneous codeword based representation enables the discovery of 
+%interesting correlations amongst the features across modalties that
+%aids classification.
+%Precisely exhibiting this behavior, an example multinomial produced
+%by the heterogeneous codewords based approach, 
+%and the baseline approach on a Wikipedia article is shown in Figure
+%\ref{fig:example_article}.
+%
+%A summary of multimodal retrieval tasks is presented in Table \ref{table:multimodal_MAP}.
+%Before interpreting this table, we delve a bit into the intuition of what the MAP
+%score represents.  When a query belonging to class-A is submitted to a database,
+%and a sorted ranking is obtained, if many items of class-A occur at the top of a ranking,
+%then the MAP score of such a ranking is high.  Table \ref{table:multimodal_MAP} indicates
+%that, in general, better rankings are obtained through heterogeneous representations
+%than the baseline model.
+%\section{Structured Data}
+%\label{sec:structured_data}
+%\begin{figure*}[t]
+%\centering
+%\includegraphics[width=\textwidth]{Figures/image_query}
+%\caption{Examples of text retrieved for an image query.}
+%\label{fig:image_query}
+%\end{figure*}
+%\begin{figure*}[t]
+%\centering
+%\includegraphics[width=\textwidth]{Figures/text_query}
+%\caption{Examples of images retrieved for a query text.}
+%\label{fig:text_query}
+%\end{figure*}
+%Structured data scenario is nothing but a special case of the unstructured data scenario. 
+%In this section, we employ our algorithm in a dataset which is structured, in the sense that
+%there is regularity in content across the \emph{object-sets}.  That is, we make-believe that we live
+%in a world where all the Wikipedia articles contain exactly one textual paragraph 
+%accompanied by one image.  We apply our approach to represent such highly structured
+%data, and perform cross-modal retrieval tasks for evaluation.  (A cross-modal
+%retrieval task entails retrieving images for a text query, and text for an image
+%query).  We are still able to achieve comparable or better results with 
+%several existing works like: \cite{rasiwasia2010}, \cite{Clinchant_2011}
+%and \cite{Zhai_2012}.   
+%\subsection{Experiments and Results}
+%\label{subsec:experiments_and_results}
+%The data and features we use in this section were collected by 
+%\cite{rasiwasia2010}.  The authors of \cite{rasiwasia2010} extracted
+%\emph{pairs} text-image data from 10 most populated categories of the Wikipedia
+%Featured Articles.  In some sense, our dataset from Section 
+%\ref{sec:data_mining} is a more complete version of the one presented 
+%in \cite{rasiwasia2010}.
+%
+%\cite{rasiwasia2010} propose several methods for cross-modal retrieval
+%based on different levels of abstraction in terms of representing the data.
+%The best performance was exhibited by the following approach: find linear
+%projections from each modality on to a common space using Canonical
+%Correlation Analysis \cite{hotelling1936}, and represent each data point
+%in this common space as a 10-class semantic multinomial over all
+%the categories.  For evaluation, they perform cross-modal retrieval tasks.
+%Results comparing our approaches are summarized in Table \ref{table:wikipedia}.
+%Figure \ref{fig:category_level_MAP} compares the category level MAP scores
+%of the two approaches.
+%\begin{table}[h]
+%\begin{center}
+%\begin{tabular}{|l|ll|ll|}
+%\hline
+% & Text & Query & Image &  Query \\
+%\hline
+%\small{metric}  & \small{Ref \cite{rasiwasia2010}} & \small{\textbf{Ours}} & \small{Ref \cite{rasiwasia2010}} & \small{\textbf{Ours}} \\
+%\hline
+%\small{NC} & \small{0.226} & \small{\textbf{0.250}} & \small{0.277}          & \small{\textbf{0.290}} \\
+%\small{l1} & \small{0.226} & \small{\textbf{0.245}} & \small{0.228}          & \textbf{\small{0.234}} \\ % check
+%\small{KL} & \small{0.226} & \small{\textbf{0.246}} & \small{\textbf{0.241}} & \small{0.184}          \\
+%\hline
+%\end{tabular}
+%\caption{\small{{Average MAP scores on cross-modal retrieval tasks.
+%Metrics used to sort the instances: Normalized Correlation (NC),
+%l1 distance, Kullback-Leibler divergence (KL).}}}
+%\label{table:wikipedia}
+%\end{center}
+%\end{table}
+%
+%We also compare our results on cross-modal retrieval tasks with \cite{Clinchant_2011},
+%\cite{Zhai_2012}.  Refer to Table \ref{table:comparison_with_3}.  Refer to 
+%Figures \ref{fig:image_query} and \ref{fig:text_query} for some examples of cross-modal retrieval.
+%\begin{table}[h]
+%\begin{center}
+%\begin{tabular}{|l|c|}
+%\hline
+%Approach & average MAP score \\
+%\hline
+%Ours & 0.270 \\
+%Ref. \cite{rasiwasia2010} & 0.256 \\
+%Ref. \cite{Clinchant_2011} & 0.266 \\
+%Ref. \cite{Zhai_2012} & 0.274 \\
+%\hline
+%\end{tabular}
+%\caption{\small{{The average MAP scores of
+%cross-modal retrieval as compared to three other works.  The
+%metric used to rank datapoints was Normalized Correlation.}}}
+%\label{table:comparison_with_3}
+%\end{center}
+%\end{table}
+%
+%\begin{figure*}[t]
+%\subfigure[MAP scores, text query]
+%{
+%    \includegraphics[scale=0.43]{Figures/histogram_text_MAP}
+%    \label{fig:text_MAP}
+%}
+%\subfigure[MAP scores, image query]
+%{
+%    \includegraphics[scale=0.43]{Figures/histogram_image_MAP}
+%    \label{fig:image_MAP}
+%}
+%\subfigure[MAP scores, average]
+%{
+%    \includegraphics[scale=0.43]{Figures/histogram_avg_MAP}
+%    \label{fig:average_MAP}
+%}
+%\caption{Category level MAP scores. SCM refers to Semantic Correlation Matching proposed
+%by \cite{rasiwasia2010}.}
+%\label{fig:category_level_MAP}
+%\end{figure*}
+%\subsection{Discussion}
+%From Section \ref{subsec:experiments_and_results}, it is clear that our approach
+%of combining the data achieves comparable or better performance as its counterparts.
+%The disadvantage for all the competitors is, however, their inability to accommodate
+%for unstructured data.  Both \cite{Clinchant_2011} and \cite{rasiwasia2010}, for example, 
+%propose a cross-media retrieval approach that require the instances to have a one-to-one
+%correspondence. That is, every text has to be accompanied by an image, and vice versa.  Our approach,
+%in this sense, is more flexible in that it naturally handles unstructured data by working
+%at the \emph{codeword} level to model the correlations across modalities. 
+%\section{Conclusion}
+%Being able to learn from unstructured multimodal data is an important problem, and an 
+%active research topic.  In this paper, we have presented a simple, and efficient 
+%approach to represent such data.  Our approach aims to find prototypical features
+%across the different modalities, and represents the multimodal and unstructured data
+%in terms of these prototypical features.  Once such a representation has been constructed,
+%the data lends itself to many machine learning algorithms.
+%\label{sec:conclusion}
+\bibliography{refs}
+\bibliographystyle{abbrv}
+\end{document}
+

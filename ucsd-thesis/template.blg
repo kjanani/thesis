@@ -1,0 +1,233 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: template.aux
+A level-1 auxiliary file: template_frontmatter.aux
+A level-1 auxiliary file: KDD_chapter.aux
+A level-1 auxiliary file: PLOS_chapter.aux
+A level-1 auxiliary file: AB_chapter.aux
+The style file: alpha.bst
+Database file #1: refs.bib
+Repeated entry---line 4333 of file refs.bib
+ : @book{Bishop_2006
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4804 of file refs.bib
+ : @article{blei2003
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 6250 of file refs.bib
+ : @article{mairal2010
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 7988 of file refs.bib
+ : @book{Tan_Steinbach_Kumar
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 7997 of file refs.bib
+ : @inproceedings{Castillo:2014
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8035 of file refs.bib
+ : @inproceedings{Kwak:2010
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8053 of file refs.bib
+ : @article{Szabo:2010
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8101 of file refs.bib
+ : @inproceedings{Lerman:2010
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8119 of file refs.bib
+ : @inproceedings{Tatar:2011
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8150 of file refs.bib
+ : @inproceedings{Pinto:2013
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8168 of file refs.bib
+ : @inproceedings{Ahmed:2013
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8201 of file refs.bib
+ : @inproceedings{YatesTrumper:2013
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8208 of file refs.bib
+ : @inproceedings{Nallapati:2008
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8216 of file refs.bib
+ : @inproceedings{AlSumait:2008
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8224 of file refs.bib
+ : @article{Erosheva:2004
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8372 of file refs.bib
+ : @inproceedings{Vaca:2014
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8437 of file refs.bib
+ : @inproceedings{Sayyadi:2009
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8462 of file refs.bib
+ : @inproceedings{Becker:2009
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8495 of file refs.bib
+ : @inproceedings{Wang:2006
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8513 of file refs.bib
+ : @inproceedings{Wang:2012
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8531 of file refs.bib
+ : @inproceedings{Kawamae:2011
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8556 of file refs.bib
+ : @inproceedings{Lee:Nature
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8580 of file refs.bib
+ : @inproceedings{Saha:2012
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8588 of file refs.bib
+ : @inproceedings{Rosen-Zvi:2004
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8595 of file refs.bib
+ : @inproceedings{chang2009relational
+ :                                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8602 of file refs.bib
+ : @article{McCallum:2007
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8620 of file refs.bib
+ : @article{lee_1999
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8631 of file refs.bib
+ : @inproceedings{singh:2008
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8649 of file refs.bib
+ : @inproceedings{sekiguchi:2006
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8748 of file refs.bib
+ : @inproceedings{Saha:2012
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8845 of file refs.bib
+ : @book{Bishop_2006
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 9316 of file refs.bib
+ : @article{blei2003
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 10762 of file refs.bib
+ : @article{mairal2010
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12506 of file refs.bib
+ : @book{Tan_Steinbach_Kumar
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12515 of file refs.bib
+ : @inproceedings{Castillo:2014
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12553 of file refs.bib
+ : @inproceedings{Kwak:2010
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12571 of file refs.bib
+ : @article{Szabo:2010
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12619 of file refs.bib
+ : @inproceedings{Lerman:2010
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12637 of file refs.bib
+ : @inproceedings{Tatar:2011
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12668 of file refs.bib
+ : @inproceedings{Pinto:2013
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 12686 of file refs.bib
+ : @inproceedings{Ahmed:2013
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in Tsur:2012
+Warning--empty booktitle in AlSumait:2008
+Warning--empty booktitle in Blei:2003
+Warning--empty booktitle in Blei:2006
+Warning--empty booktitle in El-Arini:2013
+Warning--empty booktitle in Kawamae:2011
+Warning--empty booktitle in Nallapati:2008
+Warning--empty booktitle in Rosen-Zvi:2004
+Warning--empty booktitle in singh:2008
+Warning--empty title in sekiguchi:2006
+Warning--empty year in sekiguchi:2006
+Warning--empty booktitle in Saveski:2014
+Warning--empty booktitle in Saha:2012
+Warning--empty booktitle in YatesTrumper:2013
+Warning--empty author in Tsur:2012
+Warning--empty booktitle in Vaca:2014
+Warning--empty booktitle in Wang:2012
+Warning--empty booktitle in Wang:2006
+You've used 78 entries,
+            2543 wiz_defined-function locations,
+            1027 strings with 18604 characters,
+and the built_in function-call counts, 35308 in all, are:
+= -- 3479
+> -- 1995
+< -- 25
++ -- 735
+- -- 723
+* -- 2677
+:= -- 5801
+add.period$ -- 243
+call.type$ -- 78
+change.case$ -- 562
+chr.to.int$ -- 77
+cite$ -- 97
+duplicate$ -- 1313
+empty$ -- 2453
+format.name$ -- 798
+if$ -- 7171
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 77
+newline$ -- 390
+num.names$ -- 231
+pop$ -- 561
+preamble$ -- 1
+purify$ -- 645
+quote$ -- 0
+skip$ -- 1102
+stack$ -- 0
+substring$ -- 1773
+swap$ -- 224
+text.length$ -- 25
+text.prefix$ -- 9
+top$ -- 0
+type$ -- 616
+warning$ -- 18
+while$ -- 320
+width$ -- 82
+write$ -- 1005
+(There were 41 error messages)

@@ -1,0 +1,272 @@
+\documentclass[a4paper,10pt]{article}
+\setcounter{secnumdepth}{3}
+\usepackage{graphicx,amssymb,amstext,amsmath}
+\usepackage[paper=a4paper,margin=1in]{geometry}
+\usepackage{graphicx} % more modern
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{natbib}
+%\usepackage{amsthm}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{appendix}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{relsize}
+\usepackage{verbatim}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\lw}{\Lambda_{W}}
+\newcommand{\lv}{\Lambda_{V}}
+\newcommand{\uw}{U_{W}}
+\newcommand{\uv}{U_{V}}
+%\newcommand{\tbf}[x]{\textbf{x}}
+\newcommand{\ess}{\mathcal{S}}
+\newcommand{\I}{\mathcal{I}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\G}{\mathcal{G}}
+\DeclareMathOperator{\thresh}{Thresh}
+\setlength{\jot}{0pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\newcommand\etc{\textsl{\textit{e.t.c.}}}
+\newcommand\eg{\textsl{\textit{e.g.}}\ }
+\newcommand\etal{\textsl{et al.}}
+\newcommand\Quote[1]{\lq\textsl{#1}\rq}
+\newcommand\miktex{\textsl{MikTeX}}
+%%%%%% Some new definitions for this report
+\newcommand{\W}{\textbf{W}^t}
+\newcommand{\HT}{\textbf{H}^t_T}
+\newcommand{\HC}{\textbf{H}^t_C}
+\newcommand{\MT}{\textbf{M}^t_T}
+\newcommand{\MC}{\textbf{M}^t_C}
+\newcommand{\HTtt}{\textbf{H}^{t-1}_T}
+\newcommand{\HCtt}{\textbf{H}^{t-1}_C}
+\newcommand{\XT}{\textbf{X}^t_T}
+\newcommand{\XC}{\textbf{X}^t_C}
+\renewcommand{\I}{\textbf{I}}
+\newcommand{\0}{\textbf{0}}
+\newcommand{\e}{\textbf{e}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\title{Simultaneous Topic and Community Tracking: Proof of Convergence for Update Equations}
+\date{}
+\maketitle
+
+\begin{abstract}
+This write-up is based on the \emph{Joint Past Present} decomposition presented
+in \cite{vaca_2014}.  In this report, we consider a more
+generalized version of the objective function by taking into account different
+information sources.  The objective function under consideration
+is non-convex in the variables of interest.  The derivations for the multiplicativeWe provide the multiplicative 
+update equations (originally proposed in \cite{lee_1999}) for finding a local minimum.
+\end{abstract}
+
+\section{Objective Function}
+
+Our new objective function is:
+
+\begin{equation}
+\begin{split}
+L =  \underset{\W,\HT,\HC,\MT,\MC} {\mathrm{argmin}} & ||\XT - \W\HT||^2_F + ||\XT - \W\MT\HTtt||^2_F \\
+	&\quad + \lambda_T ||\MT - \I||^2_F + \alpha_T||\HT ||_1 + \beta_T|| \W||_1 + \gamma_T||\MT ||_1 \\
+	&\quad +  ||\XC - \W\HC||^2_F + ||\XC - \W\MC\HCtt||^2_F \\
+	&\quad + \lambda_C ||\MC - \I||^2_F + \alpha_C||\HC ||_1 + \beta_C|| \W||_1 + \gamma_C||\MC ||_1.
+\end{split}
+\label{eq:objective}
+\end{equation}
+Let $\XT$ be an $N_d^t \times N_w$ where $N_d^t$ is the number of documents arriving at time $t$ and
+$N_w$ is the number of features in some encoding scheme of representing text documents.  For example,
+it could be the number of words in a bag of word representation.  
+For the \emph{same} set of documents, we construct another matrix
+$\XC$, an $N_d^t \times N_u$.  Here, each document is represented with those users who have tweeted
+about the document (event).  We wish to decompose $\XT$ and $\XC$ approximately using factors $\W\HT$ and
+$\W\HC$ respectively.  For clarity, the dimensions of the other matrices are given below.
+
+\begin{itemize}
+\item $\W$ is an $N_d^t \times K$ matrix, where K is the number of textual topics, \emph{and} the number
+of communities.  We assume that there is one-to-one correspondence between a topic and a community.  This
+is a reasonable assumption, as communities in networks are generally formed because there is some commonality
+or common interest between the members.
+\item  $\HT$ is an $K \times N_w$ topic matrix.  Each row of this matrix is can be thought of as a topic.
+For example, for a bag-of-words representation of $\XT$, this matrix represents how strong the presence of
+a word is in each topic.
+\item $\HC$ is an $K \times N_u$ community matrix.  Each row of this matrix is a community.  For example
+the $(i,j)^{th}$ element of this matrix can be thought of representing how strong a presence a user-$j$ 
+has towards a particular community-$i$.
+\item $\MT$ is a $K \times K$ \emph{topic tracking} matrix.  It helps explain $\HT$ as a linear function of $\HTtt$.
+This is a square matrix, not necessarily symmetric (as topic evolutions need not be symmetric).
+\item $\MC$ is a $K \times K$ \emph{community tracking} matrix.  It helps explain $\HC$ as a linear
+function of $\HCtt$.
+\item $\alpha_T, \alpha_C, \beta_T, \beta_C, \gamma_T, \gamma_C, \lambda_T, \lambda_C$ are all regularization
+parameters.
+\end{itemize}
+
+\section{Update Equations}
+The function is non-convex when considered under all variables of interest.  So, we use multiplicative updates
+(which are normally used for NMF, as presented in \cite{lee_1999}) to find a local minumum.  The Karush-Kuhn-Tucker
+first-order conditions when applied to Equation \ref{eq:objective} become:
+\begin{itemize}
+\item primal feasibility: $\W \geq \0, \HT \geq \0, \HC \geq \0, \MT \geq \0 \text{ and } \MC \geq \0$.
+\item stationarity:  $L(\W,\HT,\HC,\MT,\MC) = 0$, at the minimizers, ${\W}^*, {\HT}^*, {\HC}^*, {\MT}^*
+{\MC}^*$.
+\item complementary slacnkess: 
+\begin{itemize}
+\item $\W \odot \bigtriangledown_{\W}L = \0$, 
+\item $\HT \odot \bigtriangledown_{\HT}L = \0$,
+\item $\HC \odot \bigtriangledown_{\HC}L = \0$, 
+\item $\MT \odot \bigtriangledown_{\MT}L = \0$, 
+\item $\MC \odot \bigtriangledown_{\MC}L = \0$.
+\end{itemize}
+\end{itemize}
+
+The actual derivations of the derivatives are provided in Section \ref{sec:gradient}.  The final partial derivatives
+with respect to each of the variables and the corresponding multiplicative update equations are alone provided
+in this section.
+
+\begin{equation}
+\begin{split}
+\bigtriangledown_{\W}L = & \W(\HT{\HT}^{T} + \HC{\HC}^{T} + {\MT}^{T}{\HTtt}^{T}\HTtt\MT + {\MC}^{T}{\HCtt}^{T}\HCtt\MC) \\
+	&\quad - (\XT{\HT}^{T}+\XT{\HTtt}^{T}{\MT}^{T} - \beta\e{\e}^{T} + \XC{\HC}^{T}+\XC{\HCtt}^{T}{\MC}^{T} - \beta\e{\e}^{T}).
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\bigtriangledown_{\HT}L = & {\W}^{T}\W\HT - ({\W}^{T}\XT-\alpha_T\e{\e}^{T}).
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\bigtriangledown_{\HC}L = & {\W}^{T}\W\HC - ({\W}^{T}\XC-\alpha_C\e{\e}^{T}).
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\bigtriangledown_{\MT}L = &  (\HTtt{\HTtt}^{T}){\MT}^{T}({\W}^{T}\W) + \lambda {\MT}^{T} - (\HTtt{\XT}^{T}\W+\lambda_T\I - \gamma_T).
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\bigtriangledown_{\MC}L = &  (\HCtt{\HCtt}^{T}){\MC}^{T}({\W}^{T}\W) + \lambda {\MC}^{T} - (\HCtt{\XC}^{T}\W+\lambda_C\I - \gamma_C).
+\end{split}
+\end{equation}
+From each of the complementary slackness conditions, we derive the following multiplicative update 
+equations.
+\begin{eqnarray}
+\label{eq:updates}
+\begin{split}
+\W \gets & \W \odot \frac{(\XT{\HT}^{T}+\XT{\HTtt}^{T}{\MT}^{T} - \beta\e{\e}^{T} + \XC{\HC}^{T}+\XC{\HCtt}^{T}{\MC}^{T} - \beta\e{\e}^{T})}{\W(\HT{\HT}^{T} + \HC{\HC}^{T} + {\MT}^{T}{\HTtt}^{T}\HTtt\MT + {\MC}^{T}{\HCtt}^{T}\HCtt\MC)}, \\
+\HT \gets &\quad \HT \odot \frac{({\W}^{T}\XT-\alpha_T\e{\e}^{T})}{{\W}^{T}\W\HT}, \\
+\HC \gets &\quad \HC \odot \frac{({\W}^{T}\XC-\alpha_C\e{\e}^{T})}{{\W}^{T}\W\HC}, \\
+\MT \gets &\quad \MT \odot \frac{(\HTtt{\XT}^{T}\W+\lambda_T\I - \gamma_T)}{(\HTtt{\HTtt}^{T}){\MT}^{T}({\W}^{T}\W) + \lambda {\MT}^{T}}, \\
+\MC \gets &\quad \MC \odot \frac{(\HCtt{\XC}^{T}\W+\lambda_T\I - \gamma_C)}{(\HCtt{\HCtt}^{T}){\MC}^{T}({\W}^{T}\W) + \lambda {\MC}^{T}}.
+\end{split}
+\end{eqnarray}
+\section{Derivations of gradients}
+\label{sec:gradient}
+We will first derive $\bigtriangledown_{\W}L$.  We use several properties of derivatives of trace of a matrix.  These properties
+can be found in \cite{matrixcookbook}.  Equation \ref{eq:objective} can be written as,
+\begin{equation}
+L = L_T + L_C,
+\end{equation}
+where $L_T$ is the loss in modeling topics and topic tracking by learning a decomposition for $\XT$, and 
+$L_C$ is the loss in modeling communities and community tracking by learning a decomposition for $\XC$. Note that,
+variables $\HT$ and $\MT$ are present only in $L_T$, and likewise for $\HC$ and $\MC$.  The only common variable
+present in both loss functions is $\W$. 
+\subsection{Gradient w.r.t. $\W$}
+\begin{align}
+\bigtriangledown_{\W}L_T &= \bigtriangledown_{\W}\left(||\XT - \W\HT||_F^2 + ||\XT - \W\MT\HTtt||_F^2 + \beta_T||\W||_1\right). \\ 
+&=  \bigtriangledown_{\W}\left(\text{Tr}\left( (\XT - \W\HT)^{T}(\XT - \W\HT) \right) + \text{Tr}\left( (\XT - \W\MT\HTtt)^{T}(\XT - \W\MT\HT) \right) + \beta_T \sum_{ij} {\W}_{ij}\right). \label{eq:derivative_topic_W}
+\end{align}
+Note that we can replace $||\W||_1$ with $\sum_i\sum_j{\W}_{ij}$ because we have a primal constraint that forces ${\W}_{ij}$ to be positive.
+Now, we obtain the derivatives of each term.
+\begin{equation}
+\bigtriangledown_{\W}\text{Tr}(\XT - \W\HT)^{T}(\XT - \W\HT) = \bigtriangledown_{\W}\text{Tr}({\HT}^{T}{\W}^{T}\W\HT) - \bigtriangledown_{\W}\text{Tr}({\HT}^{T}{\W}^{T}\XT)   - \bigtriangledown_{\W}\text{Tr}({\XT}^{T}{\W}\HT). \label{eq:sub_term_topic_1}
+\end{equation}
+We utilize the properties of the derivative of traces, $\bigtriangledown_{X}\text{Tr}(AX^TB) = BA$,  $\bigtriangledown_{X}\text{Tr}(AXB) = A^TB^T$ and  $\bigtriangledown_{X}\text{Tr}B^TX^TCXB = C^TXBB^T + CXBB^T$ in Equation \ref{eq:sub_term_topic_1} to obtain,
+\begin{equation}
+\bigtriangledown_{\W}\text{Tr}(\XT - \W\HT)^{T}(\XT - \W\HT) = 2\W\HT{\HT}^{T} - 2\XT{\HT}^{T}. \label{eq:sub_term_W_1}
+\end{equation}
+In a similar fashion, the derivative of $\bigtriangledown_{\W}\text{Tr}(\XT - \W\MT\HTtt)^{T}(\XT - \W\MT\HTtt)$ can be calculated as:
+\begin{equation}
+\bigtriangledown_{\W}\text{Tr}(\XT - \W\MT\HTtt)^{T}(\XT - \W\MT\HTtt) = 2\W\left(\HTtt\MT{\MT}^{T}{\HTtt}^{T}\right) - 2 {\XT}^{T}\left(\HTtt\MT\right)^{T}. \label{eq:sub_term_W_2}
+\end{equation}
+The derivative of the last term in Equation \ref{eq:derivative_topic_W} is just $\beta_T \e{\e}^T$.  Collecting together Equations \ref{eq:sub_term_W_1}, \ref{eq:sub_term_W_2} and 
+$\beta_T \e{\e}^T$, we obtain
+\begin{equation}
+\bigtriangledown_{\W}L_T = \W\left(\HT{\HT}^T + \HTtt\MT\left(\HTtt\MT\right)^{T}\right) + \left(\XT{\HT}^T + \XT\left(\MT\HTtt\right)^T - \beta_T\e{\e}^T\right). \label{eq:wrt_T}
+\end{equation}
+Similarly, the derivative of $L_C$ with respect to $\W$ can be obtained as
+\begin{equation}
+\bigtriangledown_{\W}L_C = \W\left(\HC{\HC}^T + \HCtt\MC\left(\HCtt\MC\right)^{T}\right) + \left(\XC{\HC}^T + \XT\left(\MC\HCtt\right)^T - \beta_C\e{\e}^T\right). \label{eq:wrt_C}
+\end{equation}
+Putting together Equations \ref{eq:wrt_T} and \ref{eq:wrt_C}, along with the complementary slackness condition that $\W \odot \bigtriangledown_{\W}L = 0$, we obtain the first 
+update equation in Equation \ref{eq:updates}.
+\subsection{Gradient w.r.t. $\HT$ and $\HC$}
+We can decompose the derivative of $L$ with respect to $\HT$ (and likewise, $\HC$) as:
+\begin{eqnarray}
+\bigtriangledown_{\HT}L = \bigtriangledown_{\HT}L_T, \\
+\bigtriangledown_{\HC}L = \bigtriangledown_{\HC}L_C.
+\end{eqnarray}
+Consider
+\begin{equation}
+\bigtriangledown_{\HT}L_T =\bigtriangledown_{\HT}\left( \text{Tr}(\XT - \W\HT)^T(\XT - \W\HT) + \alpha_T\sum_{ij}{\HT}_{ij}\right).
+\label{eq:derivative_ht}
+\end{equation}
+Again, note that the term $||\HT||_1$ can be written as $\sum_{ij}{\HT}_{ij}$ because of the primal constraint $\HT \geq \0$. 
+For simplifying Equation \ref{eq:derivative_ht}, we use the fact that $\bigtriangledown_{X}\text{Tr}(X^{T}BX) = BX+B^TX$, and
+$\bigtriangledown_{X}\text{Tr}(XA) = A^T$, and that traces are cyclical, $\text{Tr}(ABC) = \text{Tr}(CAB) = \text{Tr}(BCA)$.
+A straight forward expansion of Equation \ref{eq:derivative_ht} and application of the aforementioned facts yields that,
+\begin{equation}
+\bigtriangledown_{\HT}L_T = 2 {\W}^T\W\HT - 2({\W}^T\XT - \alpha_T\e^T\e). \label{eq:derivative_ht_2}
+\end{equation}
+Equation \ref{eq:derivative_ht_2} along with the complementary slackness condition that $\HT \odot \bigtriangledown_{\HT}L = 0$ yields
+the update for $\HT$ in Equation \ref{eq:updates}.  Similar derivations can be written for $\bigtriangledown_{\HC}L$.
+\subsection{Gradient w.r.t $\MT$ and $\MC$}
+We can decompose the derivative of $L$ with respect to $\MT$ (and likewise, $\MC$) as:
+\begin{eqnarray}
+\bigtriangledown_{\MT}L = \bigtriangledown_{\MT}L_T,\label{eq:derivative_MT} \\
+\bigtriangledown_{\MC}L = \bigtriangledown_{\MC}L_C. \label{eq:derivative_MC}
+\end{eqnarray}
+where $L_T$ and $L_C$ are the losses while modeling topic tracking and community tracking respectively.
+We derive the derivative of Equation \ref{eq:derivative_MT}.  We can follow a similar procedure to derive the derivative
+of Equation \ref{eq:derivative_MC}.  We use the following formulas in the derivation (these formulas can be found in Matrix cookbook
+\cite{matrixcookbook}):
+\begin{align}
+\bigtriangledown_{X}\text{Tr}(B^TX^TCBX) &= C^TXBB^T + CXBB^T, \label{eq:formula_1} \\
+\bigtriangledown_{X}\text{Tr}(AX^TB) &= BA, \label{eq:formula_2} \\
+\bigtriangledown_{X}\text{Tr}(AXB) &= A^TB^T. \label{eq:formula_3}
+\end{align}
+We begin by expanding $L_T$.
+\begin{equation}
+\bigtriangledown_{\MT}L_T = \bigtriangledown_{\MT}\text{Tr}(\XT - \W\MT\HT)^T(\XT - \W\MT\HT) + \lambda_T\text{Tr}(\MT - I)^T(\MT - I) + \gamma_T ||\MT||_1. \label{eq:derivative_M_breakdown}
+\end{equation}
+In the rest of the section, we will derive the derivative of each term in Equation \ref{eq:derivative_M_breakdown}.
+In Equation \ref{eq:derivative_M_breakdown}, the last term can be replaced by $\gamma_T\sum_{ij}{\MT}[ij]$ because of the primal constraint
+that $\MT \geq \0$.  The derivative of this term is $\gamma_T\e{\e}^T$.  Now, consider the first
+term $ \bigtriangledown_{\MT}\text{Tr}(\XT - \W\MT\HTtt)^T(\XT - \W\MT\HTtt) $.  It can be expanded as,
+\begin{align}
+\bigtriangledown_{\MT}\left(\text{Tr}({\HTtt}^T{\MT}^T{\W}^T\W\MT\HTtt) - \text{Tr}({\HTtt}^T{\MT}^T{\W}^T\XT) - \text{Tr}({\XT}^T\W\MT\HTtt)\right).
+\end{align}
+Each of the terms can be differentiated as follows:
+\begin{itemize}
+\item using Equation \ref{eq:formula_1}, we simplify $\bigtriangledown_{\MT}\text{Tr}({\HTtt}^T{\MT}^T{\W}^T\W\MT\HTtt) = 2{\W}^T\W\MT\HTtt{\HTtt}^T$,
+\item using Equation \ref{eq:formula_2}, we simplify $\bigtriangledown_{\MT}\text{Tr}({\HTtt}^T{\MT}^T{\W}^T\XT) = {\W}^T\XT{\HTtt}^T$,
+\item using Equation \ref{eq:formula_3}, we simplify $\bigtriangledown_{\MT}\text{Tr}({\XT}^T\W\MT\HTtt) = {\W}^T\XT{\HTtt}^T$.  
+\end{itemize}
+In a similar manner, the derivative of $\text{Tr}(\MT - I)^T(\MT - I)$ can be derived as $2(\MT-I)$.  Putting it all together, we get that:
+\begin{equation}
+\begin{split}
+\bigtriangledown_{\MT}L = {\W}^T\W{\MT}^T\HTtt{\HTtt}^T + \lambda_T{\MT} - \left({\W}^T\XT{\HTtt}^T + \lambda_T I - \gamma_T\e{\e}^T\right).
+\end{split}
+\end{equation}
+\bibliography{refs}
+\bibliographystyle{plain}
+\end{document}

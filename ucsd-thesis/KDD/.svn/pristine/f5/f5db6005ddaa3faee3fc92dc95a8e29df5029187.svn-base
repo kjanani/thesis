@@ -1,0 +1,188 @@
+\begin{thebibliography}{10}
+
+\bibitem{Allan:1998}
+James Allan, Ron Papka, and Victor Lavrenko.
+\newblock On-line new event detection and tracking.
+\newblock In {\em Proceedings of the 21st Annual International ACM SIGIR
+  Conference on Research and Development in Information Retrieval}, SIGIR '98,
+  pages 37--45, New York, NY, USA, 1998. ACM.
+
+\bibitem{AlSumait:2008}
+Loulwah AlSumait, Daniel Barbará, and Carlotta Domeniconi.
+\newblock Online-lda.
+\newblock In {\em ICDM}, pages 3--12. IEEE Computer Society, 2008.
+
+\bibitem{YatesTrumper:2013}
+Ricardo Baeza-Yates and Diego Saez-Trumper.
+\newblock Online social networks: Beyond popularity.
+\newblock In {\em Proceedings of the 22Nd International Conference on World
+  Wide Web Companion}, WWW '13 Companion, pages 489--490, Republic and Canton
+  of Geneva, Switzerland, 2013. International World Wide Web Conferences
+  Steering Committee.
+
+\bibitem{Becker:2009}
+Hila Becker, Mor Naaman, and Luis Gravano.
+\newblock Event identification in social media.
+\newblock In {\em WebDB}, 2009.
+
+\bibitem{blei2003}
+David~M. Blei, Andrew~Y. Ng, and Michael~I. Jordan.
+\newblock Latent dirichlet allocation.
+\newblock {\em J. Mach. Learn. Res.}, 3:993--1022, March 2003.
+
+\bibitem{Cao:2007}
+Bin Cao, Dou Shen, Jian-Tao Sun, Xuanhui Wang, Qiang Yang, and Zheng Chen.
+\newblock Detect and track latent factors with online nonnegative matrix
+  factorization.
+\newblock In {\em Proceedings of the 20th International Joint Conference on
+  Artifical Intelligence}, IJCAI'07, pages 2689--2694, San Francisco, CA, USA,
+  2007. Morgan Kaufmann Publishers Inc.
+
+\bibitem{chang2009relational}
+Jonathan Chang and David~M Blei.
+\newblock Relational topic models for document networks.
+\newblock In {\em International Conference on Artificial Intelligence and
+  Statistics}, pages 81--88, 2009.
+
+\bibitem{Erosheva:2004}
+Elena Erosheva, Stephen Fienberg, and John Lafferty.
+\newblock Mixed-membership models of scientific publications.
+\newblock {\em Proceedings of the National Academy of Sciences}, 101(suppl
+  1):5220--5227, 2004.
+
+\bibitem{Allan:2002}
+JonathanG. Fiscus and GeorgeR. Doddington.
+\newblock Topic detection and tracking evaluation overview.
+\newblock In James Allan, editor, {\em Topic Detection and Tracking}, volume~12
+  of {\em The Information Retrieval Series}, pages 17--31. Springer US, 2002.
+
+\bibitem{He:2009}
+Qi~He, Kuiyu Chang, Ee-Peng Lim, and Arindam Banerjee.
+\newblock Keep it simple with time: A reexamination of probabilistic topic
+  detection models.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  32(10):1795--1808, 2010.
+
+\bibitem{Kawamae:2011}
+Noriaki Kawamae.
+\newblock Trend analysis model: Trend consists of temporal words, topics, and
+  timestamps.
+\newblock In {\em Proceedings of the Fourth ACM International Conference on Web
+  Search and Data Mining}, WSDM '11, pages 317--326, New York, NY, USA, 2011.
+  ACM.
+
+\bibitem{Lavrenko:2002}
+Victor Lavrenko, James Allan, Edward DeGuzman, Daniel LaFlamme, Veera Pollard,
+  and Stephen Thomas.
+\newblock Relevance models for topic detection and tracking.
+\newblock In {\em Proceedings of the Second International Conference on Human
+  Language Technology Research}, HLT '02, pages 115--121, San Francisco, CA,
+  USA, 2002. Morgan Kaufmann Publishers Inc.
+
+\bibitem{lee_1999}
+Daniel~D Lee and H~Sebastian Seung.
+\newblock Learning the parts of objects by non-negative matrix factorization.
+\newblock {\em Nature}, 401(6755):788--791, 1999.
+
+\bibitem{Lee:Nature}
+Daniel~D. Lee and H.~Sebastian Seung.
+\newblock Algorithms for non-negative matrix factorization.
+\newblock In {\em In NIPS}, pages 556--562. MIT Press, 2000.
+
+\bibitem{Leek:2002}
+Tim Leek, Richard Schwartz, and Srinivasa Sista.
+\newblock Probabilistic approaches to topic detection and tracking.
+\newblock In James Allan, editor, {\em Topic Detection and Tracking}, volume~12
+  of {\em The Information Retrieval Series}, pages 67--83. Springer US, 2002.
+
+\bibitem{mairal2010}
+Julien Mairal, Francis Bach, Jean Ponce, and Guillermo Sapiro.
+\newblock Online learning for matrix factorization and sparse coding.
+\newblock {\em J. Mach. Learn. Res.}, 11:19--60, March 2010.
+
+\bibitem{Mathioudakis:2010}
+Michael Mathioudakis and Nick Koudas.
+\newblock Twittermonitor: Trend detection over the twitter stream.
+\newblock In {\em Proceedings of the 2010 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '10, pages 1155--1158, New York, NY, USA,
+  2010. ACM.
+
+\bibitem{McCallum:2007}
+Andrew McCallum, Xuerui Wang, and Andr{\'e}s Corrada-Emmanuel.
+\newblock Topic and role discovery in social networks with experiments on enron
+  and academic email.
+\newblock {\em J. Artif. Int. Res.}, 30(1):249--272, October 2007.
+
+\bibitem{Nallapati:2008}
+Ramesh~M. Nallapati, Amr Ahmed, Eric~P. Xing, and William~W. Cohen.
+\newblock Joint latent topic models for text and citations.
+\newblock In {\em Proceedings of the 14th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, KDD '08, pages 542--550, New York,
+  NY, USA, 2008. ACM.
+
+\bibitem{Rosen-Zvi:2004}
+Michal Rosen-Zvi, Thomas Griffiths, Mark Steyvers, and Padhraic Smyth.
+\newblock The author-topic model for authors and documents.
+\newblock In {\em Proceedings of the 20th Conference on Uncertainty in
+  Artificial Intelligence}, UAI '04, pages 487--494, Arlington, Virginia,
+  United States, 2004. AUAI Press.
+
+\bibitem{Saha:2012}
+Ankan Saha and Vikas Sindhwani.
+\newblock Learning evolving and emerging topics in social media: A dynamic nmf
+  approach with temporal regularization.
+\newblock In {\em Proceedings of the Fifth ACM International Conference on Web
+  Search and Data Mining}, WSDM '12, pages 693--702, New York, NY, USA, 2012.
+  ACM.
+
+\bibitem{Sayyadi:2009}
+Hassan Sayyadi, Matthew Hurst, and Alexey Maykov.
+\newblock Event detection and tracking in social streams.
+\newblock In {\em ICWSM}, 2009.
+
+\bibitem{sekiguchi:2006}
+Y.~Sekiguchi, H.~Kawashima, H.~Okuda, and M.~Oku.
+\newblock Topic detection from blog documents using users' interests.
+\newblock In {\em Mobile Data Management, 2006. MDM 2006. 7th International
+  Conference on}, pages 108--108, May 2006.
+
+\bibitem{singh:2008}
+Ajit~P. Singh and Geoffrey~J. Gordon.
+\newblock Relational learning via collective matrix factorization.
+\newblock In {\em Proceedings of the 14th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, KDD '08, pages 650--658, New York,
+  NY, USA, 2008. ACM.
+
+\bibitem{Vaca:2014}
+Carmen~K. Vaca, Amin Mantrach, Alejandro Jaimes, and Marco Saerens.
+\newblock A time-based collective factorization for topic discovery and
+  monitoring in news.
+\newblock In {\em Proceedings of the 23rd International Conference on World
+  Wide Web}, WWW '14, pages 527--538, Republic and Canton of Geneva,
+  Switzerland, 2014. International World Wide Web Conferences Steering
+  Committee.
+
+\bibitem{Wang:2006}
+Xuerui Wang and Andrew McCallum.
+\newblock Topics over time: A non-markov continuous-time model of topical
+  trends.
+\newblock In {\em Proceedings of the 12th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, KDD '06, pages 424--433, New York,
+  NY, USA, 2006. ACM.
+
+\bibitem{Wang:2012}
+Yu~Wang, Eugene Agichtein, and Michele Benzi.
+\newblock Tm-lda: Efficient online modeling of latent topic transitions in
+  social media.
+\newblock In {\em Proceedings of the 18th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, KDD '12, pages 123--131, New York,
+  NY, USA, 2012. ACM.
+
+\bibitem{Yang:1998}
+Yiming Yang, Tom Pierce, and Jaime Carbonell.
+\newblock A study of retrospective and on-line event detection.
+\newblock In {\em Proceedings of the 21st Annual International ACM SIGIR
+  Conference on Research and Development in Information Retrieval}, SIGIR '98,
+  pages 28--36, New York, NY, USA, 1998. ACM.
+
+\end{thebibliography}

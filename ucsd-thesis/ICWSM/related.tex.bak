@@ -1,0 +1,34 @@
+\section{Related Works}
+\label{sec:related}
+%\subsection{Digital Disease Detection \& Ebola}
+The application of computational methods to social media, news
+reports, and 
+consumer-generated non-clinical ``big data'' is a rapidly growing area
+of research, variously referred to as \emph{digital disease detection}
+\cite{Brownstein:2009aa},
+\emph{digital epidemiology} \cite{Salathe:2012aa}, and \emph{infodemiology} \cite{Eysenbach:2009aa}, with a focus
+both on tracking disease incidence and prevalence (e.g. Google Flu
+Trends \cite{Cook:2011aa})
+and on the early identification of disease outbreaks (e.g. Healthmap \cite{Freifeld:2008aa},
+Biocaster \cite{Collier:2008aa}).   There is now substantial evidence
+that Twitter is a valuable resource for some infectious disease
+monitoring applications, especially for influenza
+\cite{Signorini:2011aa,Collier:2011aa}.
+However, 
+disease tracking and outbreak detection is just part of the public
+health response to an outbreak \cite{Oyeyemi:2014aa}: understanding the strength and duration of public concerns, 
+and identifying potential opportunities for health education are
+vital, especially in situations where a disease is poorly
+understood \cite{SteelFisher:2015aa} by the general public.  
+One major reason for this is that the content generated on
+microblogging platforms like Twitter
+is highly infiltrated with noise (since it is not curated), hence rendering it difficult
+for computational/statistical approaches (like topic models) to automatically make inferences
+and summarize the content \cite{Rajani:2014, Mehrotra:2013, Hong:2010}.
+Although advancements have been made in the area of detection and
+identification of events from social media, these contributions
+have been more methodical (step-wise procedures) than algorithmic \cite{weng2011event, li2012tedas, becker2011beyond, cataldi2010emerging}.  
+While, at the time of an epidemic, what is really needed is a more automatic approach with minimum
+human involvement to identify potential areas
+intervention from official public health departments from a very high volume
+of constantly evolving incoming data.

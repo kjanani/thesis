@@ -1,0 +1,180 @@
+%!TEX root = paper.tex
+
+In this section, we explain how we formulate and optimize for the problem of topic discovery and evolution
+using content and social context
+information.  Henceforth, we refer to our method as \textbf{LTECS}, an acronym for Learning Topic
+Evolution from Content
+and Social media activity.  We begin with a few notations.  We assume a constant flow of documents.
+Let $\mathbf{X}^t$ be a $N_d^t \times N_f$ matrix at time $t$ of $N_d^t$ documents and $N_f$ 
+textual features.
+The complete data matrix $\mathbf{X}$ obtained by concatenating vertically the matrices $\mathbf{X}^t$ along the time steps is considered huge and 
+and practically difficult to store and to handle.
+The simplest approach to topic detection consists of directly learning from the global matrix $\mathbf{X}$.
+However, in the real world, we are observing evolving topics and trends \cite{McCallum:2007}.
+Hence, using much older data to estimate current trends may lead to wrong inference. 
+Another typical strategy, consists of directly learning topics from the current batch of data while 
+ignoring the trends history.  One is therefore faced with the tradeoff between past and present observations.
+While recent approaches modeling topic evolution do address this tradeoff \cite{Vaca:2014, AlSumait:2008}, they rely
+only on the content of the documents has their primary mode of input.
+In order to consider other modalities as well (e.g. the social context associated to user activities), we introduce 
+in the remainder of the paper multimodal approach to modeling topic evolution.
+For the social context input, we have associated to each document in $\mathbf{X}^t$,
+a set of users who are `interested' in these documents.  Let
+$\mathbf{U}^t$ be a $N_d^t \times N_u$ matrix at time $t$ of $N_d^t$ documents and $N_u$ users.  Here,
+$N_u$ is the total number of users in the social network.  In particular, we have $\mathbf{U}^t_{ij} = 1$ if
+document-$i$ has been mentioned by user-$j$, and it is $0$ otherwise.
+
+\subsection{The Objective Function}
+Our aim is to discover topics using both $\mathbf{X}^t$ and $\mathbf{U}^t$.  We will start with
+the traditional objective function for NMF and build on it.
+The goal of non-negative matrix factorization is to decompose documents in terms of the underlying
+latent topics.  Let us fix the number of topics to be $k$.  We would like to decompose $\mathbf{X}^t$
+so that:
+\begin{equation}
+	\mathbf{X}^t \approx \mathbf{W}^t\mathbf{H}^t. \label{eq:topic_decomp}
+\end{equation}
+Here, the $\mathbf{H}^t$ is a $k \times N_f$ topic matrix.  Each row in $\mathbf{H}^t$ represents
+an underlying latent topic. If the encoding features of $\mathbf{X}^t$ are the words themselves, then each entry
+in $\mathbf{H}^t$ represents how frequently a particular word appears in a topic.  The $\mathbf{W}^t$ matrix
+represents how each document is decomposed in terms of the topics found in $\mathbf{H}^t$.  It \emph{explains}
+each document in terms of the topics discovered in the $\mathbf{H}^t$ matrix.
+
+For each document, in addition to the textual features, we have information about which users
+are interested in these documents.  Just as in Equation \ref{eq:topic_decomp}, where we decomposed
+each document in terms of the latent topics, we can think of decomposing the documents in terms of the
+latent communities found in the social network.  That is, we have:
+\begin{equation}
+	\mathbf{U}^t \approx \mathbf{W}^t\mathbf{G}^t. \label{eq:comm_decomp}
+\end{equation}
+The key assumption in our formulation is that we have a common decomposition matrix $\mathbf{W}^t$ for
+both equations \ref{eq:topic_decomp} and \ref{eq:comm_decomp}.  Our assumption is that a 
+particular community of users will be dedicated to a particular topic.  Hence, we should be able to
+decompose a document in terms of its topic \emph{or} in terms of its communities in the same way. An article
+about Kim Kardashian can be thought of being decomposed as $90\%$ showbiz and $10\%$ spread across the other
+topics.  Our postulation is that, there is a community of users who show keen interest in showbiz news, perhaps
+a community in teenage demographics.  Hence, the same document can be equivalently decomposed in terms of 
+the community as $90\%$ community interested in showbiz and $10\%$ spread across the other communities.
+Equations \ref{eq:topic_decomp} and \ref{eq:comm_decomp} form the backbone of the two different parts
+(namely the topic and the community part) to our objective function.  The way through which we connect
+the two modalities is via the $\mathbf{W}^t$ matrix, making it common to both decompositions. 
+This method is traditionally referred as \emph{collective factorization}  \cite{singh:2008}, and consists of sharing one common variable across different modalities.
+The same principles have also been applied in deep learning 
+(by sharing a common hidden layer across different modalities)~\cite{ngiam2011multimodal}, 
+and in probabilistic modeling 
+(by conditioning different observed modalities on a common hidden random variable)~\cite{Blei:2003}. 
+
+Since we also wish to model topics' evolution over time, we make use of the topics that were
+discovered in the previous time steps to help in better identifying topics
+in the current influx of documents.  We decompose the current influx of documents using the topics discovered
+in the previous time step as follows:
+\begin{equation}
+\mathbf{X}^t \approx \mathbf{W}^t\mathbf{M}_T^t\mathbf{H}^{t-1}. \label{eq:prev_topic_decomp}
+\end{equation}
+Here, $\mathbf{H}^{t-1}$ is a matrix of topics discovered in the previous time step.  The product
+$\mathbf{M}_T^t\mathbf{H}^{t-1}$ can be thought of explaining the current topics $\mathbf{H}^t$ 
+as a linear combination of the previous topics.  $\mathbf{M}_T^t$ is the \emph{topic evolution} matrix.
+An $\mathbf{M}_T^{t}$ matrix close to identity (or a permuation of it) tells us that the topics have not changed 
+much from the previous to current time step.  We delve into analyzing this matrix, and hence
+the stabiltiy of topics (and communities) in future sections.
+
+We also add a component of monitoring communities over time.  Similar to Equation \ref{eq:prev_topic_decomp},
+we model the current set of documents with respect to the previous communities as follows:
+\begin{equation}
+\mathbf{X}^t \approx \mathbf{W}^t\mathbf{M}_C^t\mathbf{G}^{t-1}, \label{eq:prev_comm_decomp}
+\end{equation}
+where $\mathbf{M}_C^t$ is the community evolution matrix.
+
+The crux of our loss function is formed by putting together Equations \ref{eq:topic_decomp} through
+\ref{eq:prev_comm_decomp}.  Our variables are $\mathbf{W}^t$, $\mathbf{H}^t$, $\mathbf{G}^t$, 
+$\mathbf{M}_T^t$ and $\mathbf{M}_C^t$.  The optimization is performed one time step after another.
+Hence, $\mathbf{H}^{t-1}$ and $\mathbf{G}^{t-1}$ are \emph{known} to us by time $t$.  We decompose
+our loss function into the following components,
+\begin{equation}
+L = \mu L_T + (1-\mu) L_C + \text{R}, \label{eq:loss_function}
+\end{equation}
+where $L_T$ and $L_C$ are the topic and community parts of the objective function and R encompasses the regularization terms.
+We impose $l_1$ regularization on $\mathbf{W}^t$, $\mathbf{H}^t$, $\mathbf{G}^t$ and both the evolution matrices
+$\mathbf{M}_T^t$ and $\mathbf{M}_C^t$ to promote sparsity.  
+In order to drive the loss function more towards either topic modality or the community modality of the objective,
+we use a parameter $\mu \in \big[0,1\big]$.  $\mu = 0$ places full weight on the community part and $\mu = 1$ places
+full weight on the topic part.
+
+The topic part and the community part of the
+objective, and the regularization terms can be written as:
+\begin{align} 
+L_T &= ||\mathbf{X}^t - \mathbf{W}^t\mathbf{H}^t||_F^2 +  ||\mathbf{X}^t - \mathbf{W}^t\mathbf{M}_T^t\mathbf{H}^{t-1}||_F^2,  \\
+L_C &= ||\mathbf{U}^t - \W\mathbf{G}^t||_F^2 +  ||\mathbf{U}^t - \mathbf{W}^t\mathbf{M}_C^t\mathbf{G}^{t-1}||_F^2,  \\
+\text{R} &= \alpha(||\mathbf{W^t}||_1 + ||\mathbf{H}^t||_1 + ||\mathbf{G}^t||_1 + ||\mathbf{M}_T^t||_1 \nonumber \\ 
+		& \qquad + ||\mathbf{M}_C^t||_1) + \lambda(||\mathbf{M}_T^t - I||_F^2 + ||\mathbf{M}_C^t - I||_F^2).
+\end{align}
+We add a term $\lambda||\mathbf{M}^t - \mathbf{I}||_F^2$
+which, depending on the value of $\lambda \in \{0,\infty\}$ controls how much importance is placed on the past and the
+present. A large value of $\lambda$ places much weight on the past and vice versa.  The role of parameters $\lambda$ and
+$\mu$ are analyzed in detail in Section \ref{sec:experiments}.
+
+\subsection{The Optimization}
+We minimize the loss function $L$ as shown below:
+\begin{equation}
+\{\mathbf{W}^t_*, \mathbf{H}^t_*, \mathbf{G}^t_*, \mathbf{M}_{T,*}^t, \mathbf{M}_{C,*}^t\} =  \textbf{argmin } \underset{\mathbf{W}^t,\mathbf{H}^t,\mathbf{G}^t,\mathbf{M}_T^t, \mathbf{M}_C^t}  L. \label{eq:optimization}
+\end{equation}
+Note the variables with respect to which we optimize $L$.  Of these variables, the one that is most useful for evaluation
+purposes is the matrix $\HH$.  This is a matrix of word distributions for each topic.  We compare the top-$10$ words from
+each topic in $\HH$ to the top-$10$ obtained from the groundtruth.  More details about groundtruth and evaluation
+are provided in Section \ref{sec:experiments}.
+
+The optmization problem in Equation \ref{eq:optimization} is not convex in all the parameters simultaneously.  
+We use multiplicative updates as
+in \cite{lee_1999}.  For the loss function in Equation \ref{eq:optimization}, we derive the gradients with respect to each
+variable as:
+\begin{eqnarray}
+\begin{split}
+& \bigtriangledown_{\W}L = \W(\HH{\HH}^{T} + \G{\G}^{T} \\
+		&\quad {\MT}^{T}{\Htt}^{T}\Htt\MT + {\MC}^{T}{\Gtt}^{T}\Gtt\MC) \\
+	&\quad - (\X{\HH}^{T}+\X{\Htt}^{T}{\MT}^{T} + \U{\G}^{T}\\
+	&\quad+\U{\Gtt}^{T}{\MC}^{T} - \alpha\e{\e}^{T}) , \label{eq:gradient_W}
+\end{split} \\
+\bigtriangledown_{\HH}L = {\W}^T\W\HH - ({\W}^T\X - \alpha\e{\e}^T), \\
+\bigtriangledown_{\G}L = {\W}^T\W\G - ({\W}^T\U - \alpha\e{\e}^T), \\
+\begin{split}
+\bigtriangledown_{\MT}L = &  (\HH{\HH}^{T}){\MT}^{T}({\W}^{T}\W) + \lambda {\MT}^{T} \\
+						&\quad- (\HH{\X}^{T}\W+\lambda\I - \alpha\e{\e}^{T}), \\
+\end{split} \\
+\begin{split}
+\bigtriangledown_{\MC}L = &  (\G{\G}^{T}){\MT}^{T}({\W}^{T}\W) + \lambda {\MC}^{T} \\
+						&\quad  - (\G{\U}^{T}\W+\lambda\I - \alpha\e{\e}^{T}), \\ \label{eq:gradient_MC}
+\end{split}
+\end{eqnarray}
+where $\e = [1,1,\ldots,1].$
+From the Karush Kuhn Tucker first order conditions, we have the primal feasibility as:
+\begin{equation}
+\W \geq \0, \HH \geq \0, \G \geq \0, \MT \geq \0 \text{ and } \MC \geq \0,
+\label{eq:primal_feasibility}
+\end{equation}
+the stationarity condition as $L(\W,\HH,\G,\MT,\MC) = 0$, at the minimizers, ${\W}^*, {\HH}^*, {\G}^*, {\MT}^*
+{\MC}^*$, and the complementary slackness:
+\begin{equation}
+\begin{split}
+\bigtriangledown_{\G}L \odot \G & = \mathbf{0} \text{,  } \bigtriangledown_{\HH}L \odot \HH = \mathbf{0}, \\
+\bigtriangledown_{\MC}L \odot \MC &\quad = \mathbf{0} \text{,  } \bigtriangledown_{\MT}L \odot \MT = \mathbf{0}, \\
+\bigtriangledown_{\W}L \odot \W & \quad = \mathbf{0}.
+\label{eq:KKT}
+\end{split}
+\end{equation}
+The update equations are derived by substituting the gradients (Equations \ref{eq:gradient_W} - \ref{eq:gradient_MC}) 
+in the first order conditions (Equation \ref{eq:KKT}) as below:
+\begin{align}
+\begin{split}
+&\W \gets \W \odot \frac{N}{D}, \text{ where } \label{eq:W_update}\\
+N &= (\X{\HH}^{T}+\X{\Htt}^{T}{\MT}^{T} + \U{\G}^{T}+\U{\Gtt}^{T}{\MC}^{T} \\
+	&- 2\alpha\e{\e}^{T}),\\
+D &= \W(\HH{\HH}^{T} + \G{\G}^{T} + {\MT}^{T}{\Htt}^{T}\Htt\MT \\
+	& + {\MC}^{T}{\Gtt}^{T}\Gtt\MC), \\ 
+\end{split} \\
+\HH \gets &\quad \HH \odot \frac{({\W}^{T}\X-\alpha\e{\e}^{T})}{{\W}^{T}\W\HH}, \label{eq:H_update}\\
+\G \gets &\quad \G \odot \frac{({\W}^{T}\U-\alpha\e{\e}^{T})}{{\W}^{T}\W\G}, \label{eq:G_update}\\
+\MT \gets &\quad \MT \odot \frac{(\Htt{\X}^{T}\W+\lambda\I - \alpha)}{(\Htt{\Htt}^{T}){\MT}^{T}({\W}^{T}\W) + \lambda {\MT}^{T}}, \label{eq:MT_update}\\
+\MC \gets &\quad \MC \odot \frac{(\Gtt{\U}^{T}\W+\lambda\I - \alpha)}{(\Gtt{\Gtt}^{T}){\MC}^{T}({\W}^{T}\W) + \lambda {\MC}^{T}} \label{eq:MC_update}.
+\end{align}
+
+ \textbf{Theorem 1} \emph{The loss function $L$ in Equation  (\ref{eq:loss_function}) is non increasing under the update rules in Equations (\ref{eq:W_update}),  (\ref{eq:H_update}), (\ref{eq:G_update}), (\ref{eq:MT_update}), and (\ref{eq:MC_update}).  The loss function $L$ is invariant under these updates if and only if  $\HH$, $\G$,  $\MT$ and $\MC$ are at a stationary point of the function.} The proof for update rules on $\HH$ and $\G$ comes directly from \cite{Lee:Nature}.  For the update rules $\MT$ and $\MC$ a related formal proof is given in \cite{Vaca:2014}.  Finally, the proof for update rules on $\W$ follows from \cite{Lee:Nature}. Due to the lack of space, its proof will be provided in an extended version of the paper.
+

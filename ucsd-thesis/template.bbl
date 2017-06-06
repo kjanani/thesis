@@ -1,0 +1,460 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{dRBdM{\etalchar{+}}15}
+
+\bibitem[ABD08]{AlSumait:2008}
+Loulwah AlSumait, Daniel Barbará, and Carlotta Domeniconi.
+\newblock Online-lda.
+\newblock ICDM '08, 2008.
+
+\bibitem[ASHN13]{Ahmed:2013}
+Mohamed Ahmed, Stella Spagna, Felipe Huici, and Saverio Niccolini.
+\newblock A peek into the future: Predicting the evolution of popularity in
+  user generated content.
+\newblock In {\em Proceedings of the Sixth ACM International Conference on Web
+  Search and Data Mining}, WSDM '13, pages 607--616, New York, NY, USA, 2013.
+  ACM.
+
+\bibitem[Bar05]{barabasi2005origin}
+Albert-Laszlo Barabasi.
+\newblock The origin of bursts and heavy tails in human dynamics.
+\newblock {\em Nature}, 435(7039):207--211, 2005.
+
+\bibitem[Bis06]{Bishop_2006}
+Christopher~M. Bishop.
+\newblock {\em Pattern Recognition and Machine Learning (Information Science
+  and Statistics)}.
+\newblock Springer-Verlag New York, Inc., Secaucus, NJ, USA, 2006.
+
+\bibitem[BJ03]{Blei:2003}
+David~M. Blei and Michael~I. Jordan.
+\newblock Modeling annotated data.
+\newblock SIGIR '03, 2003.
+
+\bibitem[BL06]{Blei:2006}
+David~M. Blei and John~D. Lafferty.
+\newblock Dynamic topic models.
+\newblock ICML '06, 2006.
+
+\bibitem[BM12]{berger2012makes}
+Jonah Berger and Katherine~L Milkman.
+\newblock What makes online content viral?
+\newblock {\em Journal of Marketing Research}, 49(2):192--205, 2012.
+
+\bibitem[BNG09]{Becker:2009}
+Hila Becker, Mor Naaman, and Luis Gravano.
+\newblock Event identification in social media.
+\newblock In {\em WebDB}, 2009.
+
+\bibitem[BNJ03]{blei2003}
+David~M. Blei, Andrew~Y. Ng, and Michael~I. Jordan.
+\newblock Latent dirichlet allocation.
+\newblock {\em J. Mach. Learn. Res.}, 3:993--1022, March 2003.
+
+\bibitem[CB09]{chang2009relational}
+Jonathan Chang and David~M Blei.
+\newblock Relational topic models for document networks.
+\newblock In {\em AISTATS}, 2009.
+
+\bibitem[CEHPS14]{Castillo:2014}
+Carlos Castillo, Mohammed El-Haddad, J\"{u}rgen Pfeffer, and Matt Stempeck.
+\newblock Characterizing the life cycle of online news stories using social
+  media reactions.
+\newblock In {\em Proceedings of the 17th ACM Conference on Computer Supported
+  Cooperative Work \&\#38; Social Computing}, CSCW '14, pages 211--223, New
+  York, NY, USA, 2014. ACM.
+
+\bibitem[CHB{\etalchar{+}}14]{chen2014flu}
+Liangzhe Chen, KSM~Tozammel Hossain, Patrick Butler, Naren Ramakrishnan, and
+  B~Aditya Prakash.
+\newblock Flu gone viral: Syndromic surveillance of flu on twitter using
+  temporal topic models.
+\newblock In {\em Data Mining (ICDM), 2014 IEEE International Conference on},
+  pages 755--760. IEEE, 2014.
+
+\bibitem[CJB16]{compton2016relationship}
+Wilson~M Compton, Christopher~M Jones, and Grant~T Baldwin.
+\newblock Relationship between nonmedical prescription-opioid use and heroin
+  use.
+\newblock {\em New England Journal of Medicine}, 374(2):154--163, 2016.
+
+\bibitem[DGZ14]{Ding:2014}
+Guiguang Ding, Yuchen Guo, and Jile Zhou.
+\newblock Collective matrix factorization hashing for multimodal data.
+\newblock In {\em CVPR 2014}, pages 2083--2090, June 2014.
+
+\bibitem[dRBdM{\etalchar{+}}15]{ReisBOPKA15}
+J{\'{u}}lio~Cesar dos Reis, Fabr{\'{\i}}cio Benevenuto, Pedro Olmo S.~Vaz
+  de~Melo, Raquel~O. Prates, Haewoon Kwak, and Jisun An.
+\newblock Breaking the news: First impressions matter on online news.
+\newblock {\em CoRR}, abs/1503.07921, 2015.
+
+\bibitem[EAXFG13]{El-Arini:2013}
+Khalid El-Arini, Min Xu, Emily~B. Fox, and Carlos Guestrin.
+\newblock Representing documents through their readers.
+\newblock KDD '13, 2013.
+
+\bibitem[EFL04]{Erosheva:2004}
+Elena Erosheva, Stephen Fienberg, and John Lafferty.
+\newblock Mixed-membership models of scientific publications.
+\newblock {\em Proceedings of the National Academy of Sciences}, 101(suppl
+  1):5220--5227, 2004.
+
+\bibitem[FFP05]{ff}
+L.~Fei-Fei and P.~Perona.
+\newblock A bayesian hierarchical model for learning natural scene categories.
+\newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
+  IEEE Computer Society Conference on}, volume~2, pages 524--531 vol. 2, June
+  2005.
+
+\bibitem[FHC{\etalchar{+}}15]{fink2015patterns}
+David~S Fink, Ranran Hu, Magdalena Cerd{\'a}, Katherine~M Keyes, Brandon~DL
+  Marshall, Sandro Galea, and Silvia~S Martins.
+\newblock Patterns of major depression and nonmedical use of prescription
+  opioids in the united states.
+\newblock {\em Drug and alcohol dependence}, 153:258--264, 2015.
+
+\bibitem[For03]{forman2003availability}
+Robert~F Forman.
+\newblock Availability of opioids on the internet.
+\newblock {\em Jama}, 290(7):889--889, 2003.
+
+\bibitem[FWML06]{forman2006availability}
+Robert~F Forman, George~E Woody, Thomas McLellan, and Kevin~G Lynch.
+\newblock The availability of web sites offering to sell opioid medications
+  without prescriptions.
+\newblock {\em American Journal of Psychiatry}, 163(7):1233--1238, 2006.
+
+\bibitem[GSD{\etalchar{+}}12]{gaugaz2012predicting}
+Julien Gaugaz, Patrick Siehndel, Gianluca Demartini, Tereza Iofciu, Mihai
+  Georgescu, and Nicola Henze.
+\newblock Predicting the future impact of news events.
+\newblock In {\em Advances in Information Retrieval}, pages 50--62. Springer,
+  2012.
+
+\bibitem[GSG{\etalchar{+}}14]{gao2014quantifying}
+Liang Gao, Chaoming Song, Ziyou Gao, Albert-L{\'a}szl{\'o} Barab{\'a}si,
+  James~P Bagrow, and Dashun Wang.
+\newblock Quantifying information flow during emergencies.
+\newblock {\em arXiv preprint arXiv:1401.1274}, 2014.
+
+\bibitem[GS{\"O}11]{guerini2011exploring}
+Marco Guerini, Carlo Strapparava, and G{\"o}zde {\"O}zbal.
+\newblock Exploring text virality in social networks.
+\newblock In {\em ICWSM}, 2011.
+
+\bibitem[Har97]{harrison1997validity}
+Lana Harrison.
+\newblock The validity of self-reported drug use in survey research: an
+  overview and critique of research methods.
+\newblock {\em NIDA Res Monogr}, 167:17--36, 1997.
+
+\bibitem[HBGC{\etalchar{+}}13]{hanson2013tweaking}
+Carl~L Hanson, Scott~H Burton, Christophe Giraud-Carrier, Josh~H West,
+  Michael~D Barnes, and Bret Hansen.
+\newblock Tweaking and tweeting: exploring twitter for nonmedical use of a
+  psychostimulant drug (adderall) among college students.
+\newblock {\em Journal of medical Internet research}, 15(4):e62, 2013.
+
+\bibitem[HCBGC13]{hanson2013exploration}
+Carl~Lee Hanson, Ben Cannon, Scott Burton, and Christophe Giraud-Carrier.
+\newblock An exploration of social circles and prescription drug abuse through
+  twitter.
+\newblock {\em Journal of Medical Internet Research}, 15(9):e189, 2013.
+
+\bibitem[HCJC15]{han2015nonmedical}
+Beth Han, Wilson~M Compton, Christopher~M Jones, and Rong Cai.
+\newblock Nonmedical prescription opioid use and use disorders among adults
+  aged 18 through 64 years in the united states, 2003-2013.
+\newblock {\em Jama}, 314(14):1468--1478, 2015.
+
+\bibitem[IM11]{iribarren2011branching}
+Jos{\'e}~Luis Iribarren and Esteban Moro.
+\newblock Branching dynamics of viral information spreading.
+\newblock {\em Physical Review E}, 84(4):046116, 2011.
+
+\bibitem[Kaw11]{Kawamae:2011}
+Noriaki Kawamae.
+\newblock Trend analysis model: Trend consists of temporal words, topics, and
+  timestamps.
+\newblock WSDM '11, 2011.
+
+\bibitem[KKBK12]{karsai2012universal}
+M{\'a}rton Karsai, Kimmo Kaski, Albert-L{\'a}szl{\'o} Barab{\'a}si, and
+  J{\'a}nos Kert{\'e}sz.
+\newblock Universal features of correlated bursty behaviour.
+\newblock {\em Scientific reports}, 2, 2012.
+
+\bibitem[KLPM10]{Kwak:2010}
+Haewoon Kwak, Changhyun Lee, Hosung Park, and Sue Moon.
+\newblock What is twitter, a social network or a news media?
+\newblock In {\em Proceedings of the 19th International Conference on World
+  Wide Web}, WWW '10, pages 591--600, New York, NY, USA, 2010. ACM.
+
+\bibitem[KMC15]{katsuki2015establishing}
+Takeo Katsuki, Tim~Ken Mackey, and Raphael Cuomo.
+\newblock Establishing a link between prescription drug abuse and illicit
+  online pharmacies: analysis of twitter data.
+\newblock {\em Journal of medical Internet research}, 17(12), 2015.
+
+\bibitem[KWP{\etalchar{+}}14]{kelly2014combinations}
+Brian~C Kelly, Brooke~E Wells, Mark Pawson, Amy LeClair, and Jeffrey~T Parsons.
+\newblock Combinations of prescription drug misuse and illicit drugs among
+  young adults.
+\newblock {\em Addictive behaviors}, 39(5):941--944, 2014.
+
+\bibitem[LH10]{Lerman:2010}
+Kristina Lerman and Tad Hogg.
+\newblock Using a model of social dynamics to predict popularity of news.
+\newblock In {\em Proceedings of the 19th International Conference on World
+  Wide Web}, WWW '10, pages 621--630, New York, NY, USA, 2010. ACM.
+
+\bibitem[LS99]{lee_1999}
+Daniel~D Lee and H~Sebastian Seung.
+\newblock Learning the parts of objects by non-negative matrix factorization.
+\newblock {\em Nature}, 401(6755):788--791, 1999.
+
+\bibitem[LS00]{Lee:Nature}
+Daniel~D. Lee and H.~Sebastian Seung.
+\newblock Algorithms for non-negative matrix factorization.
+\newblock In {\em NIPS}, 2000.
+
+\bibitem[LSJC16]{Li:2016:concept:drift}
+Cheng-Te Li, Man-Kwan Shan, Shih-Hong Jheng, and Kuan-Ching Chou.
+\newblock Exploiting concept drift to predict popularity of social multimedia
+  in microblogs.
+\newblock {\em Inf. Sci.}, 339(C):310--331, April 2016.
+
+\bibitem[LZZ15]{Liu:2015:UN}
+Qian Liu, Mi~Zhou, and Xin Zhao.
+\newblock Understanding news 2.0.
+\newblock {\em Inf. Manage.}, 52(7):764--776, November 2015.
+
+\bibitem[MADO15]{mackesy2015prescription}
+Mary~E Mackesy-Amiti, Geri~R Donenberg, and Lawrence~J Ouellet.
+\newblock Prescription opioid misuse and mental health among young injection
+  drug users.
+\newblock {\em The American journal of drug and alcohol abuse}, 41(1):100--106,
+  2015.
+
+\bibitem[MBPS10]{mairal2010}
+Julien Mairal, Francis Bach, Jean Ponce, and Guillermo Sapiro.
+\newblock Online learning for matrix factorization and sparse coding.
+\newblock {\em J. Mach. Learn. Res.}, 11:19--60, March 2010.
+
+\bibitem[Mil12]{mills2012virality}
+Adam~J Mills.
+\newblock Virality in social media: the spin framework.
+\newblock {\em Journal of public affairs}, 12(2):162--169, 2012.
+
+\bibitem[MLS13]{mackey2013digital}
+Tim~K Mackey, Bryan~A Liang, and Steffanie~A Strathdee.
+\newblock Digital social media, youth, and nonmedical use of prescription
+  drugs: the need for reform.
+\newblock {\em Journal of medical Internet research}, 15(7):e143, 2013.
+
+\bibitem[MWB13]{mccabe2013leftover}
+Sean~Esteban McCabe, Brady~T West, and Carol~J Boyd.
+\newblock Leftover prescription opioids and nonmedical use among high school
+  seniors: a multi-cohort national study.
+\newblock {\em Journal of Adolescent Health}, 52(4):480--485, 2013.
+
+\bibitem[MWCE07]{McCallum:2007}
+Andrew McCallum, Xuerui Wang, and Andr{\'e}s Corrada-Emmanuel.
+\newblock Topic and role discovery in social networks with experiments on enron
+  and academic email.
+\newblock {\em J. Artif. Int. Res.}, 30(1):249--272, October 2007.
+
+\bibitem[MWTB12]{mccabe2012co}
+Sean~Esteban McCabe, Brady~T West, Christian~J Teter, and Carol~J Boyd.
+\newblock Co-ingestion of prescription opioids and other drugs among high
+  school seniors: Results from a national study.
+\newblock {\em Drug and alcohol dependence}, 126(1):65--70, 2012.
+
+\bibitem[NAXC08]{Nallapati:2008}
+Ramesh~M. Nallapati, Amr Ahmed, Eric~P. Xing, and William~W. Cohen.
+\newblock Joint latent topic models for text and citations.
+\newblock KDD '08, 2008.
+
+\bibitem[NKK{\etalchar{+}}11]{ngiam2011multimodal}
+Jiquan Ngiam, Aditya Khosla, Mingyu Kim, Juhan Nam, Honglak Lee, and Andrew~Y
+  Ng.
+\newblock Multimodal deep learning.
+\newblock In {\em ICML-11}, 2011.
+
+\bibitem[NLGB10]{newman2010automatic}
+David Newman, Jey~Han Lau, Karl Grieser, and Timothy Baldwin.
+\newblock Automatic evaluation of topic coherence.
+\newblock In {\em Association for Computational Linguistics}, 2010.
+
+\bibitem[PAG13]{Pinto:2013}
+Henrique Pinto, Jussara~M. Almeida, and Marcos~A. Gon\c{c}alves.
+\newblock Using early view patterns to predict the popularity of youtube
+  videos.
+\newblock In {\em Proceedings of the Sixth ACM International Conference on Web
+  Search and Data Mining}, WSDM '13, pages 365--374, New York, NY, USA, 2013.
+  ACM.
+
+\bibitem[PSGCH11]{prier2011identifying}
+Kyle~W Prier, Matthew~S Smith, Christophe Giraud-Carrier, and Carl~L Hanson.
+\newblock Identifying health-related topics on twitter.
+\newblock In {\em International Conference on Social Computing,
+  Behavioral-Cultural Modeling, and Prediction}, pages 18--25. Springer, 2011.
+
+\bibitem[RAZMG16]{rudd2016increases}
+Rose~A Rudd, Noah Aleshire, Jon~E Zibbell, and R~Matthew~Gladden.
+\newblock Increases in drug and opioid overdose deaths—united states,
+  2000--2014.
+\newblock {\em American Journal of Transplantation}, 16(4):1323--1327, 2016.
+
+\bibitem[RWM09]{raine2009availability}
+Connie Raine, David~J Webb, and Simon~RJ Maxwell.
+\newblock The availability of prescription-only analgesics purchased from the
+  internet in the uk.
+\newblock {\em British journal of clinical pharmacology}, 67(2):250--254, 2009.
+
+\bibitem[RZGSS04]{Rosen-Zvi:2004}
+Michal Rosen-Zvi, Thomas Griffiths, Mark Steyvers, and Padhraic Smyth.
+\newblock The author-topic model for authors and documents.
+\newblock UAI '04, 2004.
+
+\bibitem[SBB{\etalchar{+}}12]{salathe2012digital}
+Marcel Salathe, Linus Bengtsson, Todd~J Bodnar, Devon~D Brewer, John~S
+  Brownstein, Caroline Buckee, Ellsworth~M Campbell, Ciro Cattuto, Shashank
+  Khandelwal, Patricia~L Mabry, et~al.
+\newblock Digital epidemiology.
+\newblock {\em PLoS Comput Biol}, 8(7):e1002616, 2012.
+
+\bibitem[SG08]{singh:2008}
+Ajit~P. Singh and Geoffrey~J. Gordon.
+\newblock Relational learning via collective matrix factorization.
+\newblock KDD '08, 2008.
+
+\bibitem[SH10]{Szabo:2010}
+Gabor Szabo and Bernardo~A. Huberman.
+\newblock Predicting the popularity of online content.
+\newblock {\em Commun. ACM}, 53(8):80--88, August 2010.
+
+\bibitem[SHM09]{Sayyadi:2009}
+Hassan Sayyadi, Matthew Hurst, and Alexey Maykov.
+\newblock Event detection and tracking in social streams.
+\newblock In {\em ICWSM}, 2009.
+
+\bibitem[SHPC10]{suh2010want}
+Bongwon Suh, Lichan Hong, Peter Pirolli, and Ed~H Chi.
+\newblock Want to be retweeted? large scale analytics on factors impacting
+  retweet in twitter network.
+\newblock In {\em Social computing (socialcom), 2010 ieee second international
+  conference on}, pages 177--184. IEEE, 2010.
+
+\bibitem[SKOO]{sekiguchi:2006}
+Y.~Sekiguchi, H.~Kawashima, H.~Okuda, and M.~Oku.
+\newblock In {\em MDM 2006}.
+
+\bibitem[SM14]{Saveski:2014}
+Martin Saveski and Amin Mantrach.
+\newblock Item cold-start recommendations: Learning local collective
+  embeddings.
+\newblock RecSys '14, 2014.
+
+\bibitem[SM16]{schepis2016trends}
+Ty~S Schepis and Sean~Esteban McCabe.
+\newblock Trends in older adult nonmedical prescription drug use prevalence:
+  Results from the 2002--2003 and 2012--2013 national survey on drug use and
+  health.
+\newblock {\em Addictive behaviors}, 60:219--222, 2016.
+
+\bibitem[SNP{\etalchar{+}}15]{shutler2015drug}
+Lukas Shutler, Lewis~S Nelson, Ian Portelli, Courtney Blachford, and Jeanmarie
+  Perrone.
+\newblock Drug use in the twittersphere: a qualitative contextual analysis of
+  tweets about prescription drugs.
+\newblock {\em Journal of addictive diseases}, 34(4):303--310, 2015.
+
+\bibitem[SS12]{Saha:2012}
+Ankan Saha and Vikas Sindhwani.
+\newblock Learning evolving and emerging topics in social media: A dynamic nmf
+  approach with temporal regularization.
+\newblock WSDM '12, 2012.
+
+\bibitem[STCL13]{YatesTrumper:2013}
+Diego Saez-Trumper, Carlos Castillo, and Mounia Lalmas.
+\newblock Social media news communities: Gatekeeping, coverage, and statement
+  bias.
+\newblock CIKM '13, 2013.
+
+\bibitem[TdAFA14]{Tatar2014}
+Alexandru Tatar, Marcelo~Dias de~Amorim, Serge Fdida, and Panayotis Antoniadis.
+\newblock A survey on predicting the popularity of web content.
+\newblock {\em Journal of Internet Services and Applications}, 5(1):1--20,
+  2014.
+
+\bibitem[{Tel}]{chile_elections}
+{Telegraph}.
+\newblock Chile news.
+\newblock \url{http://www.telegraph.co.uk/news/worldnews/southamerica/chile/}.
+
+\bibitem[TLA{\etalchar{+}}11]{Tatar:2011}
+Alexandru Tatar, J{\'e}r{\'e}mie Leguay, Panayotis Antoniadis, Arnaud Limbourg,
+  Marcelo~Dias de~Amorim, and Serge Fdida.
+\newblock Predicting the popularity of online articles based on user comments.
+\newblock In {\em Proceedings of the International Conference on Web
+  Intelligence, Mining and Semantics}, WIMS '11, pages 67:1--67:8, New York,
+  NY, USA, 2011. ACM.
+
+\bibitem[TSK05]{Tan_Steinbach_Kumar}
+Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
+\newblock {\em Introduction to Data Mining, (First Edition)}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2005.
+
+\bibitem[Tsu12]{Tsur:2012}
+What's in a hashtag?: content based prediction of the spread of ideas in
+  microblogging communities.
+\newblock In {\em WSDM}, pages 643--652. ACM, 2012.
+
+\bibitem[{Twi}a]{Twitter_API}
+{Twitter API}.
+\newblock \url{https://dev.twitter.com}.
+
+\bibitem[{Twi}b]{Twitter_website}
+{Twitter Inc.}
+\newblock \url{https://www.twitter.com}.
+
+\bibitem[VMJS14]{Vaca:2014}
+Carmen~K. Vaca, Amin Mantrach, Alejandro Jaimes, and Marco Saerens.
+\newblock A time-based collective factorization for topic discovery and
+  monitoring in news.
+\newblock WWW '14, 2014.
+
+\bibitem[VML14]{Vaizman}
+Yonatan Vaizman, Brian McFee, and Gert Lanckriet.
+\newblock Codebook-based audio feature representation for music information
+  retrieval.
+\newblock {\em IEEE/ACM Trans. Audio, Speech and Lang. Proc.},
+  22(10):1483--1493, October 2014.
+
+\bibitem[WAB12]{Wang:2012}
+Yu~Wang, Eugene Agichtein, and Michele Benzi.
+\newblock Tm-lda: Efficient online modeling of latent topic transitions in
+  social media.
+\newblock KDD '12, 2012.
+
+\bibitem[WM06]{Wang:2006}
+Xuerui Wang and Andrew McCallum.
+\newblock Topics over time: A non-markov continuous-time model of topical
+  trends.
+\newblock KDD '06, 2006.
+
+\bibitem[YGLC13]{yan2013biterm}
+Xiaohui Yan, Jiafeng Guo, Yanyan Lan, and Xueqi Cheng.
+\newblock A biterm topic model for short texts.
+\newblock In {\em Proceedings of the 22nd international conference on World
+  Wide Web}, pages 1445--1456. ACM, 2013.
+
+\bibitem[YWLL13]{yan2013information}
+Qiang Yan, Lianren Wu, Chao Liu, and Xiye Li.
+\newblock Information propagation in online social network based on human
+  dynamics.
+\newblock In {\em Abstract and Applied Analysis}, volume 2013. Hindawi
+  Publishing Corporation, 2013.
+
+\end{thebibliography}

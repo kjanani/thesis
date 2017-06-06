@@ -1,0 +1,50 @@
+\def\year{2015}
+%File: formatting-instruction.tex
+\documentclass[letterpaper]{article}
+\usepackage{AuthorKit/aaai}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{natbib}
+
+
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\pdfinfo{
+/Title (Insert Your Title Here)
+/Author (Put All Your Authors Here, Separated by Commas)}
+\setcounter{secnumdepth}{2}  
+ \begin{document}
+\title{Write up}
+%\author{AAAI Press\\
+%Association for the Advancement of Artificial Intelligence\\
+%2275 East Bayshore Road, Suite 160\\
+%Palo Alto, California 94303\\
+%}
+\maketitle
+%\begin{abstract}
+%\begin{quote}
+%AAAI creates proceedings, working notes, and technical reports directly from electronic source furnished by the authors. To ensure that all papers in the publication have a uniform appearance, authors must adhere to the following instructions. 
+%\end{quote}
+%\end{abstract}
+\section{Introduction}
+\noindent Our aim is to develop an algorithm that will effectively analyze and summarize an incoming stream of short texts.
+In particular, the algorithm intends to
+\begin{itemize}
+\item discover what the topics are at each time instant (this is particularly challenging for
+short texts, and we will address this issue),
+\item identify whether the topics are evolving, emerging or fading,
+\item and tell a story based on all the incidents that take place during a given timeframe.
+\end{itemize}.
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+
+\end{document}

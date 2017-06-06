@@ -1,0 +1,117 @@
+%!TEX root = paper.tex
+%
+
+% What am I trying to say?
+% 1.  In general, there is a lot of information around these days.
+% 2.  We need sophisticated techniques which can pick out the most useful ones, and those
+% which can detect trends e.t.c.
+% 3.  Under the umbrella of topic discovery this area has always gained a lot of interest.
+% 4.  With the advent of Web 2.0 the problem has been made even more challenging because each
+% of us is a source of information.
+
+%The field of topic discovery and evolution (TDE) has always garnered plenty of interest from the research community.
+Topic discovery attempts to unveil the underlying patterns (usually known as topics)
+in a large corpus of textual data.  It addresses the problem of information overload by detecting
+the important patterns and trends in the data and providing a summary.  This has been a well studied
+area of research since the 90s \cite{Allan:1998, Yang:1998}.  In recent times, this area has gained renewed interest with the
+advent of social media \cite{Sayyadi:2009, Becker:2009}.  Social media has completely changed the dynamics of how we operate as a
+society, and has given each of us the power of being able to constantly produce and
+share content with the rest of the world.  This presents several new challenges to the field of
+topic discovery and evolution (TDE).  Firstly, the content is constantly evolving.  Hence, any topic discovery algorithm
+needs to keep with the ever changing nature of the content.  And secondly, since each one of us has the power
+to produce and share content, the vocabulary used to describe a particular event can be quite varied.  In addition to this,
+it has also resulted in an enormous explosion in the size of data making it more challenging to identify
+which posts are indeed the important ones.
+Hence algorithms need to be robust to such irregularities in the textual content, and should identify
+the most important and relevant information from a large corpus.
+
+Many classical TDE algorithms aim to detect the underlying latent topics from
+the textual content of the data alone \cite{Allan:2002}.  They are blind to the metadata that comes along with the
+text.  For example, Twitter contains metadata such as information about the user, geographical
+location, time of post, etc.  This metadata is indeed very useful information which gives a social context to the textual
+content.  For example, it is highly unlikely that a post made by the White House office
+will be a sarcastic meme.  We could incorporate such authorship information in our learning process.
+%In today's scenario of topic discovery, textual
+%content comes with a social context which could be leveraged to detect better topics.
+
+In particular, what we propose in this paper is to use the information about communities present
+in social media in addition to textual content to discover and track topics. 
+We propose to use the social information associated to the authorship, to the sharing and to the commenting of posts to detect communities
+of users.  By definition, members of the same community will exhibit
+common interests in sharing and posting information about a particular topic.  The idea here is to
+leverage this information (as side information) to retrieve more accurate topics.
+
+%Topic discovery and tracking (TDT) is about discovering trends present in textual data.  
+
+%Why do we think that, by using social communities, it will help in detecting better
+%topics?  The answer is that 
+We hypothesize that some topics are particularly difficult to discover using textual
+content alone either because the text present in the topic uses a widely varying vocabulary or that the text could 
+be very volatile and could change in a very short period of time.  An example is: \emph{celebrity gossip}.  
+For such a topic, the content varies
+from one celebrity to another and hence can have a widely varying vocabulary, or can take unexpected turns 
+(celebrity break-ups, pregnancies, etc.) and hence be volatile.  
+But, for the same topic, we could
+have a very dedicated community of users who constantly share posts and comments about the topic.
+In this case of \emph{celebrity gossip}, it perhaps finds its niche audience largely in the teenage demographics.
+Hence, leveraging the presence of community could be useful in discovering such
+difficult topics.  There could be some other topics which have very strong and stable textual content.
+For these supposedly ``easier" topics, perhaps the use of community as side information may not 
+particularly improve topic discovery.  One cannot say with surity (yet).  This is precisely the kind
+of questions we provide an answer to in this paper.
+%For the rest of the paper, we name such topics as \emph{community stable}
+%topics meaning they have a stable community of interested followers.  
+%There maybe certain other topics which could easily be discovered
+%using the textual content alone.  We consider those topics as well to see if using community
+%as side information at all affects the topic discovery performance.  We name such topics as
+%\emph{content stable} topics as they have very strong textual content decribing the topic.
+%We also consider a third category called \emph{mixed stable} topics to which refer to those
+%topics which have both stable content and community information about them.
+
+To summarize, our aim in this paper is to study in detail if and when the presence of social
+context information is useful in discovering and monitoring topics. 
+On a high level, the learning algorithm we introduce extends previous works modeling topic evolution based on content alone \cite{Vaca:2014,Saha:2012,mairal2010}.
+% is based on the work of \cite{Vaca:2014} which models topic evolution based on content alone.  
+Their approaches share the common idea to update the topics by using both the previously learned topics \emph{and}  the fresh inflow of documents.
+To the best of our knowledge, we are the firsts to extend these approaches by exploiting simultaneously
+ both the content and the social context  in a unified framework for modeling topic evolution.  We build on the non-negative matrix factorization (NMF) objective, with
+different terms modeling the content and social context aspects of our problem.  Within each modality, we model their
+temporal evolution to learn from the past as well.  To learn both modalities at the same time, and 
+to exploit their correlation, 
+we rely on a \emph{collective factorization} approach as introduced in \cite{singh:2008}. 
+In our context, it consists of sharing at each time step, a common variable
+representing both the topic and the community distributions 
+during the learning process (for more details, see Section \ref{sec:content_and_networks}).
+
+We perform experiments on large scale realworld dataset to illustrate and study
+the effects of social activity as side information when modeling topic evolution.
+%\inote{Amin: We need to update that part after results on Tumblr are available}.  
+In particular, our focus will be on the following research questions. 
+\begin{enumerate}
+\item Does the presence of community as side information help in discovering those topics which have a strongly
+focused textual content (i.e. \emph{content stable} topics)?  One may generally
+not expect the presence of community to help in this case, since the strong textual content probably
+suffices to discover the topics.  However, through our experiments, we indeed see improvements in performance
+in some cases. \label{q:q2}
+\item Does the presence of community help in discovering those topics which do not have stable textual
+content, but have stable communities of members interested in them (i.e. \emph{community stable} topics)?
+In this case, we observe remarkable improvements in performance when we use the community information, as
+opposed to only using textual content. \label{q:q3}
+\item Does the presence of community help in discovering topics which have both a stable textual
+content and a stable community (i.e., \emph{mixed stable} topics)?  We observe improvements in performance
+in this case as well. \label{q:q4}
+\item To what extent can our algorithm 
+learn the kind of topics and communities that are at hand?  That is, given
+an input stream of documents, how well can the algorithm figure out whether the topics that have been detected
+are content stable, community stable or mixed stable? \label{q:q5}
+\item How does our algorithm compare to existing state of the art which model topic evolution
+and those which model document link structure for topic discovery?  In particular, we compare
+our algorithm to \cite{AlSumait:2008}, \cite{Vaca:2014} and \cite{Nallapati:2008}.  We indeed outperform the state-of-the-art in several instances. \label{q:q1}
+\end{enumerate}
+
+The rest of the paper is organized as follows.  Section \ref{sec:comparison_to_previous_work} compares
+our work to existing work highlighting its novelties and differences over them.  
+Section \ref{sec:content_and_networks} explains our model loss function in detail, and how
+we optimize it.  Section \ref{sec:data_set_description} describes the dataset we used in our experiments.
+Section \ref{sec:experiments} provides a detailed explanation of the experiments and results,
+and we end with the conclusion in Section \ref{sec:conclusion}.

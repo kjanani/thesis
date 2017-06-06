@@ -1,0 +1,165 @@
+\begin{thebibliography}{10}
+
+\bibitem{Kwak:2010}
+Kwak H, Lee C, Park H, Moon S.
+\newblock What is Twitter, a Social Network or a News Media?
+\newblock In: Proceedings of the 19th International Conference on World Wide
+  Web. WWW '10. New York, NY, USA: ACM; 2010. p. 591--600.
+\newblock Available from: \url{http://doi.acm.org/10.1145/1772690.1772751}.
+
+\bibitem{Castillo:2014}
+Castillo C, El-Haddad M, Pfeffer J, Stempeck M.
+\newblock Characterizing the Life Cycle of Online News Stories Using Social
+  Media Reactions.
+\newblock In: Proceedings of the 17th ACM Conference on Computer Supported
+  Cooperative Work and Social Computing. CSCW '14. New York, NY, USA: ACM;
+  2014. p. 211--223.
+\newblock Available from: \url{http://doi.acm.org/10.1145/2531602.2531623}.
+
+\bibitem{Szabo:2010}
+Szabo G, Huberman BA.
+\newblock Predicting the Popularity of Online Content.
+\newblock Commun ACM. 2010 Aug;53(8):80--88.
+\newblock Available from: \url{http://doi.acm.org/10.1145/1787234.1787254}.
+
+\bibitem{Lerman:2010}
+Lerman K, Hogg T.
+\newblock Using a Model of Social Dynamics to Predict Popularity of News.
+\newblock In: Proceedings of the 19th International Conference on World Wide
+  Web. WWW '10. New York, NY, USA: ACM; 2010. p. 621--630.
+\newblock Available from: \url{http://doi.acm.org/10.1145/1772690.1772754}.
+
+\bibitem{Tatar2014}
+Tatar A, de~Amorim MD, Fdida S, Antoniadis P.
+\newblock A survey on predicting the popularity of web content.
+\newblock Journal of Internet Services and Applications. 2014;5(1):1--20.
+\newblock Available from: \url{http://dx.doi.org/10.1186/s13174-014-0008-y}.
+
+\bibitem{Pinto:2013}
+Pinto H, Almeida JM, Gon\c{c}alves MA.
+\newblock Using Early View Patterns to Predict the Popularity of Youtube
+  Videos.
+\newblock In: Proceedings of the Sixth ACM International Conference on Web
+  Search and Data Mining. WSDM '13. New York, NY, USA: ACM; 2013. p. 365--374.
+\newblock Available from: \url{http://doi.acm.org/10.1145/2433396.2433443}.
+
+\bibitem{Ahmed:2013}
+Ahmed M, Spagna S, Huici F, Niccolini S.
+\newblock A Peek into the Future: Predicting the Evolution of Popularity in
+  User Generated Content.
+\newblock In: Proceedings of the Sixth ACM International Conference on Web
+  Search and Data Mining. WSDM '13. New York, NY, USA: ACM; 2013. p. 607--616.
+\newblock Available from: \url{http://doi.acm.org/10.1145/2433396.2433473}.
+
+\bibitem{Li:2016:concept:drift}
+Li CT, Shan MK, Jheng SH, Chou KC.
+\newblock Exploiting Concept Drift to Predict Popularity of Social Multimedia
+  in Microblogs.
+\newblock Inf Sci. 2016 Apr;339(C):310--331.
+\newblock Available from: \url{http://dx.doi.org/10.1016/j.ins.2016.01.009}.
+
+\bibitem{Liu:2015:UN}
+Liu Q, Zhou M, Zhao X.
+\newblock Understanding News 2.0.
+\newblock Inf Manage. 2015 Nov;52(7):764--776.
+\newblock Available from: \url{http://dx.doi.org/10.1016/j.im.2015.01.002}.
+
+\bibitem{berger2012makes}
+Berger J, Milkman KL.
+\newblock What makes online content viral?
+\newblock Journal of Marketing Research. 2012;49(2):192--205.
+
+\bibitem{iribarren2011branching}
+Iribarren JL, Moro E.
+\newblock Branching dynamics of viral information spreading.
+\newblock Physical Review E. 2011;84(4):046116.
+
+\bibitem{guerini2011exploring}
+Guerini M, Strapparava C, {\"O}zbal G.
+\newblock Exploring Text Virality in Social Networks.
+\newblock In: ICWSM; 2011. .
+
+\bibitem{mills2012virality}
+Mills AJ.
+\newblock Virality in social media: the SPIN framework.
+\newblock Journal of public affairs. 2012;12(2):162--169.
+
+\bibitem{gaugaz2012predicting}
+Gaugaz J, Siehndel P, Demartini G, Iofciu T, Georgescu M, Henze N.
+\newblock Predicting the future impact of news events.
+\newblock In: Advances in Information Retrieval. Springer; 2012. p. 50--62.
+
+\bibitem{chile_elections}
+{Telegraph}. Chile News;.
+\newblock \url{http://www.telegraph.co.uk/news/worldnews/southamerica/chile/}.
+
+\bibitem{ReisBOPKA15}
+dos Reis JC, Benevenuto F, de~Melo POSV, Prates RO, Kwak H, An J.
+\newblock Breaking the News: First Impressions Matter on Online News.
+\newblock CoRR. 2015;abs/1503.07921.
+\newblock Available from: \url{http://arxiv.org/abs/1503.07921}.
+
+\bibitem{barabasi2005origin}
+Barabasi AL.
+\newblock The origin of bursts and heavy tails in human dynamics.
+\newblock Nature. 2005;435(7039):207--211.
+
+\bibitem{karsai2012universal}
+Karsai M, Kaski K, Barab{\'a}si AL, Kert{\'e}sz J.
+\newblock Universal features of correlated bursty behaviour.
+\newblock Scientific reports. 2012;2.
+
+\bibitem{gao2014quantifying}
+Gao L, Song C, Gao Z, Barab{\'a}si AL, Bagrow JP, Wang D.
+\newblock Quantifying information flow during emergencies.
+\newblock arXiv preprint arXiv:14011274. 2014;.
+
+\bibitem{yan2013information}
+Yan Q, Wu L, Liu C, Li X.
+\newblock Information propagation in online social network based on human
+  dynamics.
+\newblock In: Abstract and Applied Analysis. vol. 2013. Hindawi Publishing
+  Corporation; 2013. .
+
+\bibitem{ff}
+Fei-Fei L, Perona P.
+\newblock A Bayesian hierarchical model for learning natural scene categories.
+\newblock In: Computer Vision and Pattern Recognition, 2005. CVPR 2005. IEEE
+  Computer Society Conference on. vol.~2; 2005. p. 524--531 vol. 2.
+
+\bibitem{Vaizman}
+Vaizman Y, McFee B, Lanckriet G.
+\newblock Codebook-based Audio Feature Representation for Music Information
+  Retrieval.
+\newblock IEEE/ACM Trans Audio, Speech and Lang Proc. 2014
+  Oct;22(10):1483--1493.
+\newblock Available from: \url{http://dx.doi.org/10.1109/TASLP.2014.2337842}.
+
+\bibitem{Twitter_website}
+{Twitter Inc };.
+\newblock \url{https://www.twitter.com}.
+
+\bibitem{Twitter_API}
+{Twitter API};.
+\newblock \url{https://dev.twitter.com}.
+
+\bibitem{Tan_Steinbach_Kumar}
+Tan PN, Steinbach M, Kumar V.
+\newblock Introduction to Data Mining, (First Edition).
+\newblock Boston, MA, USA: Addison-Wesley Longman Publishing Co., Inc.; 2005.
+
+\bibitem{Tatar:2011}
+Tatar A, Leguay J, Antoniadis P, Limbourg A, de~Amorim MD, Fdida S.
+\newblock Predicting the Popularity of Online Articles Based on User Comments.
+\newblock In: Proceedings of the International Conference on Web Intelligence,
+  Mining and Semantics. WIMS '11. New York, NY, USA: ACM; 2011. p. 67:1--67:8.
+\newblock Available from: \url{http://doi.acm.org/10.1145/1988688.1988766}.
+
+\bibitem{suh2010want}
+Suh B, Hong L, Pirolli P, Chi EH.
+\newblock Want to be retweeted? large scale analytics on factors impacting
+  retweet in twitter network.
+\newblock In: Social computing (socialcom), 2010 ieee second international
+  conference on. IEEE; 2010. p. 177--184.
+
+\end{thebibliography}

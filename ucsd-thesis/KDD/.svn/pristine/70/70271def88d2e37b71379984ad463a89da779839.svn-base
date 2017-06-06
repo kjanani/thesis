@@ -1,0 +1,45 @@
+%!TEX root = paper.tex
+
+There are two families of work which we delve into to provide an overview of
+related papers: one is the family of work on TDE, and the other is
+family of work that uses some type of link structure (either derived from citation networks,
+or other means) for topic modeling.  Works which fall under the latter
+family tree generally do not model the evolution of topics that are discovered, and hence do not
+incorporate a temporal aspect to the model they develop.  To the best of our knowledge, 
+our work is the first to combine both topic discovery and evolution with link structure.
+More importantly, our work is the only one which studies where the soft spot really lies.
+Meaning, we comprehensively study through experiments for what kind of topics does
+the social context of an article through user interactions really produce improvements in performance.
+
+\emph{Topic discovery and evolution} has been a subject which has garnered plenty of attention for more than a decade 
+\cite{Allan:2002} but has gained renewed interest in recent 
+years with the advent of the social media \cite{Sayyadi:2009,Becker:2009,Mathioudakis:2010}.   
+The most effective models developed by the topic tracking community is generally built on
+some well-known topic discovery model (or topic model) with a temporal aspect added to it to accommodate for the incoming
+stream of data.  This is the case with NMF (non-negative matrix factorization) \cite{Lee:Nature}
+based models that connects along time the learned representations for the incoming stream of
+data \cite{Blei:2006, mairal2010, Saha:2012, Vaca:2014}. In the same spirit, other works extend 
+generative models like latent dirichlet allocation (LDA) \cite{blei2003}
+for analyzing the evolution of topics along time \cite{AlSumait:2008, Wang:2012, He:2009, Kawamae:2011, Wang:2006}. 
+
+\emph{Social information for topic detection} has masqueraded with many names in literature.
+There have been entire lines of works which use the link structure between documents to model
+topics.  This link structure can be built to model a certain relationship between documents.  Examples of
+information that can be modeled through link structure are common authors between documents, citation networks, etc.
+Many of these models derive inspiration from classical topic modeling algorithms, and extend them
+to incorporate for the new modality of information now available to them.
+\cite{Erosheva:2004} proposed the Link-LDA model which extends LDA to include citation information.
+It replicates the graphical model used for modeling documents and words to also model documents and
+citations.  It enforces that the document's topic distribution and the document's citation distribution
+to be the same.  \cite{Nallapati:2008} propose Link-PLSA-LDA as a scable LDA-type model
+for topic modeling and link prediction.  Relational Topic Model (RTM) was proposed by \cite{chang2009relational}
+to model link between documents as a binary random variable based on the content of the document.  They
+do not consider the community information.  \cite{Rosen-Zvi:2004} propose the author-topic model to
+simultaneously model the content of the topic and the interest of the author using a shared hyperparameter.  
+\cite{McCallum:2007} propose the topic-author-recipient model to take into account the directionality
+of the link between the documents, and models the ``who-cited-whom" information.
+More recently, we have works of \cite{El-Arini:2013} which represents documents through `badges',
+which are essentially descriptive terms from the users sharing the documents.  However, in our
+method, we model the full authorship information as a matrix and perform collective matrix factorization.
+We note that none of these methods that use the link structure or authorship information consider temporal
+aspect for monitoring topics.

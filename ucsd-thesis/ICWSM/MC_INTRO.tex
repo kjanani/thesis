@@ -1,0 +1,216 @@
+\def\year{2015}
+%File: formatting-instruction.tex
+\documentclass[letterpaper]{article}
+\usepackage{AuthorKit/aaai}
+\usepackage{times}
+\usepackage{url}
+\usepackage{pbox}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{setspace,calc}
+\usepackage{supertabular}
+\usepackage{multirow}
+\usepackage{xcolor}
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+%\pdfinfo{
+%/Title (Write-up)
+%\title{Write-up}
+%/Author (Put All Your Authors Here, Separated by Commas)}
+\title{Using Twitter and topic tracking to monitor public reactions
+  towards  the 2014 Ebola outbreak}
+\setcounter{secnumdepth}{2}  
+ \begin{document}
+\maketitle
+
+\begin{abstract}
+\begin{quote}
+The 2014 Ebola outbreak --- the largest in history --- involved almost 
+30,000 cases and over 11,000 fatalities.  
+Only four of these cases (and one fatality) occurred in the 
+United States, yet US public concern regarding Ebola risks, 
+as manifested in both social media and traditional news sources, 
+remained very high.
+
+In this work, we use a corpus of 10.5 million English 
+language Ebola-related tweets derived from Twitter users in 
+the United States in October 2014 --- the height of the 
+Ebola crisis --- to investigate Ebola-related topics and topic 
+development in social media.  Using the results of two machine 
+learning algorithms, one of which we propose in this work, 
+we produce a timeline of Ebola-related events as they emerged 
+during October 2014, discovering four distinct patterns.   First, long-term, enduring topics tend to be those with repercussions
+that might possible put the health of the public at risk
+(e.g. suspected new cases in the United States), and hence cause
+anxiety in the general public.  Second, we observed
+that any topic that has a positive connotation (e.g. philanthropic
+donations to help in the Ebola effort) tends to be short-lived and
+quickly disappears from the timeline.   Third, we discovered that a
+substantial number of the  short-lived topics that emerge from the data set  are
+memes and jokes related to Ebola.  Fourth,  we noted that some events
+of public health importance (e.g. new cases) tend to generate
+short-term topics if these events occur outside the United States.
+
+ Insights gleaned from this 
+Twitter-based event tracking method could be of use to
+public health organizations like the United States \emph{Centers 
+for Disease Control \& Prevention} in future outbreaks for supporting situational 
+awareness, monitoring the strength \& duration of public concerns, 
+and identifying potential opportunities for health education.
+
+
+% First, any event or topic with potential
+% repercussions that could put the health of
+% the US public at risk seemed to engage Twitter users for much
+% longer. Second, generally, topics which had a positive note
+% to them were not long terms topics. Third, generally
+% any topic which is about a nation other than the United
+% States lasted only for 1 day. Fourth, memes/jokes/rumours
+% lasted anywhere from 1 to 4 days. Insights gleaned from this 
+% Twitter-based event tracking method could be of use to
+% public health organizations like the United States Centers 
+% for Disease Control in future outbreaks for supporting situational 
+% awareness, monitoring the strength \& duration of public concerns, 
+% and identifying potential opportunities for health education.
+\end{quote}
+\end{abstract}  
+
+\section{Introduction \& Motivation}
+Ebola virus disease is a communicable disease characterised by severe
+symptoms (e.g. nausea, vomiting, haemorrhaging) and a very high
+fatality rate\cite{WHO-Ebola-Response-Team:2014aa}.   The 2014 Ebola
+outbreak --- the largest outbreak of Ebola in history --- began in
+Guinea around January 2014 and rapidly spread to neighbouring West
+African countries (Sierra Leone, Liberia), with the World Health
+Organization classifying the outbreak as a \emph{Public Health
+  Emergency of International Concern} in August of that
+year\cite{Weyer:2015aa}.  As of December 31st 2015, it is estimated
+that there have been almost 30,000 cases associated with the outbreak,
+with over 11,000 deaths\footnote{www.webcitation.org/6ePMzFc5a}.  Only 7 cases occurred outside Africa (4 in
+the United States, and 1 each in Italy, the United Kingdom, and
+Spain), resulting in 1 fatality in the United States.  Despite the
+very low disease prevalence in the United States, public concern
+regarding Ebola risk remained elevated throughout the
+outbreak\cite{Towers:2015aa}.
+
+Publicly available social media services, in particular micro-blog platforms like Twitter, are
+increasingly recognised as a valuable data source for understanding
+public attitudes and
+opinions towards health issues, especially when combined with
+computational approaches like Natural
+Language Processing (NLP) and Machine Learning (ML)\cite{Dredze:2012qy}.     Public attitudes towards vaccination
+\cite{Salathe:2011aa}, novel tobacco products \cite{Myslin:2013aa},
+illegal drugs \cite{Krauss:2015aa}, and eating disorders\cite{DBLP:conf/ehealth/Choudhury15} have all been investigated
+using a combination of social media data and computational techniques.   
+
+% Twitter, in conjunction with
+% computational methods, has been used with success in
+% understanding public attitudes towards vaccination
+% \cite{Salathe:2011aa}, novel tobacco products \cite{Myslin:2013aa},
+% and illegal drugs \cite{Krauss:2015aa}.    
+
+In this work, which builds on previous work investigating
+Ebola rumours \cite{DBLP:journals/corr/KalyanamVDCL15},  we used a corpus of 10.5 million Ebola-related tweets
+generated in the United States during October 2014 --- the height of
+the outbreak ---  and then using \textcolor{blue}{JANANI:  ML learning-based
+  topic modeling methods} created \emph{topical timelines} that reveal
+topic progression during the outbreak.   In order to develop the
+timelines, we followed a three step approach: (1) segment the data into
+daily blocks, (2) apply our topic modeling algorithm to each daily
+block, and (3) map and merge daily topics to create a topical
+timeline. 
+
+An analysis of our empirically-derived Ebola timeline showed that, in terms of
+their temporal duration,  identified topics fell into three main groups:  \emph{long-term} topics which
+lasted at least 5 days,  \emph{medium-term} topics which lasted between
+2 and 4 days, and \emph{short-term} topics which lasted for 1 day.
+Generally,  long-term, enduring topics tend to be those with repercussions
+that might possible put the health of the public at risk
+(e.g. suspected new cases in the United States), and hence cause
+anxiety in the general public.   We also observed
+that any topic which has a positive connotation (e.g. philanthropic
+donations to help in the Ebola effort) tends to be either a
+short-term or medium-term topic.   Further, we discovered that a
+substantial number of the  short-lived topics (i.e. short-term and
+medium-term topics) that emerged from the data set are
+memes and jokes related to Ebola.   Finally, we noted that some events
+of public health importance (e.g. new cases) tend to generate
+short-term topics if these events occur outside the United States,
+indicating that overseas, non-US events are of limited interest to US-based
+Twitter users.
+
+
+ Insights gleaned from this 
+Twitter-based event tracking method could be utilised by
+both international public health organizations (e.g. \emph{World Health
+Organization}, \emph{European Centre for Disease Prevention and Control}) and national
+public health entities (e.g. United States \emph{Centers for Disease
+  Control and Prevention}, \emph{Public Health Agency of Canada})  to
+monitor public opinion in future outbreaks with the goal of  supporting situational 
+awareness, assessing the strength \& duration of public concerns, 
+and identifying potential opportunities for health education.
+
+\textcolor{blue}{JANANI: The paper is structured as follows.  Section 2 describes related work
+.  Section 3....  Structure of the paper paragraph.}
+
+ 
+\section{Background \& Related Work}
+\subsection{Disease threats}
+Infectious diseases continue to pose a serious threat to global
+health.  Emerging zoonotic diseases (e.g. \emph{Middle East Respiratory
+Syndrome}\footnote{www.webcitation.org/6eQV6BcML}), re-emerging
+antibiotic resistant diseases
+(e.g. \emph{tuberculosis}\footnote{www.webcitation.org/6eQVG0xMO}), and
+bioterrorism threats
+(e.g. \emph{pestis}\footnote{www.webcitation.org/6eQVKzjK1}) all pose serious
+challenges to global health security, especially given increases in
+the frequency and speed of international travel, and greater population
+density \cite{Hartley:2010aa}. %However, outbreak detection and
+%surveillance is just part of the public health response, equally important
+
+
+\subsection{Digital Disease Detection \& Ebola}
+The application of computational methods to social media, news
+reports, and 
+consumer-generated non-clinical ``big data'' is a rapidly growing area
+of research, variously referred to as \emph{digital disease detection}
+\cite{Brownstein:2009aa},
+\emph{digital epidemiology} \cite{Salathe:2012aa}, and \emph{infodemiology}\cite{Eysenbach:2009aa}, with a focus
+both on tracking disease incidence and prevalence (e.g. Google Flu
+Trends \cite{Cook:2011aa})
+and on the early identification of disease outbreaks (e.g. Healthmap \cite{Freifeld:2008aa},
+Biocaster \cite{Collier:2008aa}).   There is now substantial evidence
+that Twitter is a valuable resource for some infectious disease
+monitoring applications, especially for influenza
+\cite{Signorini:2011aa,Collier:2011aa}.
+However, 
+disease tracking and outbreak detection is just part of the public
+health response to an outbreak \cite{Oyeyemi:2014aa}: understanding the strength and duration of public concerns, 
+and identifying potential opportunities for health education are
+vital, especially in situations where a disease is poorly
+understood\cite{SteelFisher:2015aa} by the general public.  
+
+
+
+
+
+
+\subsection{Event detection using topic modeling}
+\textcolor{blue}{JANANI:  Details of Event detection and topic modeling here} 
+
+
+
+%\input{discussion}
+
+\bibliographystyle{plain}
+\bibliography{refs,MC_REFS}
+
+
+\end{document}

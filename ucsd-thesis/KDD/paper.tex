@@ -1,0 +1,232 @@
+%\documentclass{sig-alternate-2013}
+\usepackage{wrapfig}
+\usepackage{balance}  % for \balance command ON LAST PAGE  (only there!)
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+\usepackage[lined]{algorithm2e}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{./tweaklist}
+\usepackage[show]{./chato-notes}
+\usepackage{color}
+\usepackage{hyperref}
+
+%\usepackage[T1]{fontenc}
+
+
+
+% Paragraphs
+\newcommand{\spara}[1]{\smallskip\noindent{\bf #1}}
+\newcommand{\mpara}[1]{\medskip\noindent{\bf #1}}
+\newcommand{\para}[1]{\noindent{\bf #1}}
+\newcommand{\IGNORE}[1]{}
+
+\newcommand{\yahoo}{{\sf Yahoo!}}
+
+%\renewcommand{\enumhook}{\setlength{\topsep}{0.2pt}
+%\setlength{\itemsep}{0pt}}
+
+\newcommand{\alg}[1]{\bigbreak\noindent{\bf #1}}
+\newcommand{\algskip}{\itemsep=-8pt\baselineskip=0pt}
+\newcommand{\commentedtext}[1]{}
+\newcommand{\myalgostyle}[1]  {{#1}\xspace}
+%% my algorithms
+\newcommand{\optselect}{\myalgostyle{OptSelect}}
+%\newcommand{\optselect}{OptSelect\xspace}
+\newcommand{\M}{$\mathbf{M}$}
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+%\clubpenalty=10000 
+%\widowpenalty = 10000
+
+%%%%%% Some new definitions for this report
+\newcommand{\W}{\textbf{W}^t}
+\newcommand{\HH}{\textbf{H}^t}
+\newcommand{\G}{\textbf{G}^t}
+\newcommand{\MT}{\textbf{M}^t_T}
+\newcommand{\MC}{\textbf{M}^t_C}
+\newcommand{\Htt}{\textbf{H}^{t-1}}
+\newcommand{\Gtt}{\textbf{G}^{t-1}}
+\newcommand{\X}{\textbf{X}^t}
+\newcommand{\U}{\textbf{U}^t}
+\newcommand{\I}{\textbf{I}}
+\newcommand{\0}{\textbf{0}}
+\newcommand{\e}{\textbf{e}}
+
+
+\begin{document}
+\permission{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Permissions@acm.org.}
+\conferenceinfo{KDD'15,}{August 10-13, 2015, Sydney, NSW, Australia.} 
+\copyrightetc{\copyright~2015 ACM. ISBN \the\acmcopyr}
+\crdata{978-1-4503-3664-2/15/08\ ...\$15.00.\\
+DOI: http://dx.doi.org/10.1145/2783258.2783319}
+
+\clubpenalty=10000 
+\widowpenalty = 10000
+
+%\conferenceinfo{KDD'15,} {Sydney, Australia.  Aug 10 -- 13, 2015}
+%\CopyrightYear{2015}
+
+
+% ****************** TITLE ****************************************
+\title{Leveraging Social Context for Modeling Topic Evolution}
+
+% ****************** AUTHORS **************************************
+
+\numberofauthors{5}
+%\author{
+%\alignauthor Janani Kalyanam$^*$ 
+%\alignauthor Amin Mantrach$^+$  
+%\alignauthor Diego Saez-Trumper$^+$
+%\and
+%\alignauthor Puya Vahabi$^+$
+%\alignauthor Gert Lanckriet$^*$
+%}
+\author{
+ \alignauthor Janani Kalyanam \\
+\affaddr{Univ. of California, San Diego} \email{jkalyana@ucsd.edu} \\
+\alignauthor Amin Mantrach \\ 
+\affaddr{Yahoo Labs\\ Barcelona, Spain} \email{amantrac@yahoo-inc.com}
+\and
+ \alignauthor Diego Saez-Trumper \\ 
+\affaddr{Yahoo Labs \\ Barcelona, Spain}\email{dsaez-trumper@acm.org} 
+\alignauthor Hossein Vahabi \\
+\affaddr{Yahoo Labs \\ Barcelona, Spain} \email{puya@yahoo-inc.com}
+\alignauthor Gert Lanckriet \\
+\affaddr{Univ. California, San Diego} \email{gert@ece.ucsd.edu} \\
+}
+
+\maketitle \sloppy
+\vspace{-1cm}
+% THE ABSTRACT.
+\begin{abstract}
+Topic discovery and evolution (TDE) has been a problem which has gained
+long standing interest in the research community.  The goal in
+topic discovery is to identify groups of keywords from large corpora so that the information in those
+corpora are summarized succinctly.  The nature of text corpora has changed
+dramatically in the past few years with the advent of social media.  
+Social media services allow users to constantly share, follow and comment
+on posts from other users.  Hence, such services have given a new
+dimension to the traditional text corpus.  The new dimension being that
+today's corpora have a \emph{social context} embedded in them in terms of the
+community of users interested in a particular post, their profiles etc.  
+We wish to harness this social context that comes along with
+the textual content for TDE.  In particular, our goal is to both
+qualitatively and quantitatively analyze when
+social context actually helps with TDE.
+Methodologically, we approach the problem of TDE by a proposing non-negative matrix
+factorization (NMF) based model 
+that incorporates both the textual information
+and social context information.  We
+perform experiments on large scale real world
+dataset of news articles, and use Twitter as the platform providing information
+about the social context of these news articles.
+We compare with and outperform
+several state-of-the-art baselines. Our conclusion is that using
+the social context information is most useful when
+faced with topics that are particularly difficult to detect.
+\vspace{-0.2cm}
+%The field of topic discovery and evolution has always garnered plenty of interest
+%from the research community.
+%Recently, several successful algorithms modeling topic evolution have been proposed.
+%However, most of them use the textual information
+%to discover and model the evolution of topics.  This can often limit the kind of topics 
+%being detected to only those which have a strong textual
+%topical focus.
+%However, in reality, as the topic evolves, the vocabulary and the focus of
+%the topic may change, and relying on textual content
+%alone may not solve the problem. 
+%In this paper, we wish to use the social context associated with user activities
+%in addition to textual content to model the evolution of topics.
+%We wish to harness the social community information for detecting topics whose
+%textual content may be varied, but have a strong community
+%of users interested in them. We approach the problem by simultaneously modeling the evolution 
+%of the social communities and the evolution of topics by using a 
+%multimodal time series based non-negative matrix factorization.  The
+%multimodal aspect stems from the fact that both content \emph{and} social
+%context information are used to discover and model the evolution of topics.
+%We perform experiments on large scale realworld dataset based on Twitter
+%data.  Through experiments, we show that there is a significant improvement from
+%using both content and social context information, as opposed to using 
+%the content alone.
+%We also show better performance when compared
+%to  other state-of-the-art topic detection algorithms which include social information,
+%and those which model topic evolution.
+%
+\end{abstract}
+
+\category{I.5.4}{Pattern Recognition}{Applications: Text processing}
+%\category{G.1.3}{Numerical Linear Algebra}{Sparse, structured, and very large systems (direct and iterative methods);}
+\vspace{-0.5cm}
+% INCLUDE THESE IN THE FINAL VERSION.
+%\terms{Algorithms, Theory}
+
+% INCLUDE THESE IN THE FINAL VERSION.
+\keywords{Social networks, topic discovery, topic monitoring, topic tracking,
+collective factorization}
+
+% A GENERAL INTRODUCTION.
+\section{Introduction}
+\label{sec:introduction}
+\input{introduction.tex}
+
+\section{Comparison to previous work}
+\label{sec:comparison_to_previous_work}
+\input{comparison_to_previous_work.tex}
+
+\vspace{-0.2cm}
+\section{LEARNING FROM CONTENT AND \\SOCIAL MEDIA ACTIVITY}
+\label{sec:content_and_networks}
+\input{content_and_networks.tex}
+
+\section{DATA SET DESCRIPTION}
+\label{sec:data_set_description}
+\input{data_set_description.tex}
+
+% EXPERIMENTS
+\section{Experiments}
+\label{sec:experiments}
+\input{experiments.tex}
+
+% CONCLUSIONS AND FUTURE WORKS.
+\vspace{-0.3cm}
+\section{Conclusion}
+\label{sec:conclusion}
+The goal of our work was to gain a better understanding of when social context
+helps in modeling topic evolution.  In order to achieve this, we proposed a matrix factorization based
+approach which takes into account both the content of the documents and their social
+context.  We found that, depending on the kind of topic, there is a clear trade
+off between the content and community.
+The content of the document
+suffices if the text of the topic is very focused, and evolves little over time.
+As we begin to move away from this scenario to consider documents that have a richer
+and more variable vocabulary, we find that the use of social context
+begins to help greatly.  We were also able to show
+that our model can learn the kind of topics at hand; i.e., whether they are
+content stable, community stable, or
+both.
+
+This work predominantly considered the user interactions of the documents
+as the social context.  In the same spirit, one could explore what it means to consider
+other types of contexts like geographical location of the user (or document),
+and also perhaps delve more into the user profiles and incorporate information
+about age, gender and demographics to give a well rounded view of the social context.
+We hope to be able to work on these aspects in the future.
+\section{Acknowledgements}
+J.K. and G.R.G.L. acknowledge support from Yahoo! Inc., 
+and the NSF (grants CCF-0830535 and IIS-1054960). 
+G.R.G.L. acknowledges support from the Alfred P. Sloan Foundation.
+D.S is funded by the EC SUPER (FP7-606853) project.
+\vspace{-0.2cm}
+{\small\bibliographystyle{plain}
+\bibliography{refs}}
+\end{document}

@@ -1,0 +1,17 @@
+To add files to the repo:
+
+   git add <filename>
+   git add *
+
+To commit to the local repo:
+   
+   git -commit -m "MC: Commit message"
+
+To push to the remote repo at Github:
+
+   git push origin master
+
+To get the newest version from the remote repo:
+
+   git pull
+

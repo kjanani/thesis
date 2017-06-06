@@ -1,0 +1,41 @@
+\def\year{2015}
+%File: formatting-instruction.tex
+\documentclass[letterpaper]{article}
+\usepackage{AuthorKit/aaai}
+\usepackage{times}
+\usepackage{url}
+\usepackage{pbox}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{setspace,calc}
+\usepackage{supertabular}
+\usepackage{multirow}
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+%\pdfinfo{
+%/Title (Write-up)
+%\title{Write-up}
+%/Author (Put All Your Authors Here, Separated by Commas)}
+\title{Ebola and Twitter:  The Whole Nine Yards}
+\setcounter{secnumdepth}{2}  
+ \begin{document}
+\maketitle
+\input{abstract}
+\input{introduction}
+\input{related}
+\input{data_and_model}
+\input{experiments}
+\input{conclusion}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+
+\end{document}

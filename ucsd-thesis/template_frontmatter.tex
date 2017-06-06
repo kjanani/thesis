@@ -1,0 +1,215 @@
+%
+%
+% UCSD Doctoral Dissertation Template
+% -----------------------------------
+% http://ucsd-thesis.googlecode.com
+%
+%
+
+
+%% REQUIRED FIELDS -- Replace with the values appropriate to you
+
+% No symbols, formulas, superscripts, or Greek letters are allowed
+% in your title.
+\title{Machine Learning and Applications on Social Media Data}
+
+\author{Janani Kalyanam}
+\degreeyear{\the\year}
+
+% Master's Degree theses will NOT be formatted properly with this file.
+\degreetitle{Doctor of Philosophy}
+
+\field{Electrical Engineering}
+\specialization{Intelligent Systems, Robotics, and Control}  % If you have a specialization, add it here
+
+\chair{Professor Gert Lanckriet}
+% Uncomment the next line iff you have a Co-Chair
+% \cochair{Professor Cochair Semimaster}
+%
+% Or, uncomment the next line iff you have two equal Co-Chairs.
+%\cochairs{Professor Chair Masterish}{Professor Chair Masterish}
+
+%  The rest of the committee members  must be alphabetized by last name.
+\othermembers{
+Professor Kenneth Kreutz Delgado\\
+Professor Timothy Mackey\\
+Professor Siavash Mirarab\\
+Professor Lawrence Saul\\
+}
+\numberofmembers{5} % |chair| + |cochair| + |othermembers|
+
+
+%% START THE FRONTMATTER
+%
+\begin{frontmatter}
+
+%% TITLE PAGES
+%
+%  This command generates the title, copyright, and signature pages.
+%
+\makefrontmatter
+
+%% DEDICATION
+%
+%  You have three choices here:
+%    1. Use the ``dedication'' environment.
+%       Put in the text you want, and everything will be formated for
+%       you. You'll get a perfectly respectable dedication page.
+%
+%
+%    2. Use the ``mydedication'' environment.  If you don't like the
+%       formatting of option 1, use this environment and format things
+%       however you wish.
+%
+%    3. If you don't want a dedication, it's not required.
+%
+%
+\begin{dedication}
+\begin{center}
+
+To Vignesh.  \\
+I cannot imagine embarking on or finishing the PhD journey (or any other journey) without you beside me.  Thanks for everything.
+
+\end{center}
+
+\end{dedication}
+
+
+% \begin{mydedication} % You are responsible for formatting here.
+%   \vspace{1in}
+%   \begin{flushleft}
+% 	To me.
+%   \end{flushleft}
+%
+%   \vspace{2in}
+%   \begin{center}
+% 	And you.
+%   \end{center}
+%
+%   \vspace{2in}
+%   \begin{flushright}
+% 	Which equals us.
+%   \end{flushright}
+% \end{mydedication}
+
+
+
+%% EPIGRAPH
+%
+%  The same choices that applied to the dedication apply here.
+%
+\begin{epigraph} % The style file will position the text for you.
+  \emph{I won't just have a job; I will have a calling.\\
+  I'll challenge myself every day.  When I get knocked down, I'll get back up.\\
+    I may not be the smartest person in the room, but I'll strive to be the grittiest.}\\
+  ---Angela Duckworth, Grit: The Power of Passion and Perseverance
+\end{epigraph}
+
+% \begin{myepigraph} % You position the text yourself.
+%   \vfil
+%   \begin{center}
+%     {\bf Think! It ain't illegal yet.}
+%
+% 	\emph{---George Clinton}
+%   \end{center}
+% \end{myepigraph}
+
+
+%% SETUP THE TABLE OF CONTENTS
+%
+\tableofcontents
+\listoffigures  % Comment if you don't have any figures
+\listoftables   % Comment if you don't have any tables
+
+
+
+%% ACKNOWLEDGEMENTS
+%
+%  While technically optional, you probably have someone to thank.
+%  Also, a paragraph acknowledging all coauthors and publishers (if
+%  you have any) is required in the acknowledgements page and as the
+%  last paragraph of text at the end of each respective chapter. See
+%  the OGS Formatting Manual for more information.
+%
+\begin{acknowledgements}
+This feels surreal.  I am aware that I will be evaluated on the content of the chapters written in this thesis.  However, if not for the enormous list of people who have helped me through all these years, the chapters themselves would not exist.  This is but a faint effort in thanking at least a subset of them.    
+
+I remember the first time the phrase “PhD” registered some sort of an impression on me.  I was 9 years old.  I was filling out a form which required my father’s name, and his highest degree earned.  My father instructed me to put down “PhD”.  When I asked him what it meant - he explained that one earns a PhD when one solves a problem.  I asked what problem should one solve in order to earn a PhD.  He responded saying, any problem you want, any problem you find interesting.  I remember thinking - then why not just solve a problem which you already know the answer to.  That conversation stuck with me.  Perhaps the seed to embarking on a PhD journey was sown back then.  I thank my father for that, and my mother for imbibing in me very early on the importance of education and hard work.
+
+I also remember one of the first conversations that I had with my advisor, Gert Lanckriet.  It was back in 2011 (phew, 6 long years ago!) when I knew nothing about machine learning.  In that conversation, Gert spoke to me about the why of his research, rather than the how.  That ignited a spark in me to pursue some questions, know more about this field.  And thus began one of the most rewarding journeys I would have.  To this day, his drive and enthusiasm to literally reach for the stars amazes me.  I hope I was able to scrape off at least some of that energy over these years.  I thank him for readily approving all my collaborative projects, and for being a strong source of encouragement for all my ideas.   Most importantly, I thank him for allowing me to come into my own as a researcher.  
+
+The innumerable collaborators that I have worked with in the past few years are the reason I stand tall completing my PhD today.  Barbara Poblete and Mauricio Quezada - for the brainstorming session that we had in Chile, and for sticking with our project even when it took the longest time to get published.  Amin Mantrach, Diego Saez-Trumper and Puya Vahabi - for agreeing to work with some random student whom you once met at a conference.  The paper we published at KDD was truly a turning point in my life as a graduate student, and I am deeply grateful for that.  Sumithra Velupillai, Mike Conway and Adi Gundlapalli - for patiently listening to my ideas, results and interpretations, and providing detailed feedback on my papers.  It is so much fun working with you.  To Timothy Mackey - for introducing me to what is truly transdisciplinary research, and for giving impact and meaning to my work.  Your passion, work ethic, and drive is positively inspiring, and I look forward to future collaborations.  Working with you has been one of the most rewarding and fruitful experiences.
+
+I thank all my committee members Kreutz Delgado, Timothy Mackey, Siavash Mirarab, and Lawrence Saul for taking the time.  I have also had them as teachers who have helped lay the strong foundations.  I remember being completely entranced during classes taught by Lawrence Saul, Sanjoy Dasgupta, Nuno Vasconcelos, Kamalika Chaudhury and Gert Lanckriet.  I am humbled and inspired by their ability to explain the most advanced concepts in the simplest of terms.  I also extend my thanks to all the faculty who have hired me as Teaching Assistant for their courses:  (late) Rene Cruz, Vikash Gilja, Gert Lanckriet, Siavash Mirarab, Alon Orlitsky, Alexander Vardy.  
+
+My lab mates, those whom my PhD years have overlapped with - Katherine Ellis, Daryl Lim, Yonatan Vaizman, Emanuele Coviello and Brian McFee.  You have enriched my graduate student experience.  My first project as a PhD student was with Brian McFee.  I thank him for literally holding my hand through that project, and teaching me how to draft a paper.  Thanks also to Daryl, the fellow parent and friend, for patiently listening to the several problems I encountered over the course of years.  
+
+To the broader community of fellow PhD students both within and outside UCSD whom I met and interacted with over the years.  In one way or another, you all encouraged me that there is light at the end of the tunnel.  Special mention to fellow PhD student and cousin brother Ram Raghunathan (at CMU).  Thanks for your seemingly never ending supply of computing resources, for your advice and quirks on some general fixes to my computing problems, and - oh, also, for the machine that you built for me.  About 80\% of the thesis is a result of the simulations that were run on ML-MACHINE.  
+
+Thanks to all my family.  You have contributed so much to the successful completion my PhD.  I am humbled by the love and affection you shower on me.  Thanks to my children - their smile, mischiefs, and antics are a huge part of what kept me going during the darkest of nights.  
+
+To my best friend and husband, Vignesh.  I cannot express my gratitude without breaking down uncontrollably.  I must be the luckiest person in the world because I get to share my life with you.  You bring so much positivity, confidence, security and happiness.  You are the nucleus and core of what I am today.  Thanks for putting up with me.  I dedicate this thesis to you.
+
+\end{acknowledgements}
+
+
+%% VITA
+%
+%  A brief vita is required in a doctoral thesis. See the OGS
+%  Formatting Manual for more information.
+%
+\begin{vitapage}
+\begin{vita}
+  \item[2007] B.~S. in Electrical and Computer Engineering, Rutgers, the State University of New Jersey
+  \item[2009] M.~S. in Electrical and Computer Engineering, University of Wisconsin, Madison
+  \item[2017] Ph.~D. in Electrical Engineering, University of California, San Diego
+\end{vita}
+\begin{publications}
+  \item Janani Kalyanam and Gert Lanckriet, ``Learning from Unstructured Multimedia Data'', \emph{Proceedings of the 23rd International Conference on World Wide Web}, 2014.
+  \item Janani Kalyanam, Amin Mantrach, Diego Saez Trumper, Hossein Vahabi and Gert Lanckriet, ``Leveraging Social Context for Topic Evolution'', \emph{Proceedings of the 21st International Conference on Knowledge Discovery and Data Mining}, 2015.
+  \item Janani Kalyanam, Sumithra Velupillai, Son Doan, Mike Conway and Gert Lanckriet, ``Facts and Fabrications about Ebola: A Twitter Based Study'', \emph{Proceedings of the 21st International Conference on Knowledge Discovery and Data Mining Workshop on Connected Health in Big Data Era}, 2015.
+  \item Janani Kalyanam, Sumithra Velupillai, Mike Conway and Gert Lanckriet, ``From Event Detection to Story Telling on Microblogs'', \emph{Proceedings of the ACM/IEEE Conference on Advances in Social Network Analysis and Mining}, 2016.
+  \item Janani Kalyanam, Takeo Katsuki, Gert Lanckriet and Timothy Mackey, ``Exploring Trends of Nonmedical use of Prescription Drugs and Polydrug Abuse in the Twittersphere Using Unsupervised Machine Learning'', \emph{Addictive Behaviors}, 2016.
+  \item Janani Kalyanam, Mauricio Quezada, Barbara Poblete and Gert Lanckriet, ``Prediction and Characterization of High-Activity Events in Social Media Triggered by Real-World News'', \emph{PLOS ONE}, 2016.
+\end{publications}
+\end{vitapage}
+
+
+%% ABSTRACT
+%
+%  Doctoral dissertation abstracts should not exceed 350 words.
+%   The abstract may continue to a second page if necessary.
+%
+\begin{abstract}
+The emergence of social media and advances in mobile technology and internet has resulted in constant
+connectivity across users enabling them to post, share, and engage with content published on the web.
+Studying and learning from such data about users, and their engagement with content can give insights into the current
+and emerging trends in society.  However, studying social media data comes with its
+own set of unique challenges.  Social media data is highly unstructured because the content is not
+curated to adhere to any formal structure.  This makes the process of analyzing the data
+challenging.  Each message published on social media has 
+Social media data is also highly volatile since huge volumes of
+data is generated every second.  In this thesis, we propose machine learning based algorithms and methodologies
+to accommodate these challenges; and apply the algorithms to solve problems in domains of public health
+and journalism.
+
+Chapter \ref{kdd_chapter} proposes a new framework to combine the text and user engagement data
+to detect trends from social networks.
+
+Chapter \ref{plos_chapter} studies social media data to predict the impact of news events.
+The chatter on social media surrounding news events is accurately quantified, and is found to
+be the most distinguishing feature between high-impact and low-impact events.
+
+Chapter \ref{AB_chapter} uses topic modeling to discover attitudes and trends about drug abuse.
+
+%large scale social media data can give insight into the current and emerging trends in society.
+%However, d
+%The advent of mobile electronic devices coupled with the emergence of Web 2.0, also knows as user generated content
+%and the growth of social media, changed the way we operate as a society.  Today, 78\% of all Americans
+%have some form of social media presence.  Youth from ages 16 to 25 spend more than an average of 2.5 hours per day on
+%social media.  70\% of all Americans own a smart phone.  All of this has led to having some sort of an electronic snapshot
+%of our society
+\end{abstract}
+
+
+\end{frontmatter}

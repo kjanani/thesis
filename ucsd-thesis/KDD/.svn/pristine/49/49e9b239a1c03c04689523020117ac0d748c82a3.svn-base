@@ -1,0 +1,152 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\citation{Vaca:2014}
+\citation{Nallapati:2008}
+\citation{AlSumait:2008}
+\citation{Allan:1998}
+\citation{Yang:1998}
+\citation{Sayyadi:2009}
+\citation{Becker:2009}
+\citation{Allan:2002}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{\thepage }{section.1}}
+\newlabel{sec:introduction}{{1}{\thepage }{Introduction}{section.1}{}}
+\citation{Vaca:2014}
+\citation{Saha:2012}
+\citation{mairal2010}
+\citation{singh:2008}
+\citation{AlSumait:2008}
+\citation{Nallapati:2008}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Comparison to previous work}{\thepage }{section.2}}
+\newlabel{sec:comparison_to_previous_work}{{2}{\thepage }{Comparison to previous work}{section.2}{}}
+\citation{Allan:2002}
+\citation{Lavrenko:2002}
+\citation{Leek:2002}
+\citation{Sayyadi:2009}
+\citation{Mathioudakis:2010}
+\citation{Becker:2009}
+\citation{Lee:Nature}
+\citation{Cao:2007}
+\citation{mairal2010}
+\citation{Saha:2012}
+\citation{Vaca:2014}
+\citation{blei2003}
+\citation{AlSumait:2008}
+\citation{Wang:2006}
+\citation{Wang:2012}
+\citation{Kawamae:2011}
+\citation{He:2009}
+\citation{Erosheva:2004}
+\citation{Nallapati:2008}
+\citation{chang2009relational}
+\citation{Rosen-Zvi:2004}
+\citation{McCallum:2007}
+\citation{singh:2008}
+\citation{Vaca:2014}
+\@writefile{toc}{\contentsline {section}{\numberline {3}LEARNING FROM CONTENT AND \\SOCIAL MEDIA ACTIVITY}{\thepage }{section.3}}
+\newlabel{sec:content_and_networks}{{3}{\thepage }{LEARNING FROM CONTENT AND \\SOCIAL MEDIA ACTIVITY}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The Objective Function}{\thepage }{subsection.3.1}}
+\newlabel{eq:topic_decomp}{{1}{\thepage }{The Objective Function}{equation.3.1}{}}
+\newlabel{eq:comm_decomp}{{2}{\thepage }{The Objective Function}{equation.3.2}{}}
+\newlabel{eq:prev_topic_decomp}{{3}{\thepage }{The Objective Function}{equation.3.3}{}}
+\newlabel{eq:prev_comm_decomp}{{4}{\thepage }{The Objective Function}{equation.3.4}{}}
+\citation{Vaca:2014}
+\citation{lee_1999}
+\citation{YatesTrumper:2013}
+\citation{YatesTrumper:2013}
+\newlabel{eq:loss_function}{{5}{\thepage }{The Objective Function}{equation.3.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}The Optimization}{\thepage }{subsection.3.2}}
+\newlabel{eq:optimization}{{9}{\thepage }{The Optimization}{equation.3.9}{}}
+\newlabel{eq:gradient_W}{{10}{\thepage }{The Optimization}{equation.3.10}{}}
+\newlabel{eq:gradient_MC}{{14}{\thepage }{The Optimization}{equation.3.14}{}}
+\newlabel{eq:primal_feasibility}{{15}{\thepage }{The Optimization}{equation.3.15}{}}
+\newlabel{eq:KKT}{{16}{\thepage }{The Optimization}{equation.3.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}DATA SET DESCRIPTION}{\thepage }{section.4}}
+\newlabel{sec:data_set_description}{{4}{\thepage }{DATA SET DESCRIPTION}{section.4}{}}
+\citation{Nallapati:2008}
+\citation{Erosheva:2004}
+\citation{Nallapati:2008}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Hashtag Stability}{\thepage }{subsection.4.1}}
+\newlabel{alg:hashtag_stability_scores}{{1}{\thepage }{Hashtag Stability}{algocfline.1}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Hashtag stability scores}}{\thepage }{algocf.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{\thepage }{section.5}}
+\newlabel{sec:experiments}{{5}{\thepage }{Experiments}{section.5}{}}
+\citation{AlSumait:2008}
+\citation{Vaca:2014}
+\citation{AlSumait:2008}
+\citation{AlSumait:2008}
+\citation{Vaca:2014}
+\citation{sekiguchi:2006}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces This table lists the top-$30$ hashtags found in the content stable, community stable and mixed stable categories. Basically these are closest $30$ points by Euclidean distance from $(1,0)$, $(0,1)$ and $(1,1)$ in Figure \ref  {fig:Stability} for content stable, community stable, and mixed stable hashtags respectively. These were used as the groundtruth for evaluating topic discovery (more details on evaluation in Section \ref  {sec:experiments}.}}{\thepage }{table.1}}
+\newlabel{tab:tags}{{1}{\thepage }{This table lists the top-$30$ hashtags found in the content stable, community stable and mixed stable categories. Basically these are closest $30$ points by Euclidean distance from $(1,0)$, $(0,1)$ and $(1,1)$ in Figure \ref {fig:Stability} for content stable, community stable, and mixed stable hashtags respectively. These were used as the groundtruth for evaluating topic discovery (more details on evaluation in Section \ref {sec:experiments}}{table.1}{}}
+\newlabel{fig:NMF_Stability}{{4.1}{\thepage }{Hashtag Stability}{algocf.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces This figure illustrates the stability of hashtags in terms of content and community information. Each dot in the figure is a hashtag. The x-axis and y-axis represent content and community stability. The content and community stability scores are calculated according to Algorithm \ref  {alg:hashtag_stability_scores}. The encoding used to represent each document in Algorithm \ref  {alg:hashtag_stability_scores} is NMF encoding.}}{\thepage }{figure.1}}
+\newlabel{fig:Stability}{{1}{\thepage }{This figure illustrates the stability of hashtags in terms of content and community information. Each dot in the figure is a hashtag. The x-axis and y-axis represent content and community stability. The content and community stability scores are calculated according to Algorithm \ref {alg:hashtag_stability_scores}. The encoding used to represent each document in Algorithm \ref {alg:hashtag_stability_scores} is NMF encoding}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Baselines}{\thepage }{subsection.5.1}}
+\newlabel{subsec:baselines}{{5.1}{\thepage }{Baselines}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Evaluation}{\thepage }{subsection.5.2}}
+\newlabel{subsec:ground_truth}{{5.2}{\thepage }{Evaluation}{subsection.5.2}{}}
+\newlabel{subsec:evaluation}{{5.2}{\thepage }{Evaluation}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Experimental Setup}{\thepage }{subsection.5.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Topic Discovery Experiments}{\thepage }{subsection.5.4}}
+\newlabel{subsec:topic_discovery_experiments}{{5.4}{\thepage }{Topic Discovery Experiments}{subsection.5.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Parameter Analysis: The $\mu $ parameter}{\thepage }{subsection.5.5}}
+\newlabel{subsec:parameter_analysis}{{5.5}{\thepage }{Parameter Analysis: The $\mu $ parameter}{subsection.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Learning Stability of Topics}{\thepage }{subsection.5.6}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Topic discovery evaluation using Normalized Cumulative Discounted Gain and Mean Average Precision metrics for all three categories of hashtags. $\lambda $ was set to $10^7$, and $\alpha $ was set to 0.05 for \textbf  {OUR} model. All the values in bold represent significant improvement in performance (using Student-t test, $p < 0.05$).}}{\thepage }{table.2}}
+\newlabel{tab:topic_discovery_evaluation}{{2}{\thepage }{Topic discovery evaluation using Normalized Cumulative Discounted Gain and Mean Average Precision metrics for all three categories of hashtags. $\lambda $ was set to $10^7$, and $\alpha $ was set to 0.05 for \textbf {OUR} model. All the values in bold represent significant improvement in performance (using Student-t test, $p < 0.05$)}{table.2}{}}
+\newlabel{fig:NMF_Stability}{{5.5}{\thepage }{Parameter Analysis: The $\mu $ parameter}{subsection.5.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces This figure illustrates the effect of the importance parameter, $\mu $ on the performance. Refer to Equation \ref  {eq:loss_function}. A high value of $\mu $ places more weight on the topic part of the objective and less weight on the community part of the objective, and vice versa. The content stable hashtags do relatively poorly for low $\mu $ values. The performance improves as the $\mu $ value increases, and more importance is placed on the topic part of the objective. The community stable hashtags do well for a low value of $\mu $ and the performance degrades, as the value of $\mu $ is increased. The mixed stable hashtags do best when equal importance is given to both content and community parts of the objective.}}{\thepage }{figure.2}}
+\newlabel{fig:mu_analysis}{{2}{\thepage }{This figure illustrates the effect of the importance parameter, $\mu $ on the performance. Refer to Equation \ref {eq:loss_function}. A high value of $\mu $ places more weight on the topic part of the objective and less weight on the community part of the objective, and vice versa. The content stable hashtags do relatively poorly for low $\mu $ values. The performance improves as the $\mu $ value increases, and more importance is placed on the topic part of the objective. The community stable hashtags do well for a low value of $\mu $ and the performance degrades, as the value of $\mu $ is increased. The mixed stable hashtags do best when equal importance is given to both content and community parts of the objective}{figure.2}{}}
+\bibstyle{plain}
+\bibdata{refs}
+\bibcite{Allan:1998}{1}
+\bibcite{AlSumait:2008}{2}
+\bibcite{YatesTrumper:2013}{3}
+\bibcite{Becker:2009}{4}
+\bibcite{blei2003}{5}
+\bibcite{Cao:2007}{6}
+\bibcite{chang2009relational}{7}
+\bibcite{Erosheva:2004}{8}
+\bibcite{Allan:2002}{9}
+\bibcite{He:2009}{10}
+\bibcite{Kawamae:2011}{11}
+\bibcite{Lavrenko:2002}{12}
+\bibcite{lee_1999}{13}
+\bibcite{Lee:Nature}{14}
+\bibcite{Leek:2002}{15}
+\bibcite{mairal2010}{16}
+\bibcite{Mathioudakis:2010}{17}
+\bibcite{McCallum:2007}{18}
+\bibcite{Nallapati:2008}{19}
+\bibcite{Rosen-Zvi:2004}{20}
+\bibcite{Saha:2012}{21}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions and Future Work}{\thepage }{section.6}}
+\newlabel{sec:conclusion}{{6}{\thepage }{Conclusions and Future Work}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}References}{\thepage }{section.7}}
+\bibcite{Sayyadi:2009}{22}
+\bibcite{sekiguchi:2006}{23}
+\bibcite{singh:2008}{24}
+\bibcite{Vaca:2014}{25}
+\bibcite{Wang:2006}{26}
+\bibcite{Wang:2012}{27}
+\bibcite{Yang:1998}{28}
+\newlabel{fig:right_eigen_top}{{5.6}{\thepage }{Learning Stability of Topics}{equation.5.22}{}}
+\newlabel{fig:left_eigen_top}{{5.6}{\thepage }{Learning Stability of Topics}{equation.5.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces This figure illustrates the effect of studying stability through the left and right eigen values for community stable hashtags. We note that in both figures $\textbf  {M}^t_C$ matrix shows higher stability than $\textbf  {M}^t_T$ matrix, thus confirming that we are indeed able to learn the stability through our algorithm.}}{\thepage }{figure.3}}
+\newlabel{fig:topic_stability}{{3}{\thepage }{This figure illustrates the effect of studying stability through the left and right eigen values for community stable hashtags. We note that in both figures $\MC $ matrix shows higher stability than $\MT $ matrix, thus confirming that we are indeed able to learn the stability through our algorithm}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces This figure illustrates the effect of studing the stability through the left eigen values for content stable hashtags. We note that in both figures $\textbf  {M}^t_T$ matrix shows higher stability than the $\textbf  {M}^t_C$ matrix, this confirming that we are indeed able to learn the stability through our algorithm.}}{\thepage }{figure.4}}
+\newlabel{fig:community_stability}{{4}{\thepage }{This figure illustrates the effect of studing the stability through the left eigen values for content stable hashtags. We note that in both figures $\MT $ matrix shows higher stability than the $\MC $ matrix, this confirming that we are indeed able to learn the stability through our algorithm}{figure.4}{}}

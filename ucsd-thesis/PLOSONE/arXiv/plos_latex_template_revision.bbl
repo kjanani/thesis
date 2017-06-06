@@ -1,0 +1,171 @@
+\begin{thebibliography}{10}
+
+\bibitem{Ahmed:2013}
+Mohamed Ahmed, Stella Spagna, Felipe Huici, and Saverio Niccolini.
+\newblock A peek into the future: Predicting the evolution of popularity in
+  user generated content.
+\newblock In {\em Proceedings of the Sixth ACM International Conference on Web
+  Search and Data Mining}, WSDM '13, pages 607--616, New York, NY, USA, 2013.
+  ACM.
+
+\bibitem{barabasi2005origin}
+Albert-Laszlo Barabasi.
+\newblock The origin of bursts and heavy tails in human dynamics.
+\newblock {\em Nature}, 435(7039):207--211, 2005.
+
+\bibitem{berger2012makes}
+Jonah Berger and Katherine~L Milkman.
+\newblock What makes online content viral?
+\newblock {\em Journal of Marketing Research}, 49(2):192--205, 2012.
+
+\bibitem{Castillo:2014}
+Carlos Castillo, Mohammed El-Haddad, J\"{u}rgen Pfeffer, and Matt Stempeck.
+\newblock Characterizing the life cycle of online news stories using social
+  media reactions.
+\newblock In {\em Proceedings of the 17th ACM Conference on Computer Supported
+  Cooperative Work and Social Computing}, CSCW '14, pages 211--223, New York,
+  NY, USA, 2014. ACM.
+
+\bibitem{ReisBOPKA15}
+J{\'{u}}lio~Cesar dos Reis, Fabr{\'{\i}}cio Benevenuto, Pedro Olmo S.~Vaz
+  de~Melo, Raquel~O. Prates, Haewoon Kwak, and Jisun An.
+\newblock Breaking the news: First impressions matter on online news.
+\newblock {\em CoRR}, abs/1503.07921, 2015.
+
+\bibitem{ff}
+L.~Fei-Fei and P.~Perona.
+\newblock A bayesian hierarchical model for learning natural scene categories.
+\newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
+  IEEE Computer Society Conference on}, volume~2, pages 524--531 vol. 2, June
+  2005.
+
+\bibitem{gao2014quantifying}
+Liang Gao, Chaoming Song, Ziyou Gao, Albert-L{\'a}szl{\'o} Barab{\'a}si,
+  James~P Bagrow, and Dashun Wang.
+\newblock Quantifying information flow during emergencies.
+\newblock {\em arXiv preprint arXiv:1401.1274}, 2014.
+
+\bibitem{gaugaz2012predicting}
+Julien Gaugaz, Patrick Siehndel, Gianluca Demartini, Tereza Iofciu, Mihai
+  Georgescu, and Nicola Henze.
+\newblock Predicting the future impact of news events.
+\newblock In {\em Advances in Information Retrieval}, pages 50--62. Springer,
+  2012.
+
+\bibitem{guerini2011exploring}
+Marco Guerini, Carlo Strapparava, and G{\"o}zde {\"O}zbal.
+\newblock Exploring text virality in social networks.
+\newblock In {\em ICWSM}, 2011.
+
+\bibitem{iribarren2011branching}
+Jos{\'e}~Luis Iribarren and Esteban Moro.
+\newblock Branching dynamics of viral information spreading.
+\newblock {\em Physical Review E}, 84(4):046116, 2011.
+
+\bibitem{Jones72astatistical}
+Karen~Spärck Jones.
+\newblock A statistical interpretation of term specificity and its application
+  in retrieval.
+\newblock {\em Journal of Documentation}, 28:11--21, 1972.
+
+\bibitem{karsai2012universal}
+M{\'a}rton Karsai, Kimmo Kaski, Albert-L{\'a}szl{\'o} Barab{\'a}si, and
+  J{\'a}nos Kert{\'e}sz.
+\newblock Universal features of correlated bursty behaviour.
+\newblock {\em Scientific reports}, 2, 2012.
+
+\bibitem{Kwak:2010}
+Haewoon Kwak, Changhyun Lee, Hosung Park, and Sue Moon.
+\newblock What is twitter, a social network or a news media?
+\newblock In {\em Proceedings of the 19th International Conference on World
+  Wide Web}, WWW '10, pages 591--600, New York, NY, USA, 2010. ACM.
+
+\bibitem{Lerman:2010}
+Kristina Lerman and Tad Hogg.
+\newblock Using a model of social dynamics to predict popularity of news.
+\newblock In {\em Proceedings of the 19th International Conference on World
+  Wide Web}, WWW '10, pages 621--630, New York, NY, USA, 2010. ACM.
+
+\bibitem{Li:2016:concept:drift}
+Cheng-Te Li, Man-Kwan Shan, Shih-Hong Jheng, and Kuan-Ching Chou.
+\newblock Exploiting concept drift to predict popularity of social multimedia
+  in microblogs.
+\newblock {\em Inf. Sci.}, 339(C):310--331, April 2016.
+
+\bibitem{Liu:2015:UN}
+Qian Liu, Mi~Zhou, and Xin Zhao.
+\newblock Understanding news 2.0.
+\newblock {\em Inf. Manage.}, 52(7):764--776, November 2015.
+
+\bibitem{mills2012virality}
+Adam~J Mills.
+\newblock Virality in social media: the spin framework.
+\newblock {\em Journal of public affairs}, 12(2):162--169, 2012.
+
+\bibitem{Pinto:2013}
+Henrique Pinto, Jussara~M. Almeida, and Marcos~A. Gon\c{c}alves.
+\newblock Using early view patterns to predict the popularity of youtube
+  videos.
+\newblock In {\em Proceedings of the Sixth ACM International Conference on Web
+  Search and Data Mining}, WSDM '13, pages 365--374, New York, NY, USA, 2013.
+  ACM.
+
+\bibitem{suh2010want}
+Bongwon Suh, Lichan Hong, Peter Pirolli, and Ed~H Chi.
+\newblock Want to be retweeted? large scale analytics on factors impacting
+  retweet in twitter network.
+\newblock In {\em Social computing (socialcom), 2010 ieee second international
+  conference on}, pages 177--184. IEEE, 2010.
+
+\bibitem{Szabo:2010}
+Gabor Szabo and Bernardo~A. Huberman.
+\newblock Predicting the popularity of online content.
+\newblock {\em Commun. ACM}, 53(8):80--88, August 2010.
+
+\bibitem{Tan_Steinbach_Kumar}
+Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
+\newblock {\em Introduction to Data Mining, (First Edition)}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2005.
+
+\bibitem{Tatar2014}
+Alexandru Tatar, Marcelo~Dias de~Amorim, Serge Fdida, and Panayotis Antoniadis.
+\newblock A survey on predicting the popularity of web content.
+\newblock {\em Journal of Internet Services and Applications}, 5(1):1--20,
+  2014.
+
+\bibitem{Tatar:2011}
+Alexandru Tatar, J{\'e}r{\'e}mie Leguay, Panayotis Antoniadis, Arnaud Limbourg,
+  Marcelo~Dias de~Amorim, and Serge Fdida.
+\newblock Predicting the popularity of online articles based on user comments.
+\newblock In {\em Proceedings of the International Conference on Web
+  Intelligence, Mining and Semantics}, WIMS '11, pages 67:1--67:8, New York,
+  NY, USA, 2011. ACM.
+
+\bibitem{chile_elections}
+{Telegraph}.
+\newblock Chile news.
+\newblock \url{http://www.telegraph.co.uk/news/worldnews/southamerica/chile/}.
+
+\bibitem{Twitter_API}
+{Twitter API}.
+\newblock \url{https://dev.twitter.com}.
+
+\bibitem{Twitter_website}
+{Twitter Inc.}
+\newblock \url{https://www.twitter.com}.
+
+\bibitem{Vaizman}
+Yonatan Vaizman, Brian McFee, and Gert Lanckriet.
+\newblock Codebook-based audio feature representation for music information
+  retrieval.
+\newblock {\em IEEE/ACM Trans. Audio, Speech and Lang. Proc.},
+  22(10):1483--1493, October 2014.
+
+\bibitem{yan2013information}
+Qiang Yan, Lianren Wu, Chao Liu, and Xiye Li.
+\newblock Information propagation in online social network based on human
+  dynamics.
+\newblock In {\em Abstract and Applied Analysis}, volume 2013. Hindawi
+  Publishing Corporation, 2013.
+
+\end{thebibliography}

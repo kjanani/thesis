@@ -1,0 +1,1143 @@
+\documentclass[10pt,letterpaper]{article}
+
+%% our packages %%
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage{paralist}
+\usepackage{times}
+\usepackage{pbox}
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\usepackage{setspace}
+%\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{natbib}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{appendix}
+\usepackage{hyperref}
+\usepackage{color}
+%\usepackage{spacing}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{relsize}
+\usepackage{verbatim}
+\usepackage{soul}
+\definecolor{MyBlue}{rgb}{0.2,0.2,0.8}
+\newcommand{\inblue}[1]{{\color{MyBlue}\sf\textbf{\textsc{#1}}}}
+\newcommand{\supplementary}[0]{\inblue{[Supplementary Material]}}
+
+\newcommand{\highlight}[1]{\colorbox{yellow}{#1}}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\lw}{\Lambda_{W}}
+\newcommand{\lv}{\Lambda_{V}}
+\newcommand{\uw}{U_{W}} 
+\newcommand{\uv}{U_{V}}
+%\newcommand{\tbf}[x]{\textbf{x}}
+\newcommand{\ess}{\mathcal{S}}
+\renewcommand{\H}{\mathcal{H}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\I}{\mathcal{I}} 
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\G}{\mathcal{G}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\usepackage{graphicx}
+\footskip 1.0cm
+\newenvironment{sciabstract}{%
+\begin{quote} \bf}
+{\end{quote}}
+\renewcommand\refname{References and Notes}
+\newcounter{lastnote}
+\newenvironment{scilastnote}{%
+\setcounter{lastnote}{\value{enumiv}}%
+\addtocounter{lastnote}{+1}%
+\begin{list}%
+{\arabic{lastnote}.}
+{\setlength{\leftmargin}{.22in}}
+{\setlength{\labelsep}{.5em}}}
+{\end{list}}
+
+\usepackage{booktabs}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Use Unicode characters when possible
+\usepackage[utf8]{inputenc}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% fixltx2e package for \textsubscript
+\usepackage{fixltx2e}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% rotating package for sideways tables
+\usepackage{rotating}
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+\doublespacing
+
+% allow full width tables
+\usepackage{tabularx}
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\usepackage{subcaption}
+% Use the PLoS provided BiBTeX style
+%%%%%%%%%%%%%%%%%%% SUPP
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{scicite}
+\usepackage{paralist}
+\usepackage{amsmath}
+%\usepackage{subcaption}
+%\usepackage{caption}
+\usepackage{times}
+\usepackage{pbox}
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\usepackage{setspace}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{natbib}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{appendix}
+\usepackage{hyperref}
+\usepackage{color}
+%\usepackage{spacing}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{relsize}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{scicite}
+\usepackage{paralist}
+%\usepackage{subcaption}
+%\usepackage{caption}
+\usepackage{times}
+\usepackage{pbox}
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\usepackage{setspace}
+%\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{natbib}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{appendix}
+\usepackage{color}
+%\usepackage{spacing}
+\usepackage{units}
+\usepackage{microtype}
+\usepackage{relsize}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{soul}
+\usepackage[show]{chato-notes} %%%%%%%%%% Chage to 'hide' before submission
+
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\usepackage{graphicx}
+\footskip 1.0cm
+
+
+\usepackage{booktabs}
+\usepackage{setspace}
+
+
+
+%%%%%%%%%%%%% SUPP
+
+%\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Leave date blank
+\date{}
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+%\usepackage{epstopdf}
+\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\sf PLOS}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+\newcommand{\newtext}[1]{{\leavevmode\color{blue}#1}}
+
+%% END MACROS SECTION
+
+
+\begin{document}
+\vspace*{0.35in}
+
+% Title must be 250 characters or less.
+% Please capitalize all terms in the title except conjunctions, prepositions, and articles.
+\begin{flushleft}
+{\Large
+\textbf\newline{Prediction and Characterization of High-Activity Events
+in Social Media Triggered by Real-World News}
+}
+\newline
+% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
+\\
+Janani Kalyanam\textsuperscript{1,*},
+Mauricio Quezada\textsuperscript{2},
+Barbara Poblete\textsuperscript{2},
+Gert Lanckriet\textsuperscript{1}
+\\
+\bigskip
+\bf{$^1$} Department of Electrical and Computer Engineering \\ University of California, San Diego, California, U.S.A.
+\\
+\bf{$^2$} Department of Computer Science \\ University of Chile, Santiago, Chile
+\\
+\bigskip
+
+* jkalyana@ucsd.edu
+
+\end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
+
+On-line social networks publish information on a high volume of
+real-world events almost instantly, becoming a primary source for
+breaking news.  Some of these real-world events can end up
+having a very strong impact on on-line social networks.  The effect of such
+events can be analyzed from several perspectives, one of them being
+the intensity and characteristics of the collective activity that it
+produces in the social platform.
+
+We research 5,234 real-world news events encompassing 43 million
+messages discussed on the Twitter microblogging service for
+approximately 1 year.  We show empirically that exogenous news events
+naturally create
+collective patterns of bursty behavior in combination with long periods of
+inactivity in the network. This type of behavior agrees with
+other patterns previously observed in other types of natural collective phenomena, as
+well as in individual human communications. In addition, we propose a methodology to
+classify news events according to the different levels of intensity in
+activity that they produce. In particular, we analyze the most
+highly active events and 
+observe a consistent and strikingly different collective reaction
+from users when they are exposed to such events.  This reaction is
+independent of an event's reach and scope.  We further observe that
+extremely high-activity events have characteristics that are quite distinguishable
+at the beginning stages of their outbreak.  This allows us to predict
+with high precision, the top 8\% of events that will have the most
+impact in the social network by just using the first 5\% of the information of an
+event's lifetime evolution. This strongly implies that high-activity events
+are naturally prioritized collectively by the social network, engaging users early
+on, way before they are brought to the mainstream audience.
+
+
+
+\section*{Introduction}
+%\section{a}
+
+% Motivation
+Social media is now a primary source of breaking news information
+for millions of users all over the world \cite{Kwak:2010}. On-line
+social networks along with mobile internet devices have crowdsourced
+the task of disseminating real-time information. As a result, both
+news media and news consumers have become inundated with much more
+information than they can process. One possible way of handling this data overload, is
+to find ways to filter and prioritize information that has the
+potential of creating a strong collective impact. Understanding and
+quickly identifying the type of reaction that certain exogenous events will produce
+in on-line social networks, at both global and local scales, can help
+in the understanding of collective human behavior, as well as
+improve information delivery, journalistic coverage and
+crisis management, among other things. We
+address this challenge by analyzing the properties of real-world news
+events in on-line social networks, showing that they corroborate patterns
+previously identified in other case studies of human communications. In
+addition, we present our main findings of how news events that produce
+extremely high-activity can be clearly identified in the early stages of
+their outbreak.
+
+% Brief background on the problem
+
+The study of information propagation on the Web has sparked tremendous
+interest in recent years. Current literature on the subject primarily
+considers the process through which a {\em meme}, usually a piece of
+media (like a video, an image, or a specific Web article), gains
+popularity
+\cite{Castillo:2014,Szabo:2010,Lerman:2010,Tatar2014,Pinto:2013,Ahmed:2013,Li:2016:concept:drift,
+Liu:2015:UN}.  
+However, a meme represents a
+simple information unit and its propagation behavior does not necessarily
+correspond to that of more complex information such as
+news events. News events are usually diffused in the network in many
+different formats, e.g., a particular news story such as an {\em
+  earthquake in Japan} can be communicated through images, URLs,
+tweets, videos, etc. Therefore, current research can benefit from analyzing
+the effects of more high-level forms of information. 
+
+Traditionally, the impact of information in on-line social networks has been
+measured in relation to the total amount of attention that this subject receives
+\cite{berger2012makes,iribarren2011branching,guerini2011exploring,mills2012virality,gaugaz2012predicting}.
+That is, if a content posted in the network receives
+votes/comments/shares above a certain threshold it is usually deemed as {\em viral} or
+{\em popular}. Nevertheless, this
+notion of popularity or impact will favor only information that produces very large
+volumes of social media messages. 
+Naturally, global breaking news that has world-wide coverage and that produces a high volume of
+activity in a short time should be considered as
+having a strong impact on the network.  However, there are other types of events
+that can produce a similar reaction in smaller on-line communities
+such as, for example, on users from a particular country
+(e.g., the
+withdrawal of the main right wing presidential candidate in Chile due
+to psychiatric problems, just before
+elections \cite{chile_elections}).
+Clearly, events of local scope do not produce as much social media
+activity as events of global scope, but they can create a strong and
+immediate reaction from users in local networks \cite{ReisBOPKA15}. Conversely,
+there are large events which do not produce an intense reaction, such as
+{\em The Oscars} (Fig.~\ref{fig:fig1b}), which span a long
+period of time and are discussed by social network users for weeks or
+even months, but do not spark intense user activity. Therefore, it is reasonable to consider additional dimensions,
+than just volume, when analyzing the impact of information in on-line communities.  
+
+Prior research has shown that certain types of individual activities,
+such as communications (studied in email exchanges), work patterns and
+entertainment, follow a behavior of bursts of rapidly occurring
+actions followed by long periods of inactivity
+\cite{barabasi2005origin}, referred to as {temporally inhomogeneous}
+behavior \cite{karsai2012universal}.  This type of behavior initially
+observed in individual activities, has also been observed in relation
+to other naturally occurring types of collective phenomena in human
+dynamics similar to processes seen in self-organized criticality
+\cite{karsai2012universal}.  In particular, extremely high-activity
+bursty behavior seems to also occur in critical situations, observed
+from the information flow in cell phone networks during
+emergencies\cite{gao2014quantifying}.  Although, there is research
+towards modeling this type of collective behavior
+\cite{yan2013information} in on-line social networks, to the best of
+our knowledge, it has not yet been analyzed quantitatively.
+
+
+
+
+
+% when
+% consulting journalists on how news media sources measure the impact of
+% news, we learn that they too face the issue of not having a clear way
+% to approach this problem.
+
+% Our contributions
+
+%\newtext{
+
+Our work focuses on high-activity events in social media produced by
+real-world news, with the following contributions:
+\begin{enumerate}
+
+\item We introduce a methodology for modeling and classifying
+events in social media, based on the intensity of the activity that they
+produce. This methodology is independent of the size and scope of the event,
+and is an indicator of the impact that the event information had on the social network.
+
+\item We show empirically that real-world news events produce collective
+patterns of bursty behavior in the social network, in combination with long periods of
+inactivity. Furthermore, we identify events for which most of their activity
+is concentrated into very high-activity periods, we call these events {\em
+high-activity events}.
+
+\item We determine the existence of unique characteristics that
+differentiate how high-activity events propagate in the social network.
+
+\item We show that an important portion of high-activity events can be
+predicted very early in their lifecycle, indicating that this type
+of information is spontaneously identified and filtered collectively, early
+on, by social network users.
+
+\end{enumerate}
+%}
+
+%We focus on high-impact news events in social media, contributing by (i)
+%\textcolor{blue}{defining a new concise way for measuring information impact that
+%is independent of the size (whether large or small) and scope (whether
+%local or global) of the event, but is representative of the urgency
+%and immediacy of the reaction of users on the social media} (ii)
+%determining the existence of unique characteristics that differentiate
+%how high-impact exogenous events are propagated in the network, and
+%(iii) show, through the creation of an early prediction model for
+%high-impact events, that these types of news events are naturally
+%identified and filtered by the network at very early stages of their
+%outbreak.
+
+\section*{Materials and Methods}
+
+% model
+We define an event as a conglomerate of information that encompasses
+all of the social media content related to a real-world news
+occurrence. Using this specification, which considers an event as a
+complex unit of information, we study the type of collective reaction
+produced by the event on the social network. In particular, we analyze 
+the intensity or immediacy of the social network's response. 
+By analyzing the levels of intensity in activity induced by different exogenous
+events to the network, we are implicitly studying the priority that has been
+collectively assigned to the event by groups of
+independent individuals \cite{barabasi2005origin, karsai2012universal}. 
+
+We characterize an event's discrete activity dynamics by using
+\emph{interarrival times} between consecutive social media messages
+within an event (e.g., $d_i = t_{i+1}-t_i$, where $d_i$ denotes the
+interarrival time between two consecutive social media messages $i$
+and $i+1$ that arrived in moments $t_i$ and $t_{i+1}$, respectively).
+
+
+We introduce a novel vectorial representation based on a {\em vector
+quantization of the interarrival time distribution}, which we call 
+{\em ``VQ-event model''}. This model is
+designed to filter events based on the distribution of the
+interarrival times between consecutive messages.  This approach is inspired
+by the {\em codebook-based representation} from the field of multimedia
+content
+analysis, which has been used in audio processing and computer vision
+~\cite{ff,Vaizman}.  In our proposed approach, our method learns a set of
+the most
+representative interarrival times from a large training corpus of events;
+each one of the representative interarrival times is known as a
+{\em codeword} and the complete learned set is known as the {\em
+codebook}~\cite{Vaizman}.  
+Each event is then modeled using a vector quantization (VQ) that
+converts the interarrival times of an event into a discrete set of values,
+each value corresponding to the closest codeword in the codebook (details
+in supplementary material).  The resulting VQ-event model is then a
+vector in which each dimension contains the percentage of interarrival times
+of the event that were assigned a particular codeword in the codebook.
+
+
+The VQ-event representation is relative to an event's overall size
+since the model is normalized with respect to the number of messages in the
+event. Therefore the only criteria that are considered in the model are the
+interarrival times of each particular event. This model allows us to group events based on the
+{\em similarity of the distribution} of their interarrival times.
+In those terms, we consider as high-activity events those events for which
+the distribution of interarrival times is most heavily
+skewed towards the smallest possible interval, zero.  In other words,
+events for which the overall activity is extremely intense in comparison
+with other events.
+
+To illustrate events with different levels of intensity in activity we
+present two examples taken from our analysis of Twitter data. These
+examples show the interarrival time histograms for the entire lifecycle of
+the two events. In
+the first example, the majority of the messages about
+the death of political leader Nelson Mandela
+(Fig.~\ref{fig:fig1a}) arrive within almost zero seconds of
+each other. On the contrary, the messages about The Oscars
+(Fig.~\ref{fig:fig1b}) are much more spread out in time.
+\begin{figure}
+  \centering
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{figures/plots_revision/fig1a}
+    \caption{User posts about the death of Nelson Mandela arrive
+      almost instantly.}
+    \label{fig:fig1a}
+  \end{subfigure}%
+
+  ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  % (or a blank line to force the subfigure onto a new line)
+  \begin{subfigure}{\textwidth}
+   \includegraphics[width=\textwidth]{figures/plots_revision/fig1b}
+    \caption{User posts about The Oscars arriving several weeks before
+      the event.}
+    \label{fig:fig1b}
+  \end{subfigure}%
+  ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+  % (or a blank line to force the subfigure onto a new line)
+
+  \caption{\textbf{Examples of interarrival time histograms of two real-world news
+events discussed on Twitter. The event [nelson, mandela] (\ref{fig:fig1a}) was
+      collected on 12/05/2013. Since there is a high
+      concentration in the first histogram bin, we conclude that most of the social media posts
+      for this event occur in one or more successions of high-activity
+      bursts (therefore, considered a high-activity event).
+      The second event, [may, oscar] (\ref{fig:fig1b}) was collected
+      on 03/23/2014 about The Oscars event that was held a few
+      weeks before. The arrival times of these posts are much more spread
+      out, displaying much less concentration of bursty activity.} 
+  }
+  \label{fig:fig1}
+\end{figure}
+
+We note that, by using interarrival times to describe the intensity of the
+activity of an event, we make our analysis independent of the particular
+evolution of each event. By doing this, we put no restrictions on how
+high-activity events unfold in time, for example, they could be: (a) events
+that start out slowly and
+suddenly gain momentum, (b) events that go viral soon after they appear on
+social media and then decay in intensity over a long (or short) period of
+time, (c) events that from the beginning produce large amounts of interest and
+sustain that interest throughout their long (or short) lifespan, or (d)
+events that are a concatenation of any of the above, etc.
+
+%\newtext{ 
+% Experimental analysis
+
+We study a dataset of news events gathered from news
+headlines from a \emph{manually curated} list of well-known news media
+accounts (e.g., @CNN, @BreakingNews, @BBCNews, etc.) in the
+microblogging platform Twitter \cite{Twitter_website}
+%\footnote{\url{https://twitter.com}
+%  (Accessed: August 25, 2015.)} 
+(a full list of all the news media
+accounts is provided in the supplementary material). Headlines were
+collected periodically every hour, over the course of approximately
+one year. In parallel, all the Twitter messages (called \emph{tweets})
+were extracted for each news event using the public
+API \cite{Twitter_API}.
+%\footnote{\url{https://dev.twitter.com/} (Accessed: August 25,
+%  2015.)},
+% In this research, since we focus on the microblogging platform
+% Twitter, we collected all the Twitter messages (called
+% \emph{tweets}) produced about each news event using the publicly
+% available Twitter Search API
+This process was performed by automatically extracting descriptive
+sets of keywords for each event using a variation of frequent itemset
+extraction \cite{Tan_Steinbach_Kumar} over the event's headlines.
+These sets of keywords were then used to retrieve corresponding user
+tweets for each event. We validate the events gathered in our
+data collection process to ensure that each group of social media
+posts corresponds to a meaningful and cohesive news event. We provide a detailed
+description of the collection methodology and of the validation of event
+cohesiveness in the supplementary material. Overall, the resulting dataset contains
+$43,256,261$ tweets that account for $5,234$ events (Table~\ref{table:dataset-stats}).
+
+In Figure~\ref{fig:fig2} we characterize an example event from our
+dataset, by showing the set of keywords and a sample of tweets
+associated to the event. These keywords form a semantically meaningful
+event; they refer to the incident where soccer player Luis Suarez was
+charged for biting another player during the FIFA World Cup in
+2014. This general collection process results in a set of social media
+posts associated to an event which can encompass several memes, viral
+tweets and pieces of information. Therefore, an event is composed of
+diverse information, addressing more heterogeneous content than prior
+work
+% \cite{Castillo:2014},\cite{Szabo:2010},\cite{Lerman:2010},\cite{Tatar:2011},\cite{Pinto:2013},\cite{Ahmed:2013,
+% Zaman_information_spreading},\cite{suh2010want}
+\cite{Castillo:2014,Szabo:2010,Lerman:2010,Tatar:2011,Pinto:2013,Ahmed:2013,suh2010want}
+which focus on single pieces of information (e.g., a
+particular meme, a viral tweet etc.).
+\begin{table}
+  \centering
+  \begin{tabularx}{\textwidth}{@{}p{6cm}llll@{}}
+    \toprule
+    \textbf{Event Collection Statistics} & \textbf{Minimum} & \textbf{Mean} & \textbf{Median} & \textbf{Maximum} \\ \midrule
+    \# of posts (per event) & 1,000 & 8,254 & 2,474 & 510,920 \\
+    \# of keywords (per tweet) & 2 & 3.77 & 3 & 39 \\
+    Event duration (hours) & 0.12 & 20.93 & 7.46 & 190.43 \\ \bottomrule
+  \end{tabularx}
+  \caption{\bf High-level description of the dataset of news events.} \label{table:dataset-stats}
+\end{table}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{figures/plots_revision/fig2}
+  \caption{\textbf{An example event, collected on 06/25/2014
+      with keywords (left) and sample user posts (right) obtained
+      from the Twitter Search API. The tweets in the event contain at
+      least a pair of descriptive keywords and were retrieved close to the time
+      of the event.}}
+  \label{fig:fig2}
+\end{figure}
+
+The collection of events is converted into their VQ-event model
+representation. Using this model, we can identify events that have
+produced similar levels of activity in the social network. In other
+words, events are considered to have similar activity if the
+interarrival times between their social media posts are similarly
+distributed, implying a very much alike collective reaction from users
+to the events within a group. In order to identify groups of similar
+events, we cluster the event models. We sort the resulting groups of
+events from highest to lowest activity, according to the concentration
+of social media posts in the bins that correspond to short
+interarrival times. We consider the events that fall in the top
+cluster to be high-activity events as most of their interarrival times
+are concentrated in the smallest interval of the VQ-event model.  In
+our dataset, these correspond to roughly 8\% of the events.  We
+consider the next clusters in the sorted ranking to form medium-high
+activity events, and so on.  Thus we end with four groups of events:
+high, medium-high, medium-low and low. Figure~\ref{fig:fig3} shows a
+heatmap of the interarrival relative frequency for each cluster. This
+classification of events based on activity intensity is independent of
+event size. More details of this methodology are provided in the
+supplementary material.
+
+\begin{figure}
+   \includegraphics[width=\textwidth]{figures/plots_revision/fig3}
+  \caption{\textbf{Each row is the average representation of all the
+      events in a cluster.  A darker cell represents a higher
+      relative frequency value.  The y-axis specifies the number of events in
+      each
+      cluster.  Clusters are (top to bottom): high-activity, medium-high
+      medium-low and low.}
+    % \inote{Mauricio: change labels of x and y-axis (to: Event type
+    % (total number of events))}
+  }
+  \label{fig:fig3}
+\end{figure}
+
+% Results and Discussion can be combined.
+\section*{Results and Discussion}
+%\newtext{ 
+Our main objective in this work is to analyze the
+  characteristics of high-activity events which differentiate them from
+  other types of events. In particular, we identify how early on in an
+  event's lifecycle can we determine if an event is going
+  produce high activity in the on-line social network.
+
+Tables~\ref{table:high-impact-sample}
+and~\ref{table:low-impact-sample} show examples of events from the
+high-activity category and low-activity category. We recall that the
+high-activity events are those which were in the top 8\% of the
+ranking obtained by sorting the event clusters according to
+concentration of interarrival times of social media posts in the
+shortest interarrival time of the VQ-event model.  Table
+\ref{table:high-impact-sample} shows two events of different sizes
+(large and small) and different scopes (one global and the other of
+more local scope) categorized as high activity in our dataset. The
+first event, the death of Nelson Mandela, is one of the largest events
+in the dataset, with $\approx 134,000$ tweets. The histogram
+representation of this event, shown in Figure \ref{fig:fig1a}, suggests
+that more than $80\%$ of the activity of the event was produced in
+high-activity periods.  This is an event of international, political,
+and social importance, that produced an overwhelming flood of messages
+on social media. %% add detail about reach and scope 
+Hence, it makes
+sense for such an example to be a high-activity event.  The second
+event, on the other hand, about the 2013 Mumbai Gang Rape is of much
+smaller scale, with a total of $\approx 1,700$ tweets.  However, this
+event caused considerable amount of immediate reaction on social
+media, with close to $50\%$ of its activity concentrated within
+high-activity periods. Despite its smaller size, in comparison to the
+previous event, this event displays a similar reaction to that of
+other high-activity events, but at a smaller scale. 
+%More detailed
+%inspection of the event shows that geolocated users which discussed
+%this event were mostly from India and the U.K. In addition, we find
+%that in the following days other events that are repercussions of this
+%event gather a great deal of attention (with $\approx 12,700$
+%tweets). % is it good to include this fact??
+
+Table \ref{table:low-impact-sample} shows events that have been
+classified by our methodology in the category of low activity.  The
+first event, about a teen surviving after hiding in the wheel of a
+airplane, had only a little more than $25\%$ of its messages arriving
+with high-activity bursts although it had over $18,000$ messages.  The
+second event, about the damages caused by a tornado in Canada, did not
+garner much immediacy in attention of Twitter users, with only $7\%$
+of its messages produced with short interarrival times. Most of the
+messages of this event were well spaced out in time. Even though we
+cannot say whether or not this event had significant implications in
+the real-world, we can say that it did not have considerable impact on
+the Twitter network. The lack of interest could be due to several
+factors that are currently beyond the scope of this work, ranging from
+the lack of Twitter users in the locality of the real-world event, to
+it not being considered urgent by Twitter users. We intend to research
+the relation between the real-world impact of an event and the network
+reaction in future work.
+
+
+%%%%%%%%% REWRITE ANALYSIS OF HISTOGRAM DISTRIBUTIONS %%%%%%%%%%%%
+
+% Fig.~\ref{fig:highest}, Fig.~\ref{fig:low}, Fig.~\ref{fig:cdf-highest} and
+% Fig.~\ref{fig:cdf-lowest} show the average histograms and the average
+% cumulative distribution functions of the events corresponding to the
+% high and low activity categories, respectively.  Visually, the average
+% high-activity event vector representations starkly differ from that of
+% a low-activity event in that the histogram in Fig.~\ref{fig:highest}
+% seems to possess an exponential decay, while the histogram in
+% Fig.~\ref{fig:low} does not.  To test this hypothesis, we fit
+% exponential function of the form $f(x)=ae^{bx}$ to the event
+% histograms. Table~\ref{tab:curve_fitting} summarizes the results from
+% statistical significance tests performed on the parameters $a$ and
+% $b$, and on the residual least squares error used for fitting the
+% exponential curves.  The differences between these values is
+% statistically significant ($p$-value $\leq2.2\times 10^{-16}$), thus demonstrating
+% that high-activity events, on an average, fit the exponential decay
+% curve much better than their low-activity counterparts.  In addition,
+% Fig.~\ref{fig:param_est} shows two scatter plots with the resulting
+% exponential parameters $a$ and $b$.  We observe that the majority
+% ($97.4\%$) of high-activity events have an exponent $b \leq -50$,
+% separating them unequivocally from other events.
+
+%}
+
+
+Fig.~\ref{fig:fig4} shows the average histograms for events that
+belong to the high activity, medium-high activity, medium-low activity
+and low-activity clusters (displayed from left to right and top to
+bottom). All histograms show a quick decay in average relative
+frequency (resembling a distribution from the exponential family). In
+particular, the high-activity group concentrates most of its activity
+in the shortest interarrival rate, with lower activity groups mostly
+concentrating their activity in the second bin with slower
+decay. Fig.~\ref{fig:fig5} further characterizes the differences in
+behavior of the high and low-activity groups, showing that
+high-activity events concentrate on average $70\%$ fo their activity
+in the smallest bin ($0$ sec.), against $8\%$ for low-activity
+events. In addition, Fig.~\ref{fig:fig6} (left) shows the cumulative
+distribution function (CDF) for each group of events, and
+Fig.~\ref{fig:fig6} (right) shows $\log{(1 - \mathrm{CDF})}$. Visual
+inspection shows a clear difference in how interarrival rates are
+distributed within each group, however, these figures do not indicate a
+power-law distribution nor exponential distribution.%%
+
+%%% Table with example tweets for events
+\input{events_example_PLOS_revision}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=\textwidth]{figures/plots_revision/fig4}
+  \caption{\textbf{Average histograms of the high activity,
+      medium-high activity, medium-low activity and low activity
+      clusters in our dataset (from left to right and top to
+      bottom). All histograms include standard deviation bars and were
+      cut-off at 60 second length for better visibility.
+      % \inote{change labels of x and y axis}
+    }}\label{fig:fig4}
+\end{figure}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=\textwidth]{figures/plots_revision/fig5}
+  \caption{\textbf{Scatter plots of the average relative frequencies of interarrival times
+for the high-activity and low-activity clusters of events (i.e., scatter
+plots of the histograms in Fig.~\ref{fig:fig4} in log-log scale). $y$-axis
+represents the average relative frequency of social media messages and
+$x$-axis the interarrival time.
+    }}\label{fig:fig5}
+\end{figure}
+
+\begin{figure}
+  \centering
+ \includegraphics[width=\textwidth]{figures/plots_revision/fig6_long_inf_omitted}
+  \caption{\textbf{(Left) Average cumulative distribution function (CDF) for
+the high activity, medium-high activity, medium-low activity and low activity clusters in our dataset.
+(Right) $\log{(1 - \mathrm{CDF})}$ for the same clusters. 
+      % \inote{change labels of x and y axis}
+    }}\label{fig:fig6} %% fig6_long_inf_omitted.pdf
+\end{figure}
+
+Further analysis of the high-activity events shows significant
+differences to other events, in the following aspects: (i) how the
+information about these events is propagated, (ii) the characteristics
+of the conversations that they generate, and (iii) how focused users
+are on the news topic. In detail, high-activity events have a higher
+fraction of {\em retweets} (or shares) relative to their overall
+message volume. On average, a tweet from a high-activity event is
+retweeted 2.36 times more than a tweet from a low activity event. The
+most retweeted message in high-activity events is retweeted 7 times more
+than the most retweeted message in a medium or low activity event. We
+find that a small set of initial social media posts are propagated
+quickly and extensively through the network without any rephrasing by
+the user (just plain forwarding). Intuitively, this seems justified given
+general topic urgency of high-activity events. Events that are not
+high-activity did not exhibit these characteristics.
+
+Our research also revealed that high-activity events tend to spark more conversation
+between users, 33.4\% more than other events. This is reflected in the
+number of {\em replies} to social media posts. The number of different
+users that engage with high-activity events is 32.7\% higher than in
+events that are not high-activity. Posts about high-activity events are
+much more topic focused than in other events. The vocabulary of unique
+words as well as {\em hashtags} used in high-activity events is much
+more narrow than for other events. Medium and low activity events have
+over 7 times more unique hashtags than high-activity events. This is
+intuitive, given that if a news item is sensational, people will
+seldom deviate from the main conversation topic.
+
+% We have presented an analysis of high-impact news events based on
+% the data of their entire life-cycle in the social network. We used
+% the arrival time intervals to create a model that allows us to
+% classify the event according to its impact. Nevertheless,
+
+In a real-world scenario, in order to predict if an early breaking
+news story will have a considerable impact in the social network, we
+will not have enough data to create its activity-based model, i.e., we
+will not yet know the distribution of the speed at which the social
+media posts will arrive for the event. For instance, an event can
+start slowly and later produce an explosive reaction, or start
+explosively and decay quickly to an overall slower message arrival
+rate. Still, reliable early prediction of very high-activity news is
+important in many aspects, from decisions of mass media information
+coverage, to natural disaster management, brand and political image
+monitoring, and so on.
+
+For the task of early prediction of high-activity events we use features 
+that are independent of our activity-based model such as
+the retweets, the sentiment of the posts about the event, etc. 
+These features are computed on the early 5\% of messages about the event.
+% More details are provided in the supplementary material.
+The results are an average from a 5-fold cross validation with
+randomly selected 60\% training, 20\% validation and 20\% test splits.
+The high-activity events are identified with a precision of 82\% using
+only the earliest 5\% of the data of each event
+(Table~\ref{tab:classification_results}).  Additionally, we were able to
+identify with high accuracy a considerable percentage of all
+high-activity events ($\approx 46\%$) at an early stage, with very few
+false positives (Table~\ref{tab:classification_results} and~\ref{tab:confusion_matrix}).
+
+\begin{table}
+  %\begin{adjustwidth}{-10mm}{-10mm}
+  \centering
+  {\small
+    \begin{tabularx}{\textwidth}{lcccc|cccc}
+      \toprule
+      & \multicolumn{4}{c}{\textbf{Early 5\% Tweets}} & \multicolumn{4}{c}{\textbf{All Tweets}} \\
+      \midrule
+      & FP-Rate & Precision & Recall & ROC-area & FP-Rate & Precision & Recall & ROC-area \\
+      % \midrule
+      high-activity & 0.009 & 0.819 & 0.455 & 0.900 & 0.01 & 0.830 & 0.540 & 0.945 \\
+      non-high-activity & 0.545 & 0.954 & 0.991 & 0.900 &  0.460 & 0.960 & 0.990 & 0.945 \\
+      \bottomrule
+    \end{tabularx}
+  }
+  \caption{\textbf{Classification of high-activity events.}}
+  \label{tab:classification_results}
+  %\end{adjustwidth}
+%                                                                                                                                448,1         93%
+\end{table}
+
+\begin{table}
+  \centering
+  % {\scriptsize
+  \begin{tabularx}{\textwidth}{lcc|cc}
+    \toprule
+    \multirow{2}{*}{ }& \multicolumn{2}{c}{\textbf{Early 5\% Tweets}} & \multicolumn{2}{c}{\textbf{All Tweets}} \\
+    \midrule
+    % \cmidrule{2-5} \cline{2-5}
+    & high-activity & non-high-activity & high-activity & non-high-activity \\
+    % \midrule
+    high-activity & $194$ & $232$ & $230$ & $196$\\
+    non-high-activity & $43$ & 4,765 & 47 & 4,761 \\
+    \bottomrule
+  \end{tabularx}
+  % }
+  \caption{\textbf{Confusion matrix for high-activity events prediction.}}
+  \label{tab:confusion_matrix}
+\end{table}
+
+
+
+The precision using only the early tweets is almost as good as using
+all tweets in the event (0.819 to 0.830). This suggests that the
+social network somehow acts as a natural filter in separating out the
+high-activity events fairly early on.  The recall goes from 0.455 to
+0.540. This indicates that there are some high-activity events which
+require more data in order to determine what kind of activity they will
+produce, or events for which activity occurs due to random conditions. A
+detailed description of the features and different classification
+settings are provided in the supplementary material.%\supplementary.
+
+
+
+
+\section*{Conclusion}
+
+We study the characteristics of the activity that real-world news produces
+in the Twitter social network. In particular, we propose to measure the impact of the
+real-world news event on the on-line social network by modeling the user
+activity related to the event using the distribution of their
+interarrival times between consecutive messages. In our research we observe
+that the activity triggered by real-world news events follows a similar
+pattern to that observed in other types of collective reactions to events.
+This is, by displaying periods of intense activity as well as long periods of
+inactivity. We further extend this analysis by identifying groups of events
+that produce much more concentration of high-activity than other events. 
+We show that there are several specific properties that distinguish how
+high-activity events evolve in Twitter, when comparing them to other
+events. We design a model for events, based on the codebook approach, that allows us to do
+unambiguous classification of high-activity events based on the impact
+displayed by social network. % This definition does not have some of the
+%problems that current notions of virality and popularity have. 
+Some notable
+characteristics of high-activity events are that they are forwarded more
+often by users, and generate a greater amount of conversation than
+other events.  Social media posts from high-activity news events are
+much more focused on the news topic. Our experiments show that there
+are several properties that can suggest early on if an event will have
+high-activity on the on-line community.  We can predict a high number of
+high-activity events {\em before} the network has shown any type of
+explosive reaction to them. % Using simple off-the-shelf feature based
+%classifiers, we can
+% predict many high-impact events with high precision.
+This suggests that users are collectively quick at deciding whether an
+event should receive priority or not.  However, there does exist a fraction of
+events which will create high activity, despite not presenting
+patterns of other high activity events during their early stages.  These
+events are likely to be affected by other factors, such as random
+conditions found in the social network at the moment and require
+further investigation.
+\nolinenumbers
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\section*{Supporting Information}
+\subsection*{S1 Appendix}
+\input{supplementary_material_PLOSONE}
+
+%\section*{Acknowledgments}
+%Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id pretium nisi. Sed ac quam id nisi malesuada congue. Sed interdum aliquet augue, at pellentesque quam rhoncus vitae.
+
+
+%\section*{References}
+
+% Either type in your references using
+% \begin{thebibliography}{}
+% \bibitem{}
+% Text
+% \end{thebibliography}
+%
+% OR
+%
+% Compile your BiBTeX database using our plos2015.bst
+% style file and paste the contents of your .bbl file
+% here.
+% 
+
+%\begin{thebibliography}{10}
+%
+%\bibitem{Ahmed:2013}
+%Mohamed Ahmed, Stella Spagna, Felipe Huici, and Saverio Niccolini.
+%\newblock A peek into the future: Predicting the evolution of popularity in
+%  user generated content.
+%\newblock In {\em Proceedings of the Sixth ACM International Conference on Web
+%  Search and Data Mining}, WSDM '13, pages 607--616, New York, NY, USA, 2013.
+%  ACM.
+%
+%\bibitem{berger2012makes}
+%Jonah Berger and Katherine~L Milkman.
+%\newblock What makes online content viral?
+%\newblock {\em Journal of Marketing Research}, 49(2):192--205, 2012.
+%
+%\bibitem{Castillo:2014}
+%Carlos Castillo, Mohammed El-Haddad, J\"{u}rgen Pfeffer, and Matt Stempeck.
+%\newblock Characterizing the life cycle of online news stories using social
+%  media reactions.
+%\newblock In {\em Proceedings of the 17th ACM Conference on Computer Supported
+%  Cooperative Work and Social Computing}, CSCW '14, pages 211--223, New York,
+%  NY, USA, 2014. ACM.
+%
+%\bibitem{ff}
+%L.~Fei-Fei and P.~Perona.
+%\newblock A bayesian hierarchical model for learning natural scene categories.
+%\newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
+%  IEEE Computer Society Conference on}, volume~2, pages 524--531 vol. 2, June
+%  2005.
+%
+%\bibitem{gaugaz2012predicting}
+%Julien Gaugaz, Patrick Siehndel, Gianluca Demartini, Tereza Iofciu, Mihai
+%  Georgescu, and Nicola Henze.
+%\newblock Predicting the future impact of news events.
+%\newblock In {\em Advances in Information Retrieval}, pages 50--62. Springer,
+%  2012.
+%
+%\bibitem{guerini2011exploring}
+%Marco Guerini, Carlo Strapparava, and G{\"o}zde {\"O}zbal.
+%\newblock Exploring text virality in social networks.
+%\newblock In {\em ICWSM}, 2011.
+%
+%\bibitem{iribarren2011branching}
+%Jos{\'e}~Luis Iribarren and Esteban Moro.
+%\newblock Branching dynamics of viral information spreading.
+%\newblock {\em Physical Review E}, 84(4):046116, 2011.
+%
+%\bibitem{Kwak:2010}
+%Haewoon Kwak, Changhyun Lee, Hosung Park, and Sue Moon.
+%\newblock What is twitter, a social network or a news media?
+%\newblock In {\em Proceedings of the 19th International Conference on World
+%  Wide Web}, WWW '10, pages 591--600, New York, NY, USA, 2010. ACM.
+%
+%\bibitem{Lerman:2010}
+%Kristina Lerman and Tad Hogg.
+%\newblock Using a model of social dynamics to predict popularity of news.
+%\newblock In {\em Proceedings of the 19th International Conference on World
+%  Wide Web}, WWW '10, pages 621--630, New York, NY, USA, 2010. ACM.
+%
+%\bibitem{mills2012virality}
+%Adam~J Mills.
+%\newblock Virality in social media: the spin framework.
+%\newblock {\em Journal of public affairs}, 12(2):162--169, 2012.
+%
+%\bibitem{Pinto:2013}
+%Henrique Pinto, Jussara~M. Almeida, and Marcos~A. Gon\c{c}alves.
+%\newblock Using early view patterns to predict the popularity of youtube
+%  videos.
+%\newblock In {\em Proceedings of the Sixth ACM International Conference on Web
+%  Search and Data Mining}, WSDM '13, pages 365--374, New York, NY, USA, 2013.
+%  ACM.
+%
+%\bibitem{suh2010want}
+%Bongwon Suh, Lichan Hong, Peter Pirolli, and Ed~H Chi.
+%\newblock Want to be retweeted? large scale analytics on factors impacting
+%  retweet in twitter network.
+%\newblock In {\em Social computing (socialcom), 2010 ieee second international
+%  conference on}, pages 177--184. IEEE, 2010.
+%
+%\bibitem{Szabo:2010}
+%Gabor Szabo and Bernardo~A. Huberman.
+%\newblock Predicting the popularity of online content.
+%\newblock {\em Commun. ACM}, 53(8):80--88, August 2010.
+%
+%\bibitem{Tan_Steinbach_Kumar}
+%Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
+%\newblock {\em Introduction to Data Mining, (First Edition)}.
+%\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2005.
+%
+%\bibitem{Tatar:2011}
+%Alexandru Tatar, J{\'e}r{\'e}mie Leguay, Panayotis Antoniadis, Arnaud Limbourg,
+%  Marcelo~Dias de~Amorim, and Serge Fdida.
+%\newblock Predicting the popularity of online articles based on user comments.
+%\newblock In {\em Proceedings of the International Conference on Web
+%  Intelligence, Mining and Semantics}, WIMS '11, pages 67:1--67:8, New York,
+%  NY, USA, 2011. ACM.
+%
+%\bibitem{Vaizman}
+%Yonatan Vaizman, Brian McFee, and Gert Lanckriet.
+%\newblock Codebook-based audio feature representation for music information
+%  retrieval.
+%\newblock {\em IEEE/ACM Trans. Audio, Speech and Lang. Proc.},
+%  22(10):1483--1493, October 2014.
+%
+%\bibitem{Zaman_information_spreading}
+%Tauhid~R. Zaman, Ralf Herbrich, Jurgen~Van Gael, and David Stern.
+%\newblock Predicting information spreading in twitter.
+%
+%\bibitem{ff}
+%L.~Fei-Fei and P.~Perona.
+%\newblock A bayesian hierarchical model for learning natural scene categories.
+%\newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
+%  IEEE Computer Society Conference on}, volume~2, pages 524--531 vol. 2, June
+%  2005.
+%
+%\bibitem{Jones72astatistical}
+%Karen~Spärck Jones.
+%\newblock A statistical interpretation of term specificity and its application
+%  in retrieval.
+%\newblock {\em Journal of Documentation}, 28:11--21, 1972.
+%
+%\bibitem{Tan_Steinbach_Kumar}
+%Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
+%\newblock {\em Introduction to Data Mining, (First Edition)}.
+%\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2005.
+%
+%
+%\bibitem{Vaizman}
+%Yonatan Vaizman, Brian McFee, and Gert Lanckriet.
+%\newblock Codebook-based audio feature representation for music information
+%  retrieval.
+%\newblock {\em IEEE/ACM Trans. Audio, Speech and Lang. Proc.},
+%  22(10):1483--1493, October 2014.
+%
+%\bibitem{Jim}
+%Watch Jim Harbaugh's press conference live.
+%\url{https://twitter.com/49ers/status/519202023628374016}.
+%\newblock Accessed August 25, 2015..
+%
+%\bibitem{dallas_patient}
+%Of the 48 people in context with the Dallas patient, no one is showing any symptoms.
+%\url{https://twitter.com/PzFeed/status/519203692898435072}.
+%\newblock Accessed August 25, 2015.
+%
+%\bibitem{nelson_mandela_dead}
+%Death of Nelson Mandela.
+%\url{https://en.wikipedia.org/wiki/Death_of_Nelson_Mandela}.
+%\newblock Accessed August 25, 2015.
+%
+%\bibitem{chile_elections}
+%Chile elections.
+%\url{http://www.telegraph.co.uk/news/worldnews/southamerica/chile/10188216/Chilean-presidential-candidate-pulls-out-of-election-with-depression.html}/
+%\newblock Accessed August 25, 2015.
+%
+%\bibitem{Twitter_website}
+%Twitter.
+%\url{https://twitter.com}.
+%\newblock Accessed August 25, 2015.
+%
+%\bibitem{Twitter_API}
+%Twitter API.
+%\url{https://dev.twitter.com/}.
+%\newblock Accessed August 25, 2015.
+%
+%\end{thebibliography}
+%
+%
+%
+
+\end{document}
+

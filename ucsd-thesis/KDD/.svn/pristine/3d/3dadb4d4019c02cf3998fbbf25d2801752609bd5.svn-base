@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Comparison to previous work}{}% 2
+\BOOKMARK [1][-]{section.3}{LEARNING FROM CONTENT AND SOCIAL MEDIA ACTIVITY}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{The Objective Function}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{The Optimization}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{DATA SET DESCRIPTION}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Hashtag Stability}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{Experiments}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Baselines}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Evaluation}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.3}{Experimental Setup}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.4}{Topic Discovery Experiments}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.5}{Parameter Analysis: The \040parameter}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.6}{Learning Stability of Topics}{section.5}% 14
+\BOOKMARK [1][-]{section.6}{Conclusions and Future Work}{}% 15
+\BOOKMARK [1][-]{section.7}{References}{}% 16

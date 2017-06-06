@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg contentScriptType="text/ecmascript" width="1221px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" viewBox="-137 -128 244 168" height="841px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.1">
+    <g id="edges">
+        <path fill="none" stroke-width="1.0"
+              d="M -17.626345,22.798574 C -17.339661,14.710249 -4.777145,3.007787 3.311182,3.294472"
+              class="10 11" stroke-opacity="1.0" stroke="#48a1cd"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 3.311182,3.294472 C -4.544636,1.263266 -13.281553,-13.567270 -11.250346,-21.423088"
+              class="11 12" stroke-opacity="1.0" stroke="#48a1cd"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -127.960632,-84.103088 C -126.504463,-91.910057 -112.609749,-101.436272 -104.802780,-99.980103"
+              class="21 22" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 2.212392,-80.209846 C 10.047330,-80.216125 21.809158,-68.473145 21.815439,-60.638206"
+              class="23 25" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 2.212392,-80.209846 C -6.526452,-77.049141 -24.375776,-85.416344 -27.536484,-94.155190"
+              class="23 29" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -52.439049,-75.495148 C -50.034012,-66.800972 -59.467731,-50.152134 -68.161911,-47.747097"
+              class="24 28" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -52.439049,-75.495148 C -51.190544,-84.207672 -36.249008,-95.403694 -27.536484,-94.155190"
+              class="24 29" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -52.439049,-75.495148 C -59.656975,-85.284775 -55.799423,-110.796097 -46.009800,-118.014023"
+              class="24 30" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -72.933556,-105.750458 C -78.153336,-98.222542 -97.274864,-94.760323 -104.802780,-99.980103"
+              class="26 22" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -72.933556,-105.750458 C -61.535088,-112.510818 -34.296844,-105.553658 -27.536484,-94.155190"
+              class="26 29" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -72.933556,-105.750458 C -70.001518,-113.587921 -53.847263,-120.946060 -46.009800,-118.014023"
+              class="26 30" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -68.161911,-47.747097 C -72.278236,-41.019424 -88.544220,-37.102406 -95.271889,-41.218727"
+              class="28 27" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M -27.536484,-94.155190 C -36.002914,-95.232292 -47.086903,-109.547592 -46.009800,-118.014023"
+              class="29 30" stroke-opacity="1.0" stroke="#cd4848"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 34.229240,5.676960 C 27.569130,11.384074 9.018295,9.954582 3.311182,3.294472"
+              class="5 11" stroke-opacity="1.0" stroke="#48a1cd"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 34.229240,5.676960 C 39.952129,-1.579125 59.420589,-3.878920 66.676674,1.843969"
+              class="5 8" stroke-opacity="1.0" stroke="#48a1cd"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 96.456764,-2.114164 C 91.292374,4.633481 73.424316,7.008360 66.676674,1.843969"
+              class="6 8" stroke-opacity="1.0" stroke="#48a1cd"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 74.856308,30.813370 C 67.426498,26.655416 62.518719,9.273776 66.676674,1.843969"
+              class="7 8" stroke-opacity="1.0" stroke="#48a1cd"/>
+        <path fill="none" stroke-width="1.0"
+              d="M 63.642048,-28.118561 C 70.241478,-22.732981 72.062256,-4.755462 66.676674,1.843969"
+              class="9 8" stroke-opacity="1.0" stroke="#48a1cd"/>
+    </g>
+    <g id="nodes">
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="-17.626345"
+                class="10" cy="22.798574" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="3.3111815"
+                class="11" cy="3.2944722" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="-11.250346"
+                class="12" cy="-21.423088" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-127.96063"
+                class="21" cy="-84.10309" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-104.80278"
+                class="22" cy="-99.9801" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="2.2123919"
+                class="23" cy="-80.20985" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-52.43905"
+                class="24" cy="-75.49515" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="21.81544"
+                class="25" cy="-60.638206" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-72.933556"
+                class="26" cy="-105.75046" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-95.27189"
+                class="27" cy="-41.218727" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-68.16191"
+                class="28" cy="-47.747097" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-27.536484"
+                class="29" cy="-94.15519" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#cd4848" r="10.0" cx="-46.0098"
+                class="30" cy="-118.01402" stroke="#cd4848" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="34.22924"
+                class="5" cy="5.67696" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="96.456764"
+                class="6" cy="-2.114164" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="74.85631"
+                class="7" cy="30.81337" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="66.676674"
+                class="8" cy="1.8439689" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#48a1cd" r="10.0" cx="63.642048"
+                class="9" cy="-28.11856" stroke="#48a1cd" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+    </g>
+    <g id="node-labels">
+        <text font-size="6" x="-17.626345" y="24.250235" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="10">
+            probe
+        </text>
+        <text font-size="6" x="3.3111815" y="4.455605" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="11">
+            china
+        </text>
+        <text font-size="6" x="-11.250346" y="-20.261955" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="12">
+            clash
+        </text>
+        <text font-size="6" x="-127.96063" y="-82.65143" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="21">
+            given
+        </text>
+        <text font-size="6" x="-104.80278" y="-98.52844" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="22">
+            yard
+        </text>
+        <text font-size="6" x="2.2123919" y="-78.75819" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="23">
+            university
+        </text>
+        <text font-size="6" x="-52.43905" y="-74.04349" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="24">
+            buildings
+        </text>
+        <text font-size="6" x="21.81544" y="-59.477074" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="25">
+            alert
+        </text>
+        <text font-size="6" x="-72.933556" y="-104.589325" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="26">
+            harvard
+        </text>
+        <text font-size="6" x="-95.27189" y="-40.057594" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="27">
+            threat
+        </text>
+        <text font-size="6" x="-68.16191" y="-46.585964" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="28">
+            bomb
+        </text>
+        <text font-size="6" x="-27.536484" y="-92.70353" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="29">
+            explosives
+        </text>
+        <text font-size="6" x="-46.0098" y="-116.85289" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="30">
+            evacuated
+        </text>
+        <text font-size="6" x="34.22924" y="7.12862" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="5">
+            xinjiang
+        </text>
+        <text font-size="6" x="96.456764" y="-0.9530313" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="6">
+            around
+        </text>
+        <text font-size="6" x="74.85631" y="32.26503" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="7">
+            monday
+        </text>
+        <text font-size="6" x="66.676674" y="3.295629" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="8">
+            people
+        </text>
+        <text font-size="6" x="63.642048" y="-26.957428" fill="#000000"
+              style="text-anchor: middle; dominant-baseline: central;"
+              font-family="Dialog" class="9">
+            attacks
+        </text>
+    </g>
+</svg>

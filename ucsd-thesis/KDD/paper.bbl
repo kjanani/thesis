@@ -1,0 +1,152 @@
+\begin{thebibliography}{10}
+
+\bibitem{Tsur:2012}
+What's in a hashtag?: content based prediction of the spread of ideas in
+  microblogging communities.
+\newblock In {\em WSDM}, pages 643--652. ACM, 2012.
+
+\bibitem{AlSumait:2008}
+Loulwah AlSumait, Daniel Barbará, and Carlotta Domeniconi.
+\newblock Online-lda.
+\newblock ICDM '08, 2008.
+
+\bibitem{Becker:2009}
+Hila Becker, Mor Naaman, and Luis Gravano.
+\newblock Event identification in social media.
+\newblock In {\em WebDB}, 2009.
+
+\bibitem{Blei:2003}
+David~M. Blei and Michael~I. Jordan.
+\newblock Modeling annotated data.
+\newblock SIGIR '03, 2003.
+
+\bibitem{Blei:2006}
+David~M. Blei and John~D. Lafferty.
+\newblock Dynamic topic models.
+\newblock ICML '06, 2006.
+
+\bibitem{blei2003}
+David~M. Blei, Andrew~Y. Ng, and Michael~I. Jordan.
+\newblock Latent dirichlet allocation.
+\newblock {\em J. Mach. Learn. Res.}, 3:993--1022, March 2003.
+
+\bibitem{chang2009relational}
+Jonathan Chang and David~M Blei.
+\newblock Relational topic models for document networks.
+\newblock In {\em AISTATS}, 2009.
+
+\bibitem{Ding:2014}
+Guiguang Ding, Yuchen Guo, and Jile Zhou.
+\newblock Collective matrix factorization hashing for multimodal data.
+\newblock In {\em CVPR 2014}, pages 2083--2090, June 2014.
+
+\bibitem{El-Arini:2013}
+Khalid El-Arini, Min Xu, Emily~B. Fox, and Carlos Guestrin.
+\newblock Representing documents through their readers.
+\newblock KDD '13, 2013.
+
+\bibitem{Erosheva:2004}
+Elena Erosheva, Stephen Fienberg, and John Lafferty.
+\newblock Mixed-membership models of scientific publications.
+\newblock {\em Proceedings of the National Academy of Sciences}, 101(suppl
+  1):5220--5227, 2004.
+
+\bibitem{Kawamae:2011}
+Noriaki Kawamae.
+\newblock Trend analysis model: Trend consists of temporal words, topics, and
+  timestamps.
+\newblock WSDM '11, 2011.
+
+\bibitem{lee_1999}
+Daniel~D Lee and H~Sebastian Seung.
+\newblock Learning the parts of objects by non-negative matrix factorization.
+\newblock {\em Nature}, 401(6755):788--791, 1999.
+
+\bibitem{Lee:Nature}
+Daniel~D. Lee and H.~Sebastian Seung.
+\newblock Algorithms for non-negative matrix factorization.
+\newblock In {\em NIPS}, 2000.
+
+\bibitem{mairal2010}
+Julien Mairal, Francis Bach, Jean Ponce, and Guillermo Sapiro.
+\newblock Online learning for matrix factorization and sparse coding.
+\newblock {\em J. Mach. Learn. Res.}, 11:19--60, March 2010.
+
+\bibitem{McCallum:2007}
+Andrew McCallum, Xuerui Wang, and Andr{\'e}s Corrada-Emmanuel.
+\newblock Topic and role discovery in social networks with experiments on enron
+  and academic email.
+\newblock {\em J. Artif. Int. Res.}, 30(1):249--272, October 2007.
+
+\bibitem{Nallapati:2008}
+Ramesh~M. Nallapati, Amr Ahmed, Eric~P. Xing, and William~W. Cohen.
+\newblock Joint latent topic models for text and citations.
+\newblock KDD '08, 2008.
+
+\bibitem{newman2010automatic}
+David Newman, Jey~Han Lau, Karl Grieser, and Timothy Baldwin.
+\newblock Automatic evaluation of topic coherence.
+\newblock In {\em Association for Computational Linguistics}, 2010.
+
+\bibitem{ngiam2011multimodal}
+Jiquan Ngiam, Aditya Khosla, Mingyu Kim, Juhan Nam, Honglak Lee, and Andrew~Y
+  Ng.
+\newblock Multimodal deep learning.
+\newblock In {\em ICML-11}, 2011.
+
+\bibitem{Rosen-Zvi:2004}
+Michal Rosen-Zvi, Thomas Griffiths, Mark Steyvers, and Padhraic Smyth.
+\newblock The author-topic model for authors and documents.
+\newblock UAI '04, 2004.
+
+\bibitem{YatesTrumper:2013}
+Diego Saez-Trumper, Carlos Castillo, and Mounia Lalmas.
+\newblock Social media news communities: Gatekeeping, coverage, and statement
+  bias.
+\newblock CIKM '13, 2013.
+
+\bibitem{Saha:2012}
+Ankan Saha and Vikas Sindhwani.
+\newblock Learning evolving and emerging topics in social media: A dynamic nmf
+  approach with temporal regularization.
+\newblock WSDM '12, 2012.
+
+\bibitem{Saveski:2014}
+Martin Saveski and Amin Mantrach.
+\newblock Item cold-start recommendations: Learning local collective
+  embeddings.
+\newblock RecSys '14, 2014.
+
+\bibitem{Sayyadi:2009}
+Hassan Sayyadi, Matthew Hurst, and Alexey Maykov.
+\newblock Event detection and tracking in social streams.
+\newblock In {\em ICWSM}, 2009.
+
+\bibitem{sekiguchi:2006}
+Y.~Sekiguchi, H.~Kawashima, H.~Okuda, and M.~Oku.
+\newblock In {\em MDM 2006}.
+
+\bibitem{singh:2008}
+Ajit~P. Singh and Geoffrey~J. Gordon.
+\newblock Relational learning via collective matrix factorization.
+\newblock KDD '08, 2008.
+
+\bibitem{Vaca:2014}
+Carmen~K. Vaca, Amin Mantrach, Alejandro Jaimes, and Marco Saerens.
+\newblock A time-based collective factorization for topic discovery and
+  monitoring in news.
+\newblock WWW '14, 2014.
+
+\bibitem{Wang:2006}
+Xuerui Wang and Andrew McCallum.
+\newblock Topics over time: A non-markov continuous-time model of topical
+  trends.
+\newblock KDD '06, 2006.
+
+\bibitem{Wang:2012}
+Yu~Wang, Eugene Agichtein, and Michele Benzi.
+\newblock Tm-lda: Efficient online modeling of latent topic transitions in
+  social media.
+\newblock KDD '12, 2012.
+
+\end{thebibliography}

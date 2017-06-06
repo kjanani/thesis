@@ -1,0 +1,365 @@
+%!TEX root = paper.tex
+%
+
+%\subsection{Description of the dataset}
+
+\inote{Puya: I would introduce the problem definition here without taking into account of the reasons. Subsequently we introduce why social information matters ? Should we put also plots ? And than we will go with the next section of matrix factorization.
+  }
+
+In this section we aim to give a formal definition of our problem.
+For quick reference,
+our notation is also summarized in Table \ref{tab:Symbols}.
+
+The problem we are tackling may be formalized as follows: 
+a collection of documents arrives continuously in batches. 
+Each batch is represented by a data matrix $\mathbf{X}^{(t)}$ 
+of size $N_d^{(t)} \times N_f$, where $N_d^{(t)}$ is 
+the number of documents produced at time step $t$ and 
+$N_f$ is the number of features in a coding scheme.
+We assume as in \citemissing that the dictionary (i.e. $N_f$) is known in advance .  
+
+
+%matrix X
+The problem we are tackling may be formalized as follows: 
+a collection of documents arrives continuously in batches. 
+Each batch is represented by a data matrix $\mathbf{X}^{(t)}$ 
+of size $N_d^{(t)} \times N_f$, where $N_d^{(t)}$ is 
+the number of documents produced at time step $t$ and 
+$N_f$ is the number of features in a coding scheme.
+We assume as in \citemissing that the dictionary (i.e. $N_f$) is known in advance .  
+ 
+%matrix U 
+Furthermore, we consider a second matrix $\mathbf{U}^{(t)}$ of size 
+$N_d^{(t)} \times N_u$, where $N_d^{(t)}$ is the number of documents 
+produced at time step $t$ and $N_u$ is the number of users in a social network.
+In particular, $\mathbf{U}^{(t)}(i,j) = 1$ if a document $i$ has been mentioned by a 
+user $j$ in a tweet, and $0$ otherwise.
+\inote{Puya: We can write a more general case !!}
+
+As mentioned in \citemissing the complete data matrices $\mathbf{X}$, $\mathbf{U}$, 
+and $\mathbf{T}$, obtained by concatenating respectively the matrices $\mathbf{X}^{(t)}$, 
+,$\mathbf{U}^{(t)}$, and $\mathbf{T}^{(t)}$ vertically is difficult to handle.
+
+
+
+\subsection{Why social information matters?}
+
+Topic tracking is a hard task  \citemissing. In this section we aim to understand 
+whether the community data can be used to improve the topic tracking task.
+
+In order to proceed with studying our argument we analyze how the topic stability 
+over time relates to community stability over time.\inote{Puya: I should introduce better here!!}
+In particular we want to find whether the topic stability always implies a community
+stability and vice versa.
+
+We proceed by assuming that Twitter hash tags are topics. 
+Than we define a hash tag stability score over time.
+In particular we consider two types of hash tag stability: 
+one over the community that is interested on a hash tag and 
+the second over the keywords within the documents cited in a tweet 
+that contains a particular hash tag.
+We proceed by giving a formal definition of our problem and stability score. 
+%For quick reference,
+our notation is also summarized in Table \ref{tab:Symbols}.
+
+
+
+\begin{table}[t]
+%\scriptsize
+\begin{center}
+\caption{Table of acronyms.}
+\begin{tabular}{  l   l  }
+\hline\hline
+{\sf $N_d^{(t)}$ }  &  Number of documents at time $t$ \\
+{\sf $N_f$ }  &  Number of features extracted from documents \\
+{\sf $N_h$ }  &  Number of \#tags \\
+{\sf $\mathbf{X}^{(t)}$ }  &  Document $\times$ Features matrix at time $t$ \\
+{\sf $\mathbf{U}^{(t)}$ }  &  Document $\times$ User matrix at time $t$ \\
+{\sf $\mathbf{T}^{(t)}$ }  &  Hash tag $\times$ Document matrix at time $t$ \\
+\hline \hline
+\end{tabular}
+\end{center}
+\label{tab:Symbols}
+\end{table}
+
+%$T,U,H,D,K$
+%Without loss of generality we restrict our tweets to those that contains a \#tag and a link to a news document.
+%The problem we are tackling may be formalized as follows: a collection of tweets arrives continuously in batches.
+%	
+%Each batch is represented by a data matrix $\mathbf{T}^{(t)}$ of size $N_h^{(t)} \times N_d$, where $N_d^{(t)}$ is the number of documents produced at time step $t$ and $N_f$ is the number of features in a coding scheme.
+
+
+
+%%matrix X
+%The problem we are tackling may be formalized as follows: 
+%a collection of documents arrives continuously in batches. 
+%Each batch is represented by a data matrix $\mathbf{X}^{(t)}$ 
+%of size $N_d^{(t)} \times N_f$, where $N_d^{(t)}$ is 
+%the number of documents produced at time step $t$ and 
+%$N_f$ is the number of features in a coding scheme.
+%We assume as in \citemissing that the dictionary (i.e. $N_f$) is known in advance .  
+% 
+%%matrix U 
+%Furthermore, we consider a second matrix $\mathbf{U}^{(t)}$ of size 
+%$N_d^{(t)} \times N_u$, where $N_d^{(t)}$ is the number of documents 
+%produced at time step $t$ and $N_u$ is the number of users in a social network.
+%In particular, $\mathbf{U}^{(t)}(i,j) = 1$ if a document $i$ has been mentioned by a 
+%user $j$ in a tweet, and $0$ otherwise.
+%\inote{Puya: We can write a more general case !!}
+
+%matrix T
+%Finally, we consider a third matrix $\mathbf{T}^{(t)}$ of size $N_h^{(t)} \times N_d^{(t)}$, 
+%where  $N_h^{(t)}$ is the number of hash tags produced at time step $t$ and 
+%$N_d^{(t)}$ is the number of documents produced at time step $t$.
+%In particular, $\mathbf{T}^{(t)}(i,j) = 1$ if the document $j$ has been mentioned in a tweet 
+%that contains the \#tag $i$, and $0$ otherwise.
+
+
+
+Let us consider matrix $\mathbf{T}^{(t)}$ of size $N_h^{(t)} \times N_d^{(t)}$, 
+where  $N_h^{(t)}$ is the number of hash tags produced at time step $t$ and 
+$N_d^{(t)}$ is the number of documents produced at time step $t$.
+In particular, $\mathbf{T}^{(t)}(i,j) = 1$ if the document $j$ has been mentioned in a tweet 
+that contains the \#tag $i$, and $0$ otherwise.
+
+
+\inote{Puya: Introduction to the algorithm}
+
+\begin{algorithm}
+ \KwData{  	$z \in \mathbb{N}_{>0}$; 
+ 			$\mathbf{X}^{(t)}$,$\mathbf{X}^{(t+1)}$,$\dots$, $\mathbf{X}^{(t+z)}$; $\mathbf{U}^{(t)}$,$\mathbf{U}^{(t+1)}$,		
+ 				$\dots$, $\mathbf{U}^{(t+z)}$;
+ 			$\mathbf{T}^{(t)}$,$\mathbf{T}^{(t+1)}$,$\dots$, $\mathbf{T}^{(t+z)}$; 
+ 			We assume that we track a set of defined \#tags so that $N_h^{(t)}  = N_h^{(t+1)} = \dots = N_h^{(t+z)}  $, 
+ 				and in particular that all the rows of $\mathbf{T}$ matrices are equal.
+  }
+ \KwResult{ 	
+ 			Two vectors $V_x$,$V_u$ of size $N_h^{(t)}$ containing for each \#tag a stability score over respectively $X$ and 		
+ 			$U$ matrices. 
+ 			
+ }
+ \ForAll{ $i \in {1,2,\dots,N_h}$}{
+ 	$s_x = 0$\;
+ 	$s_u = 0$\;
+  	 \ForAll{ $a \in {t,t+1,\dots,t+z-1}$}{
+	 	$s_x \mathrel{+}= cos( (\mathbf{T}^{(a)} \times \mathbf{X}^{(a)})[i] , (\mathbf{T}^{(a+1)} \times \mathbf{X}^{(a+1)})[i] )$\;
+	 	$s_u \mathrel{+}= cos( (\mathbf{T}^{(a)} \times \mathbf{U}^{(a)})[i] , (\mathbf{T}^{(a+1)} \times \mathbf{U}^{(a+1)})[i] )$\;
+ 	 }
+ 	 $V_x[i] = \frac{s_x}{z}$\;
+ 	 $V_u[i] = \frac{s_u}{z}$\;
+ }
+ %  $V$ <-- \{\} \; 
+% \ForAll{ days $d$ }{
+%  Select the Tweets with hashtag $t1$.\;  
+%  Select the newsdocuments within the obtained set of tweets. \;
+%  $V_d$ <-- Sum the rows just obtained.
+%
+ %StabilityScore_hashtag_t1 <-- AVG( Cosine(V_1,V_2), Cosine(V_2,V_3), ..., Cosine(V_13,V_14) ) 
+ \caption{\#tag stability scores.}
+\end{algorithm}
+
+
+
+
+
+
+As mentioned in \citemissing the complete data matrices $\mathbf{X}$, $\mathbf{U}$, 
+and $\mathbf{T}$, obtained by concatenating respectively the matrices $\mathbf{X}^{(t)}$, 
+,$\mathbf{U}^{(t)}$, and $\mathbf{T}^{(t)}$ vertically is difficult to handle.
+
+\inote{Puya: Other things to be added.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%For a hashtag $t1$:
+%	$V$ <-- {}
+%	Foreach day $d$:
+%		Select the Tweets with hashtag $t1$.
+%		Select the news_documents within the obtained set of tweets. 
+%		Select the rows in matrix 1 of the obtained news_documents.
+%		$V_d$ <-- Sum the rows just obtained.
+%	done;
+%	StabilityScore_hashtag_t1 <-- AVG( Cosine(V_1,V_2), Cosine(V_2,V_3), ..., Cosine(V_13,V_14) ) 	 
+%done;
+
+
+
+\iffalse
+The complete data matrix $\mathbf{X}$, obtained by concatenating vertically the matrices $\mathbf{X}^{(t)}$ along the time steps, is considered huge and practically difficult to store and to handle. The simplest approach to topic detection consists of directly learning from the global matrix  $\mathbf{X}$.  
+However, in the real world, we are observing evolving topics and trends \cite{mathioudakis2010twittermonitor}.  Hence, using out-of-date data to estimate current trends may lead to wrong inference.  Another typical strategy, consists of directly learning topics from the current batch of data while ignoring the trends history.\\
+
+One is therefore faced with the tradeoff between past and  present observations. Completely forgetting the past might result in loss of crucial contextual information. However, using  models learned on outdated data will lead to failures in the detection of sudden events like natural disasters. In this context, we expect from an online model to detect, at specific time steps, dominant trends  that a global trained model may have missed.  
+
+\fi
+
+
+
+
+
+
+
+
+\iffalse
+
+
+
+Our hypothesis is that there are topics that are stable over time,
+topics that are not stable 
+We assume that hash tags are topics.  
+We proceed by assuming that hash tags are topics. 
+
+
+We want to study the hash
+tags stability over time. 
+In particular we assume that hash tags are topics. 
+Then we study the hash 
+Our hypothesis is that there are 
+a set of hash tags that represents well certain topics.
+
+In order to test the hypothesis, we define a hash tags stability score over time.
+
+%What we do is that we make the assumption that #tags are topics and then we study the stability. 
+%More precisely, we study how the topic stability correlates with the community stability. 
+
+%This is the main point, by showing case of non-correlation, and mostly cases of topic unstability with community stability than we validate why social information matters
+
+
+%In this section we aim to discover whether hash tags could be considered as a good indicator of topics ?
+Our hypothesis is that there are a set of hash tags that represents well certain topics.
+In order to test the hypothesis, we define a hash tags stability score over time. In particular
+we consider two types of hash tag stability: one over the keywords within the documents cited in tweets that contains a particular hash tag and another over the community that is interested on a hash tag.  
+
+
+
+The problem we are tackling may be formalized as follows: a collection of documents arrives continuously in batches. 
+Each batch is represented by a data matrix $\mathbf{X}^{(t)}$ of size $N_d^{(t)} \times N_f$, where $N_d^{(t)}$ is the number of documents produced at time step $t$ and $N_f$ is the number of features in a coding scheme.
+
+For instance, the frequency of 1-grams in a bag-of-words representation. We assume that the dictionary (i.e. $N_f$) is known in advance.  This is indeed a realistic assumption, when processing English news, for example, the dictionary can be extracted from a set of independent articles judged as representative of the domain.
+
+%Each document has been mentioned in a tweet. A tweet 
+
+%2) Are there \#tags that are more stable than others in terms of topic (i.e. their topic doesn't change over time ? )?
+%3) Are there \#tags that are not stable in terms of topic but are stable in terms of community ?
+
+
+Let $W$ and $H$ be, respectively the set of tweets and hash tags in our dataset.
+Let $D$ and $K$ be, respectively, all the news document
+mentioned in our tweets, and the keywords contained within this documents.
+Let us than consider a time variant of these sets. Let $t_1, t_2, ..., t_n$ be a set of considered date-times , where $W_{t_i}$, $H_{t_i}$
+$D_{t_i}$, and $K_{t_i}$ indicates respectively the set of tweets generated between $t_{i-1}$(not included) to $t_{i}$, 
+and the associated hash tags, news documents, and keywords,
+
+In order to test our hypothesis, for each hash tag $h \in H$ we consider the set of the news documents mentioned and  
+For each hash tag $h \in H$ onl
+\fi
+
+\iffalse
+The problem we are tackling may be formalized as follows: a collection of documents arrives continuously in batches. Each batch is represented by a data matrix $\mathbf{X}^{(t)}$ of size $N_d^{(t)} \times N_f$, where $N_d^{(t)}$ is the number of documents produced at time step $t$ and $N_f$ is the number of features in a coding scheme. For instance, the frequency of 1-grams in a bag-of-words representation. We assume that the dictionary (i.e. $N_f$) is known in advance.  This is indeed a realistic assumption, when processing English news, for example, the dictionary can be extracted from a set of independent articles judged as representative of the domain.
+
+The complete data matrix $\mathbf{X}$, obtained by concatenating vertically the matrices $\mathbf{X}^{(t)}$ along the time steps, is considered huge and practically difficult to store and to handle. The simplest approach to topic detection consists of directly learning from the global matrix  $\mathbf{X}$.  
+However, in the real world, we are observing evolving topics and trends \cite{mathioudakis2010twittermonitor}.  Hence, using out-of-date data to estimate current trends may lead to wrong inference.  Another typical strategy, consists of directly learning topics from the current batch of data while ignoring the trends history.\\
+
+Dataset: 
+Tweets, users (authors), #tags within tweets, and links within tweets of news, Html content of the news page.
+
+
+Questions:
+1) Are #tags good indicators of a topic? 
+2) Are there #tags that are more stable than others in terms of topic (i.e. their topic doesn't change over time ? )?
+3) Are there #tags that are not stable in terms of topic but are stable in terms of community ?
+...
+
+
+Procedure:
+We built two matrices: 
+	1) news_document X keywords ( (i, j) = 1 if news_i contains the keyword_j, 0 otherwise)
+	2) news_document X users ((i, j) = 1 if news_i was mentioned in a tweet by user_j, 0 otherwise)
+I would say if user j is participating in tweet I, has author or by rewetting, or is mentioned in it. Diego can you confirm?	
+	
+From now on I will describe only the procedure for matrix 1. The same approach is used for matrix 2.
+
+Given a hashtag $t1$ the question is how to use matrix 1 in order to understand whether $t1$ is a stable hashtag over time. We consider 14 days. 
+
+For a hashtag $t1$:
+	$V$ <-- {}
+	Foreach day $d$:
+		Select the Tweets with hashtag $t1$.
+		Select the news_documents within the obtained set of tweets. 
+		Select the rows in matrix 1 of the obtained news_documents.
+		$V_d$ <-- Sum the rows just obtained.
+	done;
+	StabilityScore_hashtag_t1 <-- AVG( Cosine(V_1,V_2), Cosine(V_2,V_3), ..., Cosine(V_13,V_14) ) 	 
+done;
+
+The idea:  StabilityScore_hashtag_t1 around 1 means as stable as possible, 0 means not stable at all.
+
+We did other tests, where we transform matrix 1 using LDA,LSI, NMF, and we did the same analysis on the obtained matrix.
+
+
+The idea:  StabilityScore_hashtag_t1 around 1 means as stable as possible, 0 means not stable at all.
+1 means that topics remain the same during all timestamps, lower mean that there is some change.
+Hence, now Diego has computed also the corr between:
+[Cosine(Vk_1,V_2), Cosine(Vk_2,V_3), ..., Cosine(Vk_13,Vk_14)]
+And
+[Cosine(Vu_1,V_2), Cosine(Vu_2,Vu_3), ..., Cosine(Vu_13,Vu_14)]
+
+
+To analyze how the trend differ between users and keywords on a specify #tag.
+
+
+
+Thank you.  Most of it made sense to me..  I just wanted to clarify a few things (to make sure I got it):
+
+(1)  We are never using the content of the tweet itself, right?  We are only using the contents of the link (if any) in those tweets.  Example:  let's say that on a particular day, T_h is the set of tweets associated to a certain hashtag h.  Now, we look at all the tweets with in T_h which have links to a news documents, and encode the contents of the news document to the matrix X_T, which is of dimension num_news_documents x num_keywords (or num_lda topics e.t.c).  We are basically discarding all those tweets which don't have a link to a news document?
+
+We use links because we restrict to tweets refering to news. Diego can give more détails and reply to the following question.
+(2)  How do we determine if the link is indeed a link to a news document?  What if it is a link to something else?  (Maybe it doesn't matter.. not sure)
+
+(3)  While determining the stability, we do V_d <-- Sum of the rows just obtained   .  Should we normalize this by (sum_of_rows)/(num_of_rows)?  I suppose that the num_of_rows would be the same as the number of tweets which had links to a news document in them.  Else, the result may be biased to those hashtags which have a lot of news documents in them?
+
+We are computing cosine which means that we normalize each vector by its l2-norm. This is typical in IR when computing similarity between queries usually short and document.
+
+
+\fi

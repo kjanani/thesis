@@ -1,0 +1,69 @@
+\chapter{Leveraging Social Context for Topic Evolution}
+\label{kdd_chapter}
+Topic discovery and evolution (TDE) has been a problem which has gained
+long standing interest in the research community.  The goal in
+topic discovery is to identify groups of keywords from large corpora so that the information in those
+corpora are summarized succinctly.  The nature of text corpora has changed
+dramatically in the past few years with the advent of social media.  
+Social media services allow users to constantly share, follow and comment
+on posts from other users.  Hence, such services have given a new
+dimension to the traditional text corpus.  The new dimension being that
+today's corpora have a \emph{social context} embedded in them in terms of the
+community of users interested in a particular post, their profiles etc.  
+We wish to harness this social context that comes along with
+the textual content for TDE.  In particular, our goal is to both
+qualitatively and quantitatively analyze when
+social context actually helps with TDE.
+Methodologically, we approach the problem of TDE by a proposing non-negative matrix
+factorization (NMF) based model 
+that incorporates both the textual information
+and social context information.  We
+perform experiments on large scale real world
+dataset of news articles, and use Twitter as the platform providing information
+about the social context of these news articles.
+We compare with and outperform
+several state-of-the-art baselines. Our conclusion is that using
+the social context information is most useful when
+faced with topics that are particularly difficult to detect.
+\section{Introduction}
+\label{sec:introduction}
+\input{KDD/introduction.tex}
+
+\section{Comparison to previous work}
+\label{sec:comparison_to_previous_work}
+\input{KDD/comparison_to_previous_work.tex}
+
+\section{Learning from content and social media activity}
+\label{sec:content_and_networks}
+\input{KDD/content_and_networks.tex}
+
+\section{DATA SET DESCRIPTION}
+\label{sec:data_set_description}
+\input{KDD/data_set_description.tex}
+
+\section{Experiments}
+\label{sec:experiments}
+\input{KDD/experiments.tex}
+
+\section{Conclusion}
+\label{sec:conclusion}
+The goal of our work was to gain a better understanding of when social context
+helps in modeling topic evolution.  In order to achieve this, we proposed a matrix factorization based
+approach which takes into account both the content of the documents and their social
+context.  We found that, depending on the kind of topic, there is a clear trade
+off between the content and community.
+The content of the document
+suffices if the text of the topic is very focused, and evolves little over time.
+As we begin to move away from this scenario to consider documents that have a richer
+and more variable vocabulary, we find that the use of social context
+begins to help greatly.  We were also able to show
+that our model can learn the kind of topics at hand; i.e., whether they are
+content stable, community stable, or
+both.
+
+This work predominantly considered the user interactions of the documents
+as the social context.  In the same spirit, one could explore what it means to consider
+other types of contexts like geographical location of the user (or document),
+and also perhaps delve more into the user profiles and incorporate information
+about age, gender and demographics to give a well rounded view of the social context.
+We hope to be able to work on these aspects in the future.

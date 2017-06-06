@@ -1,0 +1,287 @@
+%!TEX root = paper.tex
+%
+%\todo{Write description - Diego}
+%\inote{Amin: We should explain why we are using Twitter and Tumblr as data sets, and the assumption of hashtags = topic} 
+In order to accurately evaluate our algorithm,
+we need a dataset of topics which persist over a period of time, and also has a social community that accompanies it.   
+We use the public dataset which was released in 2013 \cite{YatesTrumper:2013} consisting of all the articles published from 80 international 
+news sources such as CNN, BBC, Aljazeera during a period of 14 days. Each news article consists of the textual content
+of the article (via \texttt{html}) and a list of all tweets which link to that article over a period 
+12 hours from the article's publication. The tweets containing links 
+to the news articles were also collected.  From the tweets, two features were extracted: 
+the author of the tweet and the hashtags present in the tweet.  The information about the author
+of the tweet was used to detect the community information.  The hashtags in the tweets
+were used as the groundtruth topic of the document which the tweet linked to\footnote{We hereby use the words topic and hashtag somewhat interchangeably.}.
+Most of the articles were associated to a hashtag.  We discarded the ones which did not correspond to any hashtag.  
+Since we wish to \emph{track} topics over
+a period of time, we consider only those hashtags that appear every day (and thereby pruning 
+the number of articles even further). Moreover, to avoid data sparsity of articles, 
+we keep only those hashtags that have at least $5$ articles per day. 
+After all the filtering, we end up with $33387$ articles (from an original set of $53784$)  associated to $384$ different hashtags.
+For details about
+data acquisition, refer to \cite{YatesTrumper:2013}.
+
+
+\subsection{Hashtag Stability}\label{subsec:hashtag_stability}
+Keeping in mind our research questions from Section \ref{sec:introduction}, we performed experiments for $3$ categories of hashtags,
+ each category representing a different type of stability.
+The first category of hashtags are those that are stable in terms of content, but relatively unstable in terms of community; 
+meaning that the content corresponding to these hashtags does not evolve much over the period of 14 days, but the community
+of users who tweet about these hashtags evolves quite a bit.
+We call this set \emph{content stable} hashtags.  These are the supposedly `easier' topics where one may expect
+that the presence of community may not particularly help in better topic discovery.
+The second category of hashtags are those that are stable in terms of their community, but the content evolves a lot;
+meaning that the community of users that participate in tweeting about these hashtags stays relatively unchanged over the period of 14 days,
+but the actual content (in terms of vocabulary) changes a lot.
+We call this set \emph{community-stable} hashtags.  These are the supposedly more difficult topics where using
+the content alone may yield only poor performance, since by definition the content is not very stable.
+The third category of hashtags are those that are stable in terms of both content and community, called \emph{mixed-stable}
+hashtags.  
+Intuitively, we posit that our model would work particularly well in discovering and monitoring those topics which 
+have a stable community of active users over the period
+of 14 days, but have a content which is evolving a lot (these are community-stable hashtags).
+
+Following the notation specified in Section \ref{sec:content_and_networks}, we explain how we determine the 
+hashtags which fall into the content-stable, community-stable, and mixed-stable categories.
+Let us consider matrix $\mathbf{T}^{(t)}$ of size $N_h^{(t)} \times N_d^{(t)}$, 
+where  $N_h^{(t)}$ is the number of hashtags produced at time $t$ and 
+$N_d^{(t)}$ is the number of documents arriving at time $t$.
+In particular, $\mathbf{T}^{(t)}(i,j) = 1$ if the document $j$ has been mentioned in a tweet
+that contains the hashtag $i$, and $0$ otherwise.  Algorithm \ref{alg:hashtag_stability_scores} explains
+how we compute a stability score for each hashtag in terms of their content and community. The essense of Algorithm
+\ref{alg:hashtag_stability_scores} is as follows: by simply averaging all the documents belonging to a particular
+hashtag, we obtain a representation for each hashtag in terms of features extracted from the documents. Following this procedure, each hashtag can consists of a (centroid) vector of  $N_f$ entries (i.e., in a bag-of-words representation).  We compare this representation with a similar
+representation obtained for the same hashtag at the next time step using cosine similarity.  We then average
+all the similarities obtained across the consecutive time steps for each hashtag.
+
+\begin{algorithm}
+\KwData{   $z \in \mathbb{N}_{>0}$; 
+            $\mathbf{X}^{(t)}$,$\mathbf{X}^{(t+1)}$,$\dots$, $\mathbf{X}^{(t+z)}$; $\mathbf{U}^{(t)}$,$\mathbf{U}^{(t+1)}$,     
+                $\dots$, $\mathbf{U}^{(t+z)}$;
+            $\mathbf{T}^{(t)}$,$\mathbf{T}^{(t+1)}$,$\dots$, $\mathbf{T}^{(t+z)}$; 
+            We assume that we track a set of defined hashtags so that $N_h^{(t)}  = N_h^{(t+1)} = \dots = N_h^{(t+z)}  $, 
+                and in particular that all the rows of $\mathbf{T}$ matrices are equal.
+  }
+ \KwResult{     
+            Two vectors $\textbf{v}_x$,$\textbf{v}_u$ of size $N_h^{(t)}$ containing for each hashtag 
+			a stability score over the content matrix $\mathbf{X}$ and       
+            user interaction matrix $\mathbf{U}$.
+            
+ }
+ \ForAll{ $i \in {1,2,\dots,N_h}$}{
+    $s_x = 0$\;
+    $s_u = 0$\;
+     \ForAll{ $a \in {t,t+1,\dots,t+z-1}$}{
+        $s_x \mathrel{+}= cos( (\mathbf{T}^{(a)} \mathbf{X}^{(a)}){\e}^T_i , (\mathbf{T}^{(a+1)} \mathbf{X}^{(a+1)}){\e}^T_i )$\;
+        $s_u \mathrel{+}= cos( (\mathbf{T}^{(a)} \mathbf{U}^{(a)}){\e}^T_i , (\mathbf{T}^{(a+1)} \mathbf{U}^{(a+1)}){\e}^T_i )$\;
+     }
+     $\textbf{v}_x[i] = \frac{s_x}{z}$\;
+     $\textbf{v}_u[i] = \frac{s_u}{z}$\;
+ }
+\caption{Hashtag stability scores}
+ \label{alg:hashtag_stability_scores}
+\end{algorithm}
+Refer to Figure \ref{fig:Stability}.  Note that, in such a figure, the point $(1,0)$ represents perfect content stability, and zero community
+stability.  To determine the set of hashtags that belong to the \emph{content stable} set, we calculate the Euclidean distance between
+$(1,0)$ and all the other hashtags, and rank them in the increasing order of their distances.  Likewise for \emph{community stable} and
+\emph{mixed stable} sets (using respectively the Euclidean distances to points $(0,1)$ and $(1,1)$).  
+Table \ref{tab:tags} lists the hashtags in decreasing order of stability score for each of the categories for the Twitter dataset.  We make use
+of these lists and categories for experiments in Section \ref{sec:experiments}. %The content-stable hashtags are those that are closer to point (1,0), the second group is closer to (0,1) and the third is closer to (1,1). To select the top N \#tags for each group, we simple compute the euclidean distance of each \#tag to those points, and selected those where the distance is smaller. 
+
+%\begin{figure*}[!t]
+%\begin{minipage}{0.465\linewidth}
+%  \centering
+%  \includegraphics[width=1\textwidth]{images/Text-Vs-Users-sNMF-dots.png}             
+%   (a) NMF 
+%  \label{fig:NMF_Stability}
+%\end{minipage}
+%\begin{minipage}{0.465\linewidth}
+%  \centering
+%  \includegraphics[width=1\textwidth]{images/Text-Vs-Users-sTFIDF-dots.png}             
+%  (b) TFIDF
+%
+%\end{minipage}
+%  \caption{This figure illustrates the stability of hashtags in terms of content and community information.  Each dot in the figure
+%is a hashtag.  The x-axis and y-axis represent content and community stability.  The content and community stability scores are 
+%calculated according to Algorithm \ref{alg:hashtag_stability_scores}.}
+%  \label{fig:Stability}
+%\end{figure*}
+
+\begin{figure}[!t]
+%\begin{minipage}{0.465\linewidth}
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/NewText-Vs-Users-sNMF-dots}             
+ %  (a) NMF 
+  \label{fig:NMF_Stability}
+%\end{minipage}
+  \caption{This figure illustrates the stability of hashtags in terms of content and community information.  Each dot in the figure
+is a hashtag.  The x-axis and y-axis represent content and community stability.  The content and community stability scores are 
+calculated according to Algorithm \ref{alg:hashtag_stability_scores}.  
+%Amin: not sure its important to report this detail.
+%The encoding used to represent each document in Algorithm \ref{alg:hashtag_stability_scores} is NMF encoding.
+}
+  \label{fig:Stability}
+\end{figure}
+
+\begin{table}
+\begin{center}
+\begin{minipage}[b]{1\linewidth}
+{\tiny
+\begin{tabular}{|lclclc|}
+\multicolumn{2}{c}{\bf Text-Stable} & \multicolumn{2}{c}{\bf Community-Stable} & \multicolumn{2}{c}{\bf Mixed} \cr
+\#birdflu &  & \#facts &  & \#egitto3000 & \cr
+\#h7n9 &  & \#celeb &  & \#hindi &  \cr
+\#google &  & \#nyt &  & \#tahrir & \cr
+\#football &  & \#gossip &  & \#alarabiya &  \cr
+\#taxes & & \#followfriday & & \#vrwc &  \cr
+\#bangladesh & & \#cbs &  & \#jan25 &  \cr
+\#chinese &  & \#businessangel & & \#news &  \cr
+\#climatechange &  & \#aje &  & \#rwnjalert &  \cr
+\#climate &  & \#fem2 &  & \#bigtweet &  \cr
+\#nkorea &  & \#opanews &  & \#business &  \cr
+\#immigration &  & \#tf &  & \#india &  \cr
+\#iran &  & \#interesting &  & \#smallbusiness & \cr
+\#gun &  & \#top & & \#nhl &  \cr
+\#lgbt &  & \#cincinnati &  & \#forbes &  \cr
+\#dprk &  & \#thn24en & & \#buisnessguide &  \cr
+\#nba &  & \#ihatetimwaterman &  & \#tcot &  \cr
+\#japan &  & \#stopoccopywaste &  & \#financenews &  \cr
+\#tax &  & \#divalishdesigns &  & \#adityaramadana & \cr
+\#nuclear & & \#informate &  & \#shubhamconsultants & \cr
+\#education & & \#olympic &  & \#money &  \cr
+\end{tabular}
+} %tiny
+\centering 
+\end{minipage}
+\caption{This table lists the top-$20$ hashtags found in the content stable, community stable and mixed stable categories.
+Basically these are closest $20$ points by Euclidean distance from $(1,0)$, $(0,1)$ and $(1,1)$ in Figure \ref{fig:Stability}
+for content stable, community stable, and mixed stable hashtags respectively.  These were used as the groundtruth
+for evaluating topic discovery (more details on evaluation in Section \ref{sec:experiments}).}
+\label{tab:tags}
+\end{center}
+\end{table}
+
+%\begin{table*}
+%\begin{center}
+%\begin{minipage}[b]{0.47\linewidth}
+%{\tiny
+%\begin{tabular}{|lclclc|}
+%\multicolumn{2}{c}{\bf Text-Stable} & \multicolumn{2}{c}{\bf Community-Stable} & \multicolumn{2}{c}{\bf Mixed} \cr
+%\#birdflu & \textcolor{green}{0.23} & \#facts & \textcolor{green}{0.23} & \#egitto3000 & \textcolor{green}{0.23} \cr
+%\#h7n9 & \textcolor{green}{0.14} & \#celeb & \textcolor{green}{0.01} & \#hindi & \textcolor{green}{0.14} \cr
+%\#google & \textcolor{blue}{0.60} & \#nyt & \textcolor{red}{-0.56} & \#tahrir & \textcolor{blue}{0.60} \cr
+%\#football & \textcolor{blue}{0.42} & \#gossip & \textcolor{green}{-0.06} & \#alarabiya & \textcolor{blue}{0.42} \cr
+%\#taxes & \textcolor{blue}{0.44} & \#followfriday & \textcolor{blue}{0.37} & \#vrwc & \textcolor{blue}{0.44} \cr
+%\#bangladesh & \textcolor{green}{0.10} & \#cbs & \textcolor{green}{0.10} & \#jan25 & \textcolor{green}{0.10} \cr
+%\#chinese & \textcolor{green}{0.28} & \#businessangel & \textcolor{red}{-0.50} & \#news & \textcolor{green}{0.28} \cr
+%\#climatechange & \textcolor{blue}{0.53} & \#aje & \textcolor{red}{-0.52} & \#rwnjalert & \textcolor{blue}{0.53} \cr
+%\#climate & \textcolor{green}{0.21} & \#fem2 & \textcolor{blue}{0.32} & \#bigtweet & \textcolor{green}{0.21} \cr
+%\#nkorea & \textcolor{green}{0.00} & \#opanews & \textcolor{green}{0.25} & \#business & \textcolor{green}{0.00} \cr
+%\#immigration & \textcolor{blue}{0.59} & \#tf & \textcolor{blue}{0.35} & \#india & \textcolor{blue}{0.59} \cr
+%\#iran & \textcolor{blue}{0.54} & \#interesting & \textcolor{green}{-0.09} & \#smallbusiness & \textcolor{blue}{0.54} \cr
+%\#gun & \textcolor{blue}{0.72} & \#top & \textcolor{blue}{0.60} & \#nhl & \textcolor{blue}{0.72} \cr
+%\#lgbt & \textcolor{green}{-0.15} & \#cincinnati & \textcolor{blue}{0.64} & \#forbes & \textcolor{green}{-0.15} \cr
+%\#dprk & \textcolor{blue}{0.30} & \#thn24en & \textcolor{green}{0.13} & \#buisnessguide & \textcolor{blue}{0.30} \cr
+%\#nba & \textcolor{blue}{0.39} & \#ihatetimwaterman & \textcolor{blue}{0.82} & \#tcot & \textcolor{blue}{0.39} \cr
+%\#japan & \textcolor{green}{0.14} & \#stopoccopywaste & \textcolor{blue}{0.65} & \#financenews & \textcolor{green}{0.14} \cr
+%\#tax & \textcolor{green}{-0.18} & \#divalishdesigns & \textcolor{blue}{0.31} & \#adityaramadana & \textcolor{green}{-0.18} \cr
+%\#nuclear & \textcolor{green}{0.06} & \#informate & \textcolor{green}{0.26} & \#shubhamconsultants & \textcolor{green}{0.06} \cr
+%\#education & \textcolor{blue}{0.36} & \#olympic & \textcolor{green}{0.11} & \#money & \textcolor{blue}{0.36} \cr
+%\#german & \textcolor{green}{0.06} & \#enpc & \textcolor{green}{0.16} & \#teamfollowback & \textcolor{green}{0.06} \cr
+%\#journalism & \textcolor{blue}{0.77} & \#teamfollback & \textcolor{blue}{0.48} & \#philippines & \textcolor{blue}{0.77} \cr
+%\#facebook & \textcolor{blue}{0.63} & \#paris & \textcolor{green}{0.26} & \#autofollowback & \textcolor{blue}{0.63} \cr
+%\#russia & \textcolor{green}{-0.16} & \#nytimes & \textcolor{green}{0.01} & \#entrepreneur & \textcolor{green}{-0.16} \cr
+%\#mobile & \textcolor{blue}{0.64} & \#ak & \textcolor{green}{0.00} & \#egypt & \textcolor{blue}{0.64} \cr
+%\#korea & \textcolor{green}{0.09} & \#knus & \textcolor{green}{-0.06} & \#botsolid & \textcolor{green}{0.09} \cr
+%\#mlb & \textcolor{blue}{0.50} & \#london2012 & \textcolor{green}{0.13} & \#recession & \textcolor{blue}{0.50} \cr
+%\#film & \textcolor{green}{-0.21} & \#idk & \textcolor{blue}{0.55} & \#tlot & \textcolor{green}{-0.21} \cr
+%\#internet & \textcolor{blue}{0.74} & \#noticias & \textcolor{red}{-0.36} & \#teaparty & \textcolor{blue}{0.74} \cr
+%\#israel & \textcolor{green}{0.19} & \#mediooriente & \textcolor{green}{-0.04} & \#bbc & \textcolor{green}{0.19} \cr
+%
+%\end{tabular}
+%} %tiny
+%\centering 
+%\end{minipage}
+%\begin{minipage}[b]{0.465\linewidth}
+%{\tiny
+%\begin{tabular}{|lclclc}
+%\multicolumn{2}{c}{\bf Text-Stable} & \multicolumn{2}{c}{\bf Community-Stable} & \multicolumn{2}{c}{\bf Mixed} \cr
+%\#birdflu & \textcolor{green}{0.27} & \#ventura & \textcolor{green}{-0.08} & \#hindi & \textcolor{green}{0.27} \cr
+%\#h7n9 & \textcolor{green}{0.17} & \#nyt & \textcolor{green}{0.09} & \#news & \textcolor{green}{0.17} \cr
+%\#nkorea & \textcolor{blue}{0.38} & \#aje & \textcolor{green}{-0.01} & \#business & \textcolor{blue}{0.38} \cr
+%\#dprk & \textcolor{blue}{0.43} & \#ihatetimwaterman & \textcolor{blue}{0.82} & \#tcot & \textcolor{blue}{0.43} \cr
+%\#immigration & \textcolor{blue}{0.40} & \#facts & \textcolor{blue}{0.50} & \#india & \textcolor{blue}{0.40} \cr
+%\#korea & \textcolor{blue}{0.51} & \#ak & \textcolor{blue}{0.31} & \#smallbusiness & \textcolor{blue}{0.51} \cr
+%\#northkorea & \textcolor{blue}{0.50} & \#breakingnews\_in & \textcolor{green}{0.23} & \#teamfollowback & \textcolor{blue}{0.50} \cr
+%\#nuclear & \textcolor{green}{-0.00} & \#indy & \textcolor{green}{-0.05} & \#buisnessguide & \textcolor{green}{-0.00} \cr
+%\#tax & \textcolor{green}{0.23} & \#current & \textcolor{green}{-0.11} & \#forbes & \textcolor{green}{0.23} \cr
+%\#china & \textcolor{green}{0.27} & \#knus & \textcolor{green}{-0.26} & \#bigtweet & \textcolor{green}{0.27} \cr
+%\#taxes & \textcolor{blue}{0.53} & \#500aday & \textcolor{green}{0.13} & \#rwnjalert & \textcolor{blue}{0.53} \cr
+%\#google & \textcolor{blue}{0.65} & \#opanews & \textcolor{blue}{0.62} & \#money & \textcolor{blue}{0.65} \cr
+%\#iran & \textcolor{blue}{0.53} & \#sydneynews & \textcolor{green}{0.05} & \#philippines & \textcolor{blue}{0.53} \cr
+%\#gun & \textcolor{blue}{0.34} & \#suryaray1 & \textcolor{blue}{0.30} & \#financenews & \textcolor{blue}{0.34} \cr
+%\#facebook & \textcolor{blue}{0.85} & \#informate & \textcolor{blue}{0.41} & \#shubhamconsultants & \textcolor{blue}{0.85} \cr
+%\#syria & \textcolor{green}{0.07} & \#divalishdesigns & \textcolor{blue}{0.38} & \#p2 & \textcolor{green}{0.07} \cr
+%\#chinese & \textcolor{blue}{0.57} & \#noticias & \textcolor{green}{-0.13} & \#adityaramadana & \textcolor{blue}{0.57} \cr
+%\#socialmedia & \textcolor{blue}{0.69} & \#manga & \textcolor{blue}{0.61} & \#autofollowback & \textcolor{blue}{0.69} \cr
+%\#japan & \textcolor{green}{0.27} & \#businessangel & \textcolor{green}{0.09} & \#entrepreneur & \textcolor{green}{0.27} \cr
+%\#war & \textcolor{blue}{0.63} & \#ajstream & \textcolor{green}{0.01} & \#usa & \textcolor{blue}{0.63} \cr
+%\#education & \textcolor{green}{-0.13} & \#mediooriente & \textcolor{green}{0.18} & \#teaparty & \textcolor{green}{-0.13} \cr
+%\#israel & \textcolor{blue}{0.37} & \#cbs & \textcolor{blue}{0.51} & \#tech & \textcolor{blue}{0.37} \cr
+%\#guncontrol & \textcolor{blue}{0.61} & \#sv & \textcolor{green}{0.02} & \#egitto3000 & \textcolor{blue}{0.61} \cr
+%\#climate & \textcolor{blue}{0.43} & \#abc & \textcolor{blue}{0.56} & \#breaking & \textcolor{blue}{0.43} \cr
+%\#internet & \textcolor{blue}{0.84} & \#surya & \textcolor{green}{0.20} & \#world & \textcolor{blue}{0.84} \cr
+%\#russia & \textcolor{green}{-0.23} & \#gossip & \textcolor{green}{0.25} & \#technology & \textcolor{green}{-0.23} \cr
+%\#cdnpoli & \textcolor{blue}{0.41} & \#idk & \textcolor{blue}{0.49} & \#fb & \textcolor{blue}{0.41} \cr
+%\#travel & \textcolor{green}{0.12} & \#celeb & \textcolor{blue}{0.34} & \#recession & \textcolor{green}{0.12} \cr
+%\#lgbt & \textcolor{green}{-0.06} & \#fem2 & \textcolor{blue}{0.75} & \#breakingnews & \textcolor{green}{-0.06} \cr
+%\#health & \textcolor{blue}{0.64} & \#sydney & \textcolor{blue}{0.64} & \#debt & \textcolor{blue}{0.64} \cr
+%\end{tabular}
+%} %tiny
+%\centering (b) TFD
+%\end{minipage}
+%\caption{This table lists the top-$30$ hashtags found in the content stable, community stable and mixed stable categories.
+%Basically these are closest $30$ points by Euclidean distance from $(1,0)$, $(0,1)$ and $(1,1)$ in Figure \ref{fig:Stability}
+%for content stable, community stable, and mixed stable hashtags respectively.  These were used as the groundtruth
+%for evaluating topic discovery (more details on evaluation in Section \ref{sec:experiments}.}
+%\label{tab:tags}
+%\end{center}
+%\end{table*}
+
+%\begin{figure*}[!t]
+%\begin{minipage}{0.465\linewidth}
+%  \centering
+%  \includegraphics[width=1\textwidth]{images/Correlation--sNMF.png}             
+%(a) NMF 
+%\end{minipage}
+%\begin{minipage}{0.465\linewidth}
+%  \centering
+%  \includegraphics[width=1\textwidth]{images/Correlation--sTFIDF.png}             
+%	(b) TDF-IF 
+%\end{minipage}
+%\caption{Correlation distribution}
+%\end{figure*}
+%
+%
+%
+%\begin{figure*}[!t]
+%\begin{minipage}{0.30\linewidth}
+%  \centering
+%  \includegraphics[width=1\textwidth]{images/example_correlation_geek.png}             
+%  (a) Positive Correlated (\#geek)
+%\end{minipage}
+%\begin{minipage}{0.30\linewidth}
+%  \centering
+%  \includegraphics[width=1\textwidth]{images/example_correlation_rt.png}             
+%  (b) Negative Correlated (\#rt)
+%
+%\end{minipage}
+%\begin{minipage}{0.30\linewidth}
+%  \centering
+%  \includegraphics[width=1\textwidth]{images/example_correlation_nkorea.png}             
+%   (c) Non Correlated (\#nkorea)
+%\end{minipage}
+%\label{examples:cor}
+%\caption{Example of hashtags with different types of correlations between community and content information.}
+%\end{figure*}
+%

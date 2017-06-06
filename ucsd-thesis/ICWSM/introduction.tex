@@ -1,0 +1,90 @@
+\section{Introduction}
+Ebola virus disease is a communicable disease characterized by severe
+symptoms (e.g. nausea, vomiting, haemorrhaging) and a very high
+fatality rate \cite{WHO-Ebola-Response-Team:2014aa}.   The 2014 Ebola
+outbreak --- the largest outbreak of Ebola in history --- began in
+Guinea around January 2014 and rapidly spread to neighboring West
+African countries (Sierra Leone, Liberia), with the World Health
+Organization classifying the outbreak as a \emph{Public Health
+  Emergency of International Concern} in August of that
+year \cite{Weyer:2015aa}.  As of December 31st 2015, it is estimated
+that there have been almost 30,000 cases associated with the outbreak,
+with over 11,000 deaths\footnote{www.webcitation.org/6ePMzFc5a}.  Only 7 cases occurred outside Africa (4 in
+the United States, and 1 each in Italy, the United Kingdom, and
+Spain), resulting in 1 fatality in the United States.  Despite the
+very low disease prevalence in the United States, public concern
+regarding Ebola risk remained elevated throughout the
+outbreak \cite{Towers:2015aa}.
+
+Publicly available social media services, in particular micro-blog platforms like Twitter, are
+increasingly recognized as a valuable data source for understanding
+public attitudes and
+opinions towards health issues, especially when combined with
+computational approaches like Natural
+Language Processing and Machine Learning \cite{Dredze:2012qy}.     Public attitudes towards vaccination
+\cite{Salathe:2011aa}, novel tobacco products \cite{Myslin:2013aa},
+illegal drugs \cite{Krauss:2015aa}, and eating disorders \cite{DBLP:conf/ehealth/Choudhury15} have all been investigated
+using a combination of social media data and computational techniques.   
+
+% Twitter, in conjunction with
+% computational methods, has been used with success in
+% understanding public attitudes towards vaccination
+% \cite{Salathe:2011aa}, novel tobacco products \cite{Myslin:2013aa},
+% and illegal drugs \cite{Krauss:2015aa}.    
+
+In this work, 
+%which builds on previous work investigating
+%Ebola rumors [reference left-out for double blind review] %\cite{DBLP:journals/corr/KalyanamVDCL15},  
+we used a corpus of 10.5 million Ebola-related tweets
+generated in the United States during October 2014 --- the height of
+the outbreak ---
+%\textcolor{blue}{JANANI:  ML learning-based
+%  topic modeling methods} 
+to create \emph{topical timelines} that reveal 
+topic progression during the outbreak by using a novel topic modeling
+algorithm that explicitly models the evolution of topics
+as emerging, fading, and changing.
+In order to develop the
+timelines, we followed a three step approach: (1) segment the data into
+daily blocks, (2) apply our topic modeling algorithm to each daily
+block, and (3) map and merge daily topics to create a topical
+timeline (i.e. events).
+
+An analysis of our empirically-derived Ebola timeline showed that, in terms of
+their temporal duration,  identified events fell into three main groups:  \emph{long-term} events which
+lasted at least 5 days,  \emph{medium-term} events which lasted between
+2 and 4 days, and \emph{short-term} events which lasted for 1 day.
+Generally,  long-term, enduring events tend to be those with repercussions
+that might possibly put the health of the public at risk
+(e.g. suspected new cases in the United States), and hence cause
+anxiety in the general public.   We also observed
+that any event which has a positive connotation (e.g. philanthropic
+donations to help in the Ebola effort) tends to be either a
+short-term or medium-term event.   Further, we discovered that a
+substantial number of the  short-lived events (i.e. short-term and
+medium-term events) that emerged from the data set are
+memes and jokes related to Ebola.   Finally, we noted that some episodes
+of public health importance (e.g. new cases) tend to generate
+short-term events if these occur outside the United States,
+indicating that overseas, non-US events are of limited interest to US-based
+Twitter users.
+
+
+ Insights gleaned from this 
+Twitter-based event tracking method could be utilized by
+both international public health organizations (e.g. \emph{World Health
+Organization}, \emph{European Centre for Disease Prevention and Control}) and national
+public health entities (e.g. United States \emph{Centers for Disease
+  Control and Prevention}, \emph{Public Health Agency of Canada})  to
+monitor public opinion in future outbreaks with the goal of  supporting situational 
+awareness, assessing the strength and duration of public concerns, 
+and identifying potential opportunities for health education.
+
+The paper is structured as follows.  Section \ref{sec:related} describes related work;
+Section \ref{sec:data_and_model} describes the data and its attributes; Section \ref{sec:timeline_generation} describes
+the event timeline generation methodology, and also introduces a novel topic model
+which explicitly incorporates evolving content into its framework; Section \ref{sec:comparison}
+presents a quantitative evaluation of the topic model(s) used in this work;
+Section \ref{sec:timeline} presents the findings and inferences of the timeline created
+from Section \ref{sec:timeline_generation}.  We end with a conclusion in Section \ref{sec:conclusion}.
+
